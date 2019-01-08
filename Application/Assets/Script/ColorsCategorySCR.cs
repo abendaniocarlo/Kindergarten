@@ -59,7 +59,7 @@ public class ColorsCategorySCR : MonoBehaviour {
         int[] FINAL;
         
         int a = 0;
-        PlayerPrefs.DeleteKey("TotalScore");
+        //PlayerPrefs.DeleteKey("TotalScore");
     
         if (loop!=true)
         {

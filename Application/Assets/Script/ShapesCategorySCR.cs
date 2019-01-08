@@ -104,7 +104,12 @@ public class ShapesCategorySCR : MonoBehaviour {
             Temp5 = new Vector3(Positions[4], 8, 0);
             Triangle[TriangleIndex[keyLog]].transform.localPosition = Temp5;
             Triangle[TriangleIndex[keyLog]].SetActive(true);
-
+        if (timeLeft == 0)
+        {
+            TotalScore = current + (Score * 2);
+            PlayerPrefs.SetInt("TotalScore", TotalScore);
+            PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " Shapes", Score * 2);
+        }
         QuestionAudio.onClick.AddListener(() => questionButton());
     }
 
@@ -311,6 +316,7 @@ public class ShapesCategorySCR : MonoBehaviour {
             PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " Shapes", Score * 2);
        
         }
+      
 
         if (TimerLimit == false)
         {

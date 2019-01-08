@@ -89,6 +89,8 @@ public class SizesCategorySCR : MonoBehaviour {
         if (timeLeft < 0)
         {
             ScoreWindow.SetActive(true);
+            FinTotal = total / 3;
+
         }
         if (keyLog == 10)
         {
