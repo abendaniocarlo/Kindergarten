@@ -21,8 +21,6 @@ public class LoginMenuUI : MonoBehaviour {
             if (kinderCH == "Kinder" + a)
             {
                 KImage[a].SetActive(true);
-
-
             }
             else
             {
@@ -39,8 +37,9 @@ public class LoginMenuUI : MonoBehaviour {
 
     public void ConfirmUser()
     {
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+     //   PlayerPrefs.DeleteAll();
+       // Debug.Log("Done");
+        SceneManager.LoadScene("Main Menu");
            
     }
     public void CloseWin()

@@ -7,7 +7,7 @@ public class PatternsCategorySCR : MonoBehaviour {
     public GameObject[] Animals;
     public GameObject[] fruits;
     public GameObject[] category;
-    public GameObject[] Stars;
+  
     public GameObject[] questions;
     public Button QuestionAudio;
     public AudioClip QuestionPatterns;
@@ -28,8 +28,23 @@ public class PatternsCategorySCR : MonoBehaviour {
     bool TimerLimit = false;
    public int timeLeft = 10; //Seconds Overall
     public Text countdown; //UI Text Object
-	// Use this for initialization
-	void Start () {
+
+    // Scores Variable 
+    int ColorsScore = 0;
+    int ShapesScore = 0;
+    int SizesScore = 0;
+    int SetsScore = 0;
+    public GameObject[] Stars;
+    public GameObject[] ColorsStars;
+    public GameObject[] ShapesStars;
+    public GameObject[] SizesStars;
+    public GameObject[] SetsStars;
+    int number1 = 0;
+    int number2 = 0;
+    int number3 = 0;
+    int number4 = 0;
+    // Use this for initialization
+    void Start () {
         QuestionAudio = GameObject.Find("QuestionAudio").GetComponent<Button>();
         current = PlayerPrefs.GetInt("TotalScore");
         if (keyLog == 0)
@@ -60,6 +75,7 @@ public class PatternsCategorySCR : MonoBehaviour {
         }
         if (timeLeft < 0)
         {
+            Computation();
             ScoreWindow.SetActive(true);
         }
         if (keyLog == 5)
@@ -83,12 +99,36 @@ public class PatternsCategorySCR : MonoBehaviour {
         TotalScore = TotalScore / 5;
         PlayerPrefs.SetInt("TotalScore", TotalScore);
         PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " Patterns", Score*2);
-        /*  Debug.Log("Colors ="+PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " Colors"));
-          Debug.Log("Shapes ="+PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " Shapes"));
-          Debug.Log("Sizes ="+PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " Sizes"));
-          Debug.Log("Sets ="+PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " Sets"));  */
-        Debug.Log("Patterns ="+PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " Patterns"));
-     
+        ColorsScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " Colors");
+        ShapesScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " Shapes");
+        SizesScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " Sizes");
+        SetsScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " Sets");
+        // Debug.Log("Patterns ="+PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " Patterns"));
+        while (number != Score * 2)
+        {
+            Stars[number].SetActive(true);
+            number++;
+        }
+        while (number1 != ColorsScore)
+        {
+            ColorsStars[number1].SetActive(true);
+            number1++;
+        }
+        while (number2 != ShapesScore)
+        {
+            ShapesStars[number2].SetActive(true);
+            number2++;
+        }
+        while (number3 != SizesScore)
+        {
+            SizesStars[number3].SetActive(true);
+            number3++;
+        }
+        while (number4 != SetsScore)
+        {
+            SetsStars[number4].SetActive(true);
+            number4++;
+        }
     }
     IEnumerator LoseTime()  //Timer Function
     {
@@ -104,7 +144,7 @@ public class PatternsCategorySCR : MonoBehaviour {
     {
         SoundFx.PlayOneShot(QuestionPatterns);
     }
-
+    
     public void YesBTN()
     {
         questions[index[keyLog]].SetActive(false);
@@ -127,12 +167,7 @@ public class PatternsCategorySCR : MonoBehaviour {
         else if(keyLog==5)
         {
             Computation();
-            while (number != Score*2)
-            {
-            Stars[number].SetActive(true);
-
-            number++;
-             }
+           
         }
 
         if (TimerLimit == false)
@@ -163,11 +198,7 @@ public class PatternsCategorySCR : MonoBehaviour {
         else if (keyLog == 5)
         {
             Computation();
-            while (number != Score*2)
-            {
-                Stars[number].SetActive(true);
-                number++;
-            }
+           
         }
 
         if (TimerLimit == false)
