@@ -9,4 +9,10 @@ public class PlaySCR : MonoBehaviour {
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
+    public void GoColor()
+    {
+        SceneManager.LoadScene("Colors Activities");
+
+
+    }
 }
