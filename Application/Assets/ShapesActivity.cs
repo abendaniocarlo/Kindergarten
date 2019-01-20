@@ -228,6 +228,8 @@ public class ShapesActivity : MonoBehaviour {
             //right answer
             Total++;
             Debug.Log(Total);
+
+       
         }
         else
         {
