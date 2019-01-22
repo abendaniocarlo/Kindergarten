@@ -7,15 +7,19 @@ public class Swiper : MonoBehaviour {
     public GameObject[] trailPrefab;
     public GameObject[] Images;
     public GameObject nextBTN;
+    public GameObject Final;
+    public GameObject DoneBtn;
+    public GameObject[] FinalImg;
     GameObject thisTrail;
     Vector3 startPos;
     Plane objPlane;
     int KeyLog = 0;
+    string myName;
     void Start()
     {
       
         objPlane = new Plane(Camera.main.transform.forward * -1, this.transform.position);
-
+        DoneBtn.SetActive(true);
         Images[KeyLog].SetActive(true);
         trailPrefab[KeyLog].SetActive(true);
        
@@ -55,17 +59,61 @@ public class Swiper : MonoBehaviour {
     }
     public void next()
     {
-        
+        Final.SetActive(false);
+        FinalImg[KeyLog].SetActive(false);
         Images[KeyLog].SetActive(false);
         trailPrefab[KeyLog].SetActive(false);
-        foreach ( obj in trailPrefab[KeyLog])
+        if (KeyLog == 0)
         {
-            Destroy(obj);
+            
+            myName = "DrawBlue";
         }
+        else if (KeyLog == 1)
+        {
+            myName = "DrawBrown";
+        }
+        else if (KeyLog == 2)
+        {
+            myName = "DrawGreen";
+        }
+        else if (KeyLog == 3)
+        {
+            myName = "DrawOrange";
+        }
+        else if (KeyLog == 4)
+        {
+            myName = "DrawRed";
+        }
+        else if (KeyLog == 5)
+        {
+            myName = "DrawViolet";
+        }
+        else if (KeyLog == 6)
+        {
+            myName = "DrawYellow";
+        }
+        
+        foreach (GameObject gos in GameObject.FindGameObjectsWithTag(myName))
+        {
+            if (gos.name == myName+"(Clone)")
+            {
+                Destroy(gos);
+            }
+        }
+        
       
         KeyLog++;
-        Start();
-       
-     
+        if (KeyLog != 7)
+        {
+            Start();
+
+        }
+
+    }
+    public void Done()
+    {
+        Final.SetActive(true);
+        FinalImg[KeyLog].SetActive(true);
+        DoneBtn.SetActive(false);
     }
 }
