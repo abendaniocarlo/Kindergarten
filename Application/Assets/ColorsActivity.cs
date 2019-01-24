@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class ColorsActivity : MonoBehaviour {
     public GameObject[] choice;
     public GameObject[] questions;
+    public GameObject TutorialPanel;
     int[] variable = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
     int[] AnsVar = { 2, 5, 8, 11, 14, 17, 20 };
     int[] positionX = { -300, -118, 132, 311 };
@@ -300,4 +302,21 @@ public class ColorsActivity : MonoBehaviour {
         }
         return array;
     }
+    public void Tutorial()
+    {
+        TutorialPanel.SetActive(true);
+    }
+    public void Close()
+    {
+        TutorialPanel.SetActive(false);
+    }
+    public void ColorTutorial()
+    {
+        SceneManager.LoadScene("ColorIT");
+    }
+    public void HomeBtn()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
 }

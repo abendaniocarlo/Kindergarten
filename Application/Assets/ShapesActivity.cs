@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using UnityEngine.SceneManagement;
 public class ShapesActivity : MonoBehaviour {
 
     public GameObject[] choice;
@@ -248,6 +248,10 @@ public class ShapesActivity : MonoBehaviour {
     void Update()
     {
 
+    }
+    public void HomeBtn()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
     public int[] randomPos(int[] array)
     {

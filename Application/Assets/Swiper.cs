@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Swiper : MonoBehaviour {
 
     public GameObject[] trailPrefab;
@@ -115,5 +115,13 @@ public class Swiper : MonoBehaviour {
         Final.SetActive(true);
         FinalImg[KeyLog].SetActive(true);
         DoneBtn.SetActive(false);
+    }
+    public void BackBTN()
+    {
+        SceneManager.LoadScene("Colors Activities");
+    }
+    public void HomeBtn()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
 }
