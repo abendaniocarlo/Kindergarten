@@ -17,5 +17,13 @@ public class PlaySCR : MonoBehaviour {
     {
         SceneManager.LoadScene("Shapes Activities");
     }
+    public void GoPatterns()
+    {
+        SceneManager.LoadScene("ColorsCatch");
+    }
+    public void GoSizes()
+    {
+        SceneManager.LoadScene("ShapesCatch");
+    }
 
 }
