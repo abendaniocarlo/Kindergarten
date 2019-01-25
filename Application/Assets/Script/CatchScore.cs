@@ -44,6 +44,11 @@ public class CatchScore : MonoBehaviour {
                 
                 
             }
+            if (KeyLog < 7)
+            {
+                KeyLog = 0;
+
+            }
             TextScore.text = score.ToString();
         }
         else
