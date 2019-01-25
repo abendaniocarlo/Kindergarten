@@ -7,28 +7,31 @@ public class CatchingGame : MonoBehaviour {
 	// Use this for initialization
     private float speed = 10f;
     private Rigidbody2D Owly;
-
+    public Camera cam;
+    void Start()
+    {
+        if (cam == null)
+        {
+            cam = Camera.main;
+        }
+    }
 	void Awake () {
         Owly = GetComponent<Rigidbody2D>();
 	}
-   /* void Update()
-    {
-        if (Input.touchCount > 0 && 
-       Input.GetTouch(0).phase == TouchPhase.Moved) {
-     
-         // Get movement of the finger since last frame
-         var touchDeltaPosition Vector2 = Input.GetTouch(0).deltaPosition;
-         
-         // Move object across XY plane
-         transform.Translate (-touchDeltaPosition.x * speed, 
-                     -touchDeltaPosition.y * speed, 0);
-     }
-    }*/
+ 
  
 	// Update is called once per frame
 	void FixedUpdate () {
-        Vector2 myVel = Owly.velocity;
+       /*Vector2 myVel = Owly.velocity;
         myVel.x = Input.GetAxis("Horizontal") * speed;
-        Owly.velocity = myVel;
+        Owly.velocity = myVel;*/
+        if (Input.touchCount > 0 || Input.GetMouseButton(0))
+        {
+            Vector3 rawPosition = cam.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 targetPosition = new Vector3(rawPosition.x, -7.61f, 0.23f);
+            Owly.MovePosition(targetPosition);
+        }
+      
+      
 	}
 }
