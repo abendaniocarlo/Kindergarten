@@ -11,5 +11,9 @@ public class CatchCollector : MonoBehaviour {
         {
             target.gameObject.SetActive(false);
         }
+        if (target.tag == "DrawBlue" || target.tag == "DrawRed" || target.tag == "DrawYellow" || target.tag == "DrawPink" || target.tag == "DrawBrown" || target.tag == "DrawGreen" || target.tag == "DrawOrange")
+        {
+            target.gameObject.SetActive(false);
+        }
     }
 }
