@@ -7,6 +7,12 @@ public class ShapesActivity : MonoBehaviour {
 
     public GameObject[] choice;
     public GameObject[] questions;
+    public GameObject wrong1;
+    public GameObject wrong2;
+    public GameObject wrong3;
+    public GameObject correct1;
+    public GameObject correct2;
+    public GameObject correct3;
     int[] variable = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
     int[] AnsVar = { 2, 5, 8, 11, 14};
     int[] positionX = { -300, -118, 132, 311 };
@@ -25,6 +31,13 @@ public class ShapesActivity : MonoBehaviour {
     {
         int b = 0;
         int c = 0;
+
+        wrong1.SetActive(false);
+        wrong2.SetActive(false);
+        wrong3.SetActive(false);
+        correct1.SetActive(false);
+        correct2.SetActive(false);
+        correct3.SetActive(false);
 
         variable = randomPos(variable);
         positionX = randomPos(positionX);
@@ -136,17 +149,32 @@ public class ShapesActivity : MonoBehaviour {
     {
         string name = EventSystem.current.currentSelectedGameObject.name;
         GameObject.Find(name).SetActive(false);
+        Key++; //count how many how objects is pressed
         if (answer == 1)
         {
             //right answer
             Total++;
             Debug.Log(Total);
+
+            if (Key == 1) // checkbar if correct
+                correct1.SetActive(true);
+            else if (Key == 2)
+                correct2.SetActive(true);
+            else if (Key == 3)
+                correct3.SetActive(true);
         }
         else
         {
             Debug.Log("Wrong");
+
+            if (Key == 1) // checkbar if wrong
+                wrong1.SetActive(true);
+            else if (Key == 2)
+                wrong2.SetActive(true);
+            else if (Key == 3)
+                wrong3.SetActive(true);
         }
-        Key++; //count how many how objects is pressed
+        
         if (Key == 3)
         {
             keyLog++;
@@ -158,17 +186,32 @@ public class ShapesActivity : MonoBehaviour {
     {
         string name = EventSystem.current.currentSelectedGameObject.name;
         GameObject.Find(name).SetActive(false);
+        Key++; //count how many how objects is pressed
         if (answer == 2)
         {
             //right answer
             Total++;
             Debug.Log(Total);
+
+            if (Key == 1) // checkbar if correct
+                correct1.SetActive(true);
+            else if (Key == 2)
+                correct2.SetActive(true);
+            else if (Key == 3)
+                correct3.SetActive(true);
         }
         else
         {
             Debug.Log("Wrong");
+
+            if (Key == 1) // checkbar if wrong
+                wrong1.SetActive(true);
+            else if (Key == 2)
+                wrong2.SetActive(true);
+            else if (Key == 3)
+                wrong3.SetActive(true);
         }
-        Key++; //count how many how objects is pressed
+        
         if (Key == 3)
         {
             keyLog++;
@@ -181,17 +224,32 @@ public class ShapesActivity : MonoBehaviour {
         
         string name = EventSystem.current.currentSelectedGameObject.name;
         GameObject.Find(name).SetActive(false);
+        Key++; //count how many how objects is pressed
         if (answer == 5)
         {
             //right answer
             Total++;
             Debug.Log(Total);
+
+            if (Key == 1) // checkbar if correct
+                correct1.SetActive(true);
+            else if (Key == 2)
+                correct2.SetActive(true);
+            else if (Key == 3)
+                correct3.SetActive(true);
         }
         else
         {
             Debug.Log("Wrong");
+
+            if (Key == 1) // checkbar if wrong
+                wrong1.SetActive(true);
+            else if (Key == 2)
+                wrong2.SetActive(true);
+            else if (Key == 3)
+                wrong3.SetActive(true);
         }
-        Key++; //count how many how objects is pressed
+        
         if (Key == 3)
         {
             keyLog++;
@@ -202,17 +260,33 @@ public class ShapesActivity : MonoBehaviour {
     {
         string name = EventSystem.current.currentSelectedGameObject.name;
         GameObject.Find(name).SetActive(false);
+        Key++; //count how many how objects is pressed
         if (answer == 3)
         {
             //right answer
             Total++;
             Debug.Log(Total);
+
+            if (Key == 1) // checkbar if correct
+                correct1.SetActive(true);
+            else if (Key == 2)
+                correct2.SetActive(true);
+            else if (Key == 3)
+                correct3.SetActive(true);
         }
         else
         {
             Debug.Log("Wrong");
+
+
+            if (Key == 1) // checkbar if wrong
+                wrong1.SetActive(true);
+            else if (Key == 2)
+                wrong2.SetActive(true);
+            else if (Key == 3)
+                wrong3.SetActive(true);
         }
-        Key++; //count how many how objects is pressed
+        
         if (Key == 3)
         {
             keyLog++;
@@ -223,19 +297,33 @@ public class ShapesActivity : MonoBehaviour {
     {
         string name = EventSystem.current.currentSelectedGameObject.name;
         GameObject.Find(name).SetActive(false);
+        Key++; //count how many how objects is pressed
         if (answer == 4)
         {
             //right answer
             Total++;
             Debug.Log(Total);
 
-       
+            if (Key == 1) // checkbar if correct
+                correct1.SetActive(true);
+            else if (Key == 2)
+                correct2.SetActive(true);
+            else if (Key == 3)
+                correct3.SetActive(true);
+
         }
         else
         {
             Debug.Log("Wrong");
+
+            if (Key == 1) // checkbar if wrong
+                wrong1.SetActive(true);
+            else if (Key == 2)
+                wrong2.SetActive(true);
+            else if (Key == 3)
+                wrong3.SetActive(true);
         }
-        Key++; //count how many how objects is pressed
+        
         if (Key == 3)
         {
             keyLog++;
