@@ -15,7 +15,7 @@ public class ColorsActivity : MonoBehaviour {
     public GameObject correct2;
     public GameObject correct3;
     int[] variable = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
-    int[] AnsVar = { 2, 5, 8, 11, 14, 17, 20 };
+  int[] AnsVar = { 2, 5, 8, 11, 14, 17, 20 };
     int[] positionX = { -300, -118, 132, 311 };
     int[] positionY = { 236, 75, -75 };
     int keyLog = 0;
@@ -24,8 +24,9 @@ public class ColorsActivity : MonoBehaviour {
     int Total=0;
     int Key;
     int PreQuest;
-   
-    int[] PreValue;
+    string MyAnswer;
+    int Def;
+    int[] PreValue = {31,50};
     int[] PreChoice;
 	// Use this for initialization
 	void Start () {
@@ -45,65 +46,115 @@ public class ColorsActivity : MonoBehaviour {
         List<int> FinChoice = new List<int>();
         List<int> ConvertChoice;
         Key = 0;
-        if (keyLog != 7)
+      if (keyLog != 7)
         {
+            questions[0].SetActive(true);
+            answer = 1;
             if (keyLog == 0)
             {
                 AnsVar = randomPos(AnsVar);
-                answer = 0;
-
             }
-            //Generate questions 
-            if (AnsVar[keyLog] == 2)
+            MyAnswer = SceneManager.GetActiveScene().name;
+            if (MyAnswer == "Colors Activities")
             {
                 questions[0].SetActive(true);
                 answer = 1;
+                Def = 2;
             }
-            else if (AnsVar[keyLog] == 5)
+            else if (MyAnswer == "Colors Brown")
             {
                 questions[1].SetActive(true);
                 answer = 2;
+                Def = 5;
             }
-            else if (AnsVar[keyLog] == 8)
+            else if (MyAnswer == "Colors Green")
             {
                 questions[2].SetActive(true);
                 answer = 3;
+                Def = 8;
             }
-            else if (AnsVar[keyLog] == 11)
+            else if (MyAnswer == "Colors Orange")
             {
                 questions[3].SetActive(true);
                 answer = 4;
+                Def = 11;
             }
-            else if (AnsVar[keyLog] == 14)
+            else if (MyAnswer == "Colors Pink")
             {
                 questions[4].SetActive(true);
                 answer = 5;
+                Def = 14;
             }
-            else if (AnsVar[keyLog] == 17)
+            else if (MyAnswer == "Colors Red")
             {
                 questions[5].SetActive(true);
                 answer = 6;
+                Def = 17;
             }
-            else if (AnsVar[keyLog] == 20)
+            else if (MyAnswer == "Colors Yellow")
             {
                 questions[6].SetActive(true);
                 answer = 7;
+                Def = 20;
             }
-            //end
-            Debug.Log(keyLog);
+            /*  
+              if (keyLog == 0)
+               {
+                   AnsVar = randomPos(AnsVar);
+                   answer = 0;
+
+               }
+               //Generate questions 
+               if (AnsVar[keyLog] == 2)
+               {
+                   questions[0].SetActive(true);
+                   answer = 1;
+               }
+               else if (AnsVar[keyLog] == 5)
+               {
+                   questions[1].SetActive(true);
+                   answer = 2;
+               }
+               else if (AnsVar[keyLog] == 8)
+               {
+                   questions[2].SetActive(true);
+                   answer = 3;
+               }
+               else if (AnsVar[keyLog] == 11)
+               {
+                   questions[3].SetActive(true);
+                   answer = 4;
+               }
+               else if (AnsVar[keyLog] == 14)
+               {
+                   questions[4].SetActive(true);
+                   answer = 5;
+               }
+               else if (AnsVar[keyLog] == 17)
+               {
+                   questions[5].SetActive(true);
+                   answer = 6;
+               }
+               else if (AnsVar[keyLog] == 20)
+               {
+                   questions[6].SetActive(true);
+                   answer = 7;
+               }
+               //end*/
+
             ConvertChoice = new List<int>(variable);
-            for (int d = AnsVar[keyLog]; d != AnsVar[keyLog] - 3; d--)
+          //change d = "Def" to Ansvar[KeyLog] add all the asset from 0 to 30
+            for (int d = Def; d != Def - 3; d--)
             {
                 FinChoice.Add(d);
                 ConvertChoice.Remove(d);
             }
 
-            PreValue = ConvertChoice.ToArray();
-
+          PreValue = ConvertChoice.ToArray();
+           // PreValue = randomPos(PreValue);
             for (int d = 0; d != 9; d++)
             {
                 FinChoice.Add(PreValue[d]);
-
             }
 
             Final = FinChoice.ToArray();
@@ -112,7 +163,7 @@ public class ColorsActivity : MonoBehaviour {
             {
 
 
-                questions[PreQuest - 1].SetActive(false);
+     //           questions[PreQuest - 1].SetActive(false);
                 for (int y = 0; y != 12; y++)
                 {
                     for (int x = 0; x != 12; x++)

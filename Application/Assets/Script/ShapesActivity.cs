@@ -23,7 +23,8 @@ public class ShapesActivity : MonoBehaviour {
     int Total = 0;
     int Key;
     int PreQuest;
-
+    string MyAnswer;
+    int Def;
     int[] PreValue;
     int[] PreChoice;
     // Use this for initialization
@@ -50,14 +51,45 @@ public class ShapesActivity : MonoBehaviour {
             if (keyLog == 0)
             {
                 AnsVar = randomPos(AnsVar);
-                answer = 0;
-                
-
+           //     answer = 0;
             }
-            Debug.Log("a"+AnsVar[keyLog]);
+            MyAnswer = SceneManager.GetActiveScene().name;
+            if (MyAnswer == "Shapes Activities")
+            {
+                questions[0].SetActive(true);
+                answer = 1;
+                Def = 2;
+            }
+            else if (MyAnswer == "Shapes Oblong")
+            {
+                questions[1].SetActive(true);
+                answer = 2;
+                Def = 5;
+            }
+            else if (MyAnswer == "Shapes Square")
+            {
+                questions[2].SetActive(true);
+                answer = 3;
+                Def = 8;
+            }
+            else if (MyAnswer == "Shapes Triangle")
+            {
+                questions[3].SetActive(true);
+                answer = 4;
+                Def = 11;
+            }
+            else if (MyAnswer == "Shapes Rectangle")
+            {
+                questions[4].SetActive(true);
+                answer = 5;
+                Def = 14;
+            }
+            Debug.Log(MyAnswer);
+         
+            //Debug.Log("a"+AnsVar[keyLog]);
             
             //Generate questions 
-            if (AnsVar[keyLog] == 2)
+           /* if (AnsVar[keyLog] == 2)
             {
                 questions[0].SetActive(true);
                 answer = 1;
@@ -84,10 +116,11 @@ public class ShapesActivity : MonoBehaviour {
                 answer = 5;
             }
            
-            //end
+            //end*/
 
             ConvertChoice = new List<int>(variable);
-            for (int d = AnsVar[keyLog]; d != AnsVar[keyLog] - 3; d--)
+            //change d = "Def" to Ansvar[KeyLog] add all the asset from 0 to 30
+            for (int d = Def; d != Def - 3; d--)
             {
                 FinChoice.Add(d);
                 ConvertChoice.Remove(d);
@@ -107,7 +140,7 @@ public class ShapesActivity : MonoBehaviour {
             {
 
 
-                questions[PreQuest - 1].SetActive(false);
+            //    questions[PreQuest - 1].SetActive(false);
                 for (int y = 0; y != 12; y++)
                 {
                     for (int x = 0; x != 12; x++)
@@ -136,7 +169,7 @@ public class ShapesActivity : MonoBehaviour {
                 }
 
             }
-            Debug.Log("B" + answer);
+          
             PreQuest = answer;
             PreChoice = Final;
         }
@@ -149,13 +182,12 @@ public class ShapesActivity : MonoBehaviour {
     {
         string name = EventSystem.current.currentSelectedGameObject.name;
         GameObject.Find(name).SetActive(false);
-        Key++; //count how many how objects is pressed
+        Key++; //count how many objects is pressed
         if (answer == 1)
         {
             //right answer
             Total++;
-            Debug.Log(Total);
-
+         
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
             else if (Key == 2)
@@ -165,7 +197,7 @@ public class ShapesActivity : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Wrong");
+           // Debug.Log("Wrong");
 
             if (Key == 1) // checkbar if wrong
                 wrong1.SetActive(true);
@@ -191,7 +223,7 @@ public class ShapesActivity : MonoBehaviour {
         {
             //right answer
             Total++;
-            Debug.Log(Total);
+       //     Debug.Log(Total);
 
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
@@ -202,7 +234,7 @@ public class ShapesActivity : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Wrong");
+      //      Debug.Log("Wrong");
 
             if (Key == 1) // checkbar if wrong
                 wrong1.SetActive(true);
