@@ -1,0 +1,114 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+public class SizesBig : MonoBehaviour {
+
+	 public GameObject[] Small;
+   
+    public GameObject[] Biggest;
+  //  public GameObject[] Stars;
+  //  public GameObject SizesCategory;
+  //  public GameObject SetsCategory;
+    //public GameObject ScoreWindow;
+   // public AudioSource SoundFx;
+   // public AudioClip CheckTone;
+ //   public AudioClip WrongTone;
+ //   public Button QuestionAudio;
+ //   public AudioClip QuestionSizes;
+    string SceneName;
+    int TotalScore, current;
+    int[] Indexes = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    int[] myIndex = { -320, 320 };
+    int myKey;
+    int[] key = { -200, 200 };
+    int keyLog = 0;
+    int total;
+    int FinTotal;
+    int number = 0;
+    string result;
+    bool TimerLimit = false;
+   public int timeLeft = 20; //Seconds Overall
+    public Text countdown; //UI Text Object
+    void Start()
+    {
+       // QuestionAudio = GameObject.Find("QuestionAudio").GetComponent<Button>();
+       SceneName = SceneManager.GetActiveScene().name;
+        if (keyLog <= 9)
+        {
+            myKey = 0;
+            if (keyLog == 0)
+            {
+                Indexes = randomPos(Indexes);
+               // current = PlayerPrefs.GetInt("TotalScore");
+            }
+
+            key = randomPos(key);
+            if (keyLog != 0)
+            {
+                Small[Indexes[keyLog - 1]].SetActive(false);
+             //   Medium[Indexes[keyLog - 1]].SetActive(false);
+                Biggest[Indexes[keyLog - 1]].SetActive(false);
+            }
+            Vector3 Temp = Small[Indexes[keyLog]].transform.localPosition;
+            Temp = new Vector3(key[0], 100, 0);
+            Small[Indexes[keyLog]].SetActive(true);
+            Small[Indexes[keyLog]].transform.localPosition = Temp;
+
+        
+
+            Vector3 Temp3 = Biggest[Indexes[keyLog]].transform.localPosition;
+            Temp3 = new Vector3(key[1], 100, 0);
+            Biggest[Indexes[keyLog]].SetActive(true);
+            Biggest[Indexes[keyLog]].transform.localPosition = Temp3;
+
+        }
+    }
+    public void BigBTN()
+    {
+        if (SceneName == "Sizes Big")
+        {
+            // right answer
+            total++;
+            //      Debug.Log("Big");
+        }
+        else
+        {
+            Debug.Log("Wrong");
+        }
+      
+        keyLog++;
+        Start();
+
+        
+    }
+    public void SmallBTN()
+    {
+        if (SceneName == "Sizes Small")
+        {
+            // right answer 
+            total++;
+      //      Debug.Log("Small");
+        }
+        else
+        {
+            Debug.Log("Wrong");
+        }
+        keyLog++;
+        Start();
+        
+    }
+          public int[] randomPos(int[] array)
+    {
+        for (int t = 0; t < array.Length; t++)
+        {
+            int tmp = array[t];
+            int r = Random.Range(t, array.Length);
+            array[t] = array[r];
+            array[r] = tmp;
+        }
+        return array;
+    }
+}
