@@ -58,7 +58,7 @@ public class MenuSCR : MonoBehaviour {
     public void PlayBTN()
     {
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Play Menu");
     }
     public void StatsBTN()
     {
