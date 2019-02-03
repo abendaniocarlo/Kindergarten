@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PatternOne : MonoBehaviour {
     public GameObject[] ObjStar;
-    int[] oddNumbers = {-207,-43, 120};
-    int[] EvenNumbers = { -125, 41, 207 };
-     int[] ObjIndex = { 5, 11, 17, 23, 29,35,41 };
+    int[] oddNumbers = {-27,17, -4};
+     int[] EvenNumbers = { -15, 6, 207 };
+     int[] ObjIndex = { 0, 1, 2, 3, 4, 5, 6 };
     int z, x; 
+   
     public static string TagName;
 	void Start () {
         //odd numbers positions
@@ -15,51 +16,53 @@ public class PatternOne : MonoBehaviour {
         ObjIndex = randomPos(ObjIndex);
         x = ObjIndex[1];
         z = ObjIndex[0];
-        if (x == 5)
+        if (x == 0)
         {
             TagName = "Circle";
         }
-        else if (x == 11)
+        else if (x == 1)
         {
             TagName = "Oblong";
         }
-        else if (x == 17)
+        else if (x == 2)
         {
             TagName = "Pentagon";
         }
-        else if (x == 23)
+        else if (x == 3)
         {
             TagName = "Rectangle";
         }
-        else if (x == 29)
-        {
-            TagName = "Triangle";
-        }
-        else if (x == 35)
+        else if (x == 4)
         {
             TagName = "Square";
         }
-        else if (x == 41)
+        else if (x == 5)
         {
             TagName = "Star";
         }
-        Debug.Log("Tag " + TagName);
+        else if (x == 6)
+        {
+            TagName = "Triangle";
+        }
+      //Debug.Log("Tag " + TagName);
        // Debug.Log(z);
         for (int a = 0; a <= 2; a++)
         {
-            Vector3 Temp3 = ObjStar[z].transform.localPosition;
+            Instantiate(ObjStar[z], new Vector3(oddNumbers[a], 4, 65), transform.rotation);
+            /*Vector3 Temp3 = ObjStar[z].transform.localPosition;
             Temp3 = new Vector3(oddNumbers[a], 0, 0);
             ObjStar[z].SetActive(true);
-            ObjStar[z].transform.localPosition = Temp3;
-            z--;
+            ObjStar[z].transform.localPosition = Temp3;*/
+            
         }
         for (int a = 0; a <= 1; a++)
         {
-            Vector3 Temp3 = ObjStar[x].transform.localPosition;
+            Instantiate(ObjStar[x], new Vector3(EvenNumbers[a], 4, 65), transform.rotation);
+          /*  Vector3 Temp3 = ObjStar[x].transform.localPosition;
             Temp3 = new Vector3(EvenNumbers[a], 0, 0);
             ObjStar[x].SetActive(true);
-            ObjStar[x].transform.localPosition = Temp3;
-            x--;
+            ObjStar[x].transform.localPosition = Temp3;*/
+      
         }
        
 		
@@ -75,7 +78,7 @@ public class PatternOne : MonoBehaviour {
         }
         return array;
     }
-	
+  
 	// Update is called once per frame
 	void Update () {
 		

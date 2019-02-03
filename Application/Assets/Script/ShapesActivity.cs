@@ -371,7 +371,7 @@ public class ShapesActivity : MonoBehaviour {
     }
     public void HomeBtn()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("Layout Activities Shapes");
     }
     public int[] randomPos(int[] array)
     {
