@@ -15,7 +15,7 @@ public class ColorsActivity : MonoBehaviour {
     public GameObject correct2;
     public GameObject correct3;
     int[] variable = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
-  int[] AnsVar = { 2, 5, 8, 11, 14, 17, 20 };
+  int[] AnsVar = { 2, 5, 8, 11, 14, 17, 20,23};
     int[] positionX = { -300, -118, 132, 311 };
     int[] positionY = { 236, 75, -75 };
     int keyLog = 0;
@@ -48,7 +48,7 @@ public class ColorsActivity : MonoBehaviour {
         Key = 0;
       if (keyLog != 7)
         {
-            questions[0].SetActive(true);
+         //   questions[0].SetActive(true);
             answer = 1;
             if (keyLog == 0)
             {
@@ -97,6 +97,13 @@ public class ColorsActivity : MonoBehaviour {
                 answer = 7;
                 Def = 20;
             }
+            else if (MyAnswer == "Colors Purple")
+            {
+                questions[7].SetActive(true);
+                answer = 8;
+                Def = 23;
+            }
+         
             /*  
               if (keyLog == 0)
                {
@@ -450,6 +457,42 @@ public class ColorsActivity : MonoBehaviour {
             Start();
         }
     }
+    public void purple()
+    {
+        string name = EventSystem.current.currentSelectedGameObject.name;
+        GameObject.Find(name).SetActive(false);
+        Key++; //count how many how objects is pressed
+        if (answer == 8)
+        {
+            //right answer
+            Total++;
+
+            if (Key == 1) // checkbar if correct
+                correct1.SetActive(true);
+            else if (Key == 2)
+                correct2.SetActive(true);
+            else if (Key == 3)
+                correct3.SetActive(true);
+        }
+        else
+        {
+
+            Debug.Log("Wrong");
+
+            if (Key == 1) // checkbar if wrong
+                wrong1.SetActive(true);
+            else if (Key == 2)
+                wrong2.SetActive(true);
+            else if (Key == 3)
+                wrong3.SetActive(true);
+        }
+
+        if (Key == 3)
+        {
+            keyLog++;
+            Start();
+        }
+    }
 	// Update is called once per frame
 	void Update () {
 		
@@ -479,7 +522,7 @@ public class ColorsActivity : MonoBehaviour {
     }
     public void HomeBtn()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("Layout Activities Colors");
     }
 
 }

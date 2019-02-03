@@ -11,11 +11,11 @@ public class PlaySCR : MonoBehaviour {
     }
     public void GoColor()
     {
-        SceneManager.LoadScene("Colors Activities");
+        SceneManager.LoadScene("Layout Activities Colors");
     }
     public void GoShapes()
     {
-        SceneManager.LoadScene("Shapes Activities");
+        SceneManager.LoadScene("Layout Activities Shapes");
     }
     public void GoPatterns()
     {
