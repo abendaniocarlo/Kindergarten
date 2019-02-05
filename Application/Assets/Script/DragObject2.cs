@@ -59,11 +59,11 @@ public class DragObject2 : MonoBehaviour {
             switch (touch.phase)
             {
                 case TouchPhase.Began:
-                      foreach (GameObject temp in Object2)
-                        {
-                            temp.SetActive(true);
-                        }
-                        FillMe[0].SetActive(true);
+                    foreach (GameObject temp in Object2)
+                    {
+                        temp.SetActive(true);
+                    }
+                    FillMe[0].SetActive(true);
                     if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
                     {
                       
@@ -84,9 +84,13 @@ public class DragObject2 : MonoBehaviour {
                     break;
                 case TouchPhase.Ended:
                     FillMe[0].SetActive(false);
+             
                     foreach (GameObject temp in Object1)
                     {
-                        temp.SetActive(false);
+                        if (temp.tag != GetComponent<Collider2D>().tag)
+                        {
+                            temp.SetActive(false);
+                        }
                     }
                     if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 1 &&
 
@@ -98,8 +102,7 @@ public class DragObject2 : MonoBehaviour {
                         answer = GetComponent<Collider2D>().tag;
                         if (answer == TagName)
                         {
-                            myScore++;
-                            Debug.Log(myScore);
+                            right = true;
                         }
                         else
                         {
