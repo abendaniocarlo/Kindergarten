@@ -87,12 +87,7 @@ public class DragObject21 : MonoBehaviour {
                         answer = GetComponent<Collider2D>().tag;
                         if (answer == TagName)
                         {
-                            if(DragObject2.right == true)
-                            {
-                                myScore++;
-                            }
-                           
-                            
+                            myScore++;
                             Debug.Log(myScore);
                         }
                         else
@@ -100,8 +95,6 @@ public class DragObject21 : MonoBehaviour {
                             Debug.Log("Wrong");
                         }
                         StartCoroutine("RestartGame");
-
-
                     }
 
                     else
