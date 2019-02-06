@@ -1,6 +1,7 @@
 ﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PatternTwo : MonoBehaviour {
 
@@ -69,6 +70,10 @@ public class PatternTwo : MonoBehaviour {
         }
 
 
+    }
+    public void Done()
+    {
+        SceneManager.LoadScene("Layout Activities Patterns");
     }
     public int[] randomPos(int[] array)
     {

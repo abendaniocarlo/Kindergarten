@@ -7,18 +7,26 @@ public class DragObject : MonoBehaviour {
     private Transform DropPoint;
     private Vector2 initialPosition;
     private float deltaX, deltaY;
+    string result;
+    string shape;
+    public GameObject Star;
     private Vector2 mousePosition;
-    public static string answer;
     public string TagName;
+    public static string answer;
+    int[] YPosition = {26,-64};
+    int[] XPosition = { -143, -71, 0, 74, 146 };
+    public static int keyLog;
+    public GameObject ScoreBoard;
+    public GameObject PanelBoard;
     public static int myScore;
     public static bool locked;
     string value;
-    int keyLog;
+   
 	// Use this for initialization
 	void Start () {
 
         initialPosition = transform.position;
-       
+      //  TagName = PatternOne.TagName;
 
 	}
     IEnumerator RestartGame()
@@ -30,11 +38,16 @@ public class DragObject : MonoBehaviour {
         }
         else
         {
+            //PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " " + DragOne, myScore);
             Debug.Log("ScoreBoard");
         }
 
         locked = false;
 
+    }
+    public void Done()
+    {
+        SceneManager.LoadScene("Layout Activities Patterns");
     }
 	// Update is called once per frame
    private void Update()
@@ -84,7 +97,14 @@ public class DragObject : MonoBehaviour {
                        {
                            Debug.Log("Wrong");
                        }
-                        StartCoroutine("RestartGame");
+                       if (keyLog != 10)
+                       {
+                           StartCoroutine("RestartGame");
+                       }
+                       else
+                       {
+                           StartCoroutine("ScoreWindow");
+                       }
 
 
                     }
@@ -141,7 +161,16 @@ public class DragObject : MonoBehaviour {
             {
                 Debug.Log("Wrong");
             }
-            StartCoroutine("RestartGame");
+            if (keyLog != 2)
+            {
+                StartCoroutine("RestartGame");
+            }
+            else
+            {
+              
+                StartCoroutine("ScoreWindow");
+            }
+            
         }
         else
         {
@@ -149,6 +178,24 @@ public class DragObject : MonoBehaviour {
 
         }
 
+
     }
+    IEnumerator ScoreWindow()
+   {
+       int b=0, c=0;
+       yield return new WaitForSeconds(1);
+       ScoreBoard.SetActive(true);
+       for (int a = 0; a < myScore; a++)
+       {
+           var createImage = Instantiate(Star, new Vector3(XPosition[b], YPosition[c], 0), Quaternion.identity) as GameObject;
+           createImage.transform.SetParent(PanelBoard.transform, false);
+           b++;
+           if (a == 4)
+           {
+               b = 0;
+               c++;
+           }
+       }
+   }
 
 }

@@ -24,20 +24,35 @@ public class SizesBig : MonoBehaviour {
     int[] myIndex = { -320, 320 };
     int myKey;
     int[] key = { -200, 200 };
-    int keyLog = 0;
-    int total;
+    public static int total;
     int FinTotal;
     int number = 0;
     string result;
+    string size;
     bool TimerLimit = false;
    public int timeLeft = 20; //Seconds Overall
     public Text countdown; //UI Text Object
+
+    int[] YPosition = { 26, -64 };
+    int[] XPosition = { -143, -71, 0, 74, 146 };
+    public static int keyLog;
+    public GameObject ScoreBoard;
+    public GameObject PanelBoard;
+    public static int myScore;
+    public GameObject Star;
+
     void Start()
     {
        // QuestionAudio = GameObject.Find("QuestionAudio").GetComponent<Button>();
        SceneName = SceneManager.GetActiveScene().name;
-        if (keyLog <= 9)
-        {
+       if (SceneName == "Sizes Big")
+       {
+           size = "Size Big";
+       }
+       else if(SceneName == "Sizes Small")
+       {
+           size = "Size Small";
+       }
             myKey = 0;
             if (keyLog == 0)
             {
@@ -64,7 +79,7 @@ public class SizesBig : MonoBehaviour {
             Biggest[Indexes[keyLog]].SetActive(true);
             Biggest[Indexes[keyLog]].transform.localPosition = Temp3;
 
-        }
+        
     }
     public void BigBTN()
     {
@@ -80,7 +95,7 @@ public class SizesBig : MonoBehaviour {
         }
       
         keyLog++;
-        Start();
+        StartCoroutine("RestartGame");
 
         
     }
@@ -97,7 +112,7 @@ public class SizesBig : MonoBehaviour {
             Debug.Log("Wrong");
         }
         keyLog++;
-        Start();
+        StartCoroutine("RestartGame");
         
     }
           public int[] randomPos(int[] array)
@@ -111,4 +126,44 @@ public class SizesBig : MonoBehaviour {
         }
         return array;
     }
+
+
+          IEnumerator ScoreWindow()
+          {
+              int b = 0, c = 0;
+              yield return new WaitForSeconds(1);
+              ScoreBoard.SetActive(true);
+              //  PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " "+size, total);
+              for (int a = 0; a < total; a++)
+              {
+                  yield return new WaitForSeconds(0.5f);
+                  var createImage = Instantiate(Star, new Vector3(XPosition[b], YPosition[c], 0), Quaternion.identity) as GameObject;
+                  createImage.transform.SetParent(PanelBoard.transform, false);
+                  b++;
+                  if (a == 4)
+                  {
+                      b = 0;
+                      c++;
+                  }
+              }
+          }
+          IEnumerator RestartGame()
+          {
+              yield return new WaitForSeconds(1);
+
+              if (keyLog != 10)
+              {
+                  SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+              }
+              else
+              {
+
+                  StartCoroutine("ScoreWindow");
+              }
+          }
+
+          public void Done()
+          {
+            //  SceneManager.LoadScene("Layout Activities Shapes");
+          }
 }

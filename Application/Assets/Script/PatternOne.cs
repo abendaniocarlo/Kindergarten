@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PatternOne : MonoBehaviour {
     public GameObject[] ObjStar;
+   
     int[] oddNumbers = {-27,17, -4};
      int[] EvenNumbers = { -15, 6, 207 };
      int[] ObjIndex = { 0, 1, 2, 3, 4, 5, 6 };
@@ -67,6 +69,10 @@ public class PatternOne : MonoBehaviour {
        
 		
 	}
+    public void Done()
+    {
+        SceneManager.LoadScene("Layout Activities Patterns");
+    }
     public int[] randomPos(int[] array)
     {
         for (int t = 0; t < array.Length; t++)
