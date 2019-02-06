@@ -8,6 +8,8 @@ public class ColorsActivity : MonoBehaviour {
     public GameObject[] choice;
     public GameObject[] questions;
     public GameObject TutorialPanel;
+    public GameObject ScoreBoard;
+    public GameObject[] Star;
     public GameObject wrong1;
     public GameObject wrong2;
     public GameObject wrong3;
@@ -18,16 +20,18 @@ public class ColorsActivity : MonoBehaviour {
   int[] AnsVar = { 2, 5, 8, 11, 14, 17, 20,23};
     int[] positionX = { -300, -118, 132, 311 };
     int[] positionY = { 236, 75, -75 };
-    int keyLog = 0;
+    public static int keyLog = 0;
     int answer;
     int[] Final;
-    int Total=0;
+    string color;
+   public static int Total=0;
     int Key;
     int PreQuest;
     string MyAnswer;
     int Def;
     int[] PreValue = {31,50};
     int[] PreChoice;
+    string result;
 	// Use this for initialization
 	void Start () {
         int b = 0;
@@ -46,7 +50,7 @@ public class ColorsActivity : MonoBehaviour {
         List<int> FinChoice = new List<int>();
         List<int> ConvertChoice;
         Key = 0;
-      if (keyLog != 7)
+     
         {
          //   questions[0].SetActive(true);
             answer = 1;
@@ -57,48 +61,56 @@ public class ColorsActivity : MonoBehaviour {
             MyAnswer = SceneManager.GetActiveScene().name;
             if (MyAnswer == "Colors Activities")
             {
+                color = "TapClr Blue";
                 questions[0].SetActive(true);
                 answer = 1;
                 Def = 2;
             }
             else if (MyAnswer == "Colors Brown")
             {
+                color = "TapClr Brown";
                 questions[1].SetActive(true);
                 answer = 2;
                 Def = 5;
             }
             else if (MyAnswer == "Colors Green")
             {
+                color = "TapClr Green";
                 questions[2].SetActive(true);
                 answer = 3;
                 Def = 8;
             }
             else if (MyAnswer == "Colors Orange")
             {
+                color = "TapClr Orange";
                 questions[3].SetActive(true);
                 answer = 4;
                 Def = 11;
             }
             else if (MyAnswer == "Colors Pink")
             {
+                color = "TapClr Pink";
                 questions[4].SetActive(true);
                 answer = 5;
                 Def = 14;
             }
             else if (MyAnswer == "Colors Red")
             {
+                color = "TapClr Red";
                 questions[5].SetActive(true);
                 answer = 6;
                 Def = 17;
             }
             else if (MyAnswer == "Colors Yellow")
             {
+                color = "TapClr Yellow";
                 questions[6].SetActive(true);
                 answer = 7;
                 Def = 20;
             }
             else if (MyAnswer == "Colors Purple")
             {
+                color = "TapClr Purple";
                 questions[7].SetActive(true);
                 answer = 8;
                 Def = 23;
@@ -166,24 +178,24 @@ public class ColorsActivity : MonoBehaviour {
 
             Final = FinChoice.ToArray();
             Final = randomPos(Final);
-            if (keyLog != 0)
-            {
+            /*     if (keyLog != 0)
+              {
 
 
-     //           questions[PreQuest - 1].SetActive(false);
-                for (int y = 0; y != 12; y++)
-                {
-                    for (int x = 0; x != 12; x++)
-                    {
-                        if (Final[y] != PreChoice[x])
-                        {
-                            choice[PreChoice[x]].SetActive(false);
-                        }
-                    }
+       //           questions[PreQuest - 1].SetActive(false);
+               for (int y = 0; y != 12; y++)
+                  {
+                      for (int x = 0; x != 12; x++)
+                      {
+                          if (Final[y] != PreChoice[x])
+                          {
+                              choice[PreChoice[x]].SetActive(false);
+                          }
+                      }
 
-                }
+                  }
 
-            }
+              }*/
             for (int a = 0; a != 12; a++)
             {
 
@@ -202,10 +214,7 @@ public class ColorsActivity : MonoBehaviour {
             PreQuest = answer;
             PreChoice = Final;
         }
-        else
-        {
-            Debug.Log("Eng Game");
-        }
+
 	}
     public void blue()
     {
@@ -240,7 +249,7 @@ public class ColorsActivity : MonoBehaviour {
         if (Key == 3)
         {
             keyLog++;
-            Start();
+            StartCoroutine("RestartGame");
         }
         
     }
@@ -276,7 +285,7 @@ public class ColorsActivity : MonoBehaviour {
         if (Key == 3)
         {
             keyLog++;
-            Start();
+            StartCoroutine("RestartGame");
         }
     }
 
@@ -312,7 +321,7 @@ public class ColorsActivity : MonoBehaviour {
         if (Key == 3)
         {
             keyLog++;
-            Start();
+            StartCoroutine("RestartGame");
         }
     }
     public void orange()
@@ -347,7 +356,7 @@ public class ColorsActivity : MonoBehaviour {
         if (Key == 3)
         {
             keyLog++;
-            Start();
+            StartCoroutine("RestartGame");
         }
     }
     public void pink()
@@ -382,7 +391,7 @@ public class ColorsActivity : MonoBehaviour {
         if (Key == 3)
         {
             keyLog++;
-            Start();
+            StartCoroutine("RestartGame");
         }
        
     }
@@ -418,7 +427,7 @@ public class ColorsActivity : MonoBehaviour {
         if (Key == 3)
         {
             keyLog++;
-            Start();
+            StartCoroutine("RestartGame");
         }
     }
     public void yellow()
@@ -454,7 +463,7 @@ public class ColorsActivity : MonoBehaviour {
         if (Key == 3)
         {
             keyLog++;
-            Start();
+            StartCoroutine("RestartGame");
         }
     }
     public void purple()
@@ -490,7 +499,7 @@ public class ColorsActivity : MonoBehaviour {
         if (Key == 3)
         {
             keyLog++;
-            Start();
+            StartCoroutine("RestartGame");
         }
     }
 	// Update is called once per frame
@@ -507,6 +516,37 @@ public class ColorsActivity : MonoBehaviour {
             array[r] = tmp;
         }
         return array;
+    }
+    public void Done()
+    {
+        SceneManager.LoadScene("Layout Activities Colors");
+    }
+    IEnumerator RestartGame()
+    {
+        yield return new WaitForSeconds(1);
+        if (keyLog != 10)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else
+        {
+         //   PlayerPrefs.SetInt(PlayerPrefs.GetString(result)+" "+color,Total/3);
+            StartCoroutine("ScoreWindow");
+        }
+        
+    }
+    IEnumerator ScoreWindow()
+    {
+        int temp=0;
+        yield return new WaitForSeconds(1);
+        ScoreBoard.SetActive(true);
+       // Debug.Log(Total);
+        
+        while (temp != Total/3)
+        {
+            Star[temp].SetActive(true);
+           temp++;
+        }
     }
     public void Tutorial()
     {

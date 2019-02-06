@@ -12,13 +12,19 @@ public class DragObject21 : MonoBehaviour {
     private Vector2 mousePosition;
     public static string answer;
     public string TagName;
-    public static int myScore;
+
     public static bool locked;
   //  public static bool locked2;
     public static bool Unlock;
     string value;
-    int keyLog, key;
-
+    int key;
+    int[] YPosition = { 26, -64 };
+    int[] XPosition = { -143, -71, 0, 74, 146 };
+    public static int keyLog;
+    public GameObject ScoreBoard;
+    public GameObject PanelBoard;
+    public static int myScore;
+    public GameObject Star;
     // Use this for initialization
     void Start()
     {
@@ -38,6 +44,7 @@ public class DragObject21 : MonoBehaviour {
         }
         else
         {
+            //PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " " + DragTwo, myScore);
             Debug.Log("ScoreBoard");
         }
 
@@ -94,7 +101,15 @@ public class DragObject21 : MonoBehaviour {
                         {
                             Debug.Log("Wrong");
                         }
-                        StartCoroutine("RestartGame");
+                        if (keyLog != 10)
+                        {
+                            StartCoroutine("RestartGame");
+                        }
+                        else
+                        {
+
+                            StartCoroutine("ScoreWindow");
+                        }
                     }
 
                     else
@@ -152,7 +167,16 @@ public class DragObject21 : MonoBehaviour {
             {
                 Debug.Log("Wrong");
             }
-              StartCoroutine("RestartGame");
+            if (keyLog != 10)
+            {
+                StartCoroutine("RestartGame");
+            }
+            else
+            {
+
+                StartCoroutine("ScoreWindow");
+            }
+
         }
         else
         {
@@ -160,5 +184,26 @@ public class DragObject21 : MonoBehaviour {
 
         }
 
+    }
+    public void Done()
+    {
+        SceneManager.LoadScene("Layout Activities Patterns");
+    }
+    IEnumerator ScoreWindow()
+    {
+        int b = 0, c = 0;
+        yield return new WaitForSeconds(1);
+        ScoreBoard.SetActive(true);
+        for (int a = 0; a < myScore; a++)
+        {
+            var createImage = Instantiate(Star, new Vector3(XPosition[b], YPosition[c], 0), Quaternion.identity) as GameObject;
+            createImage.transform.SetParent(PanelBoard.transform, false);
+            b++;
+            if (a == 4)
+            {
+                b = 0;
+                c++;
+            }
+        }
     }
 }

@@ -483,6 +483,7 @@ GameObject:
   - component: {fileID: 223405374507137190}
   - component: {fileID: 114005118355563056}
   - component: {fileID: 114771526735373522}
+  - component: {fileID: 114712003041643622}
   m_Layer: 5
   m_Name: ScoreboardCanvas
   m_TagString: Untagged
@@ -1768,6 +1769,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114712003041643622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1683022824933734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07566dad48d05c649acc01f3a1b59c3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114731906052392832
 MonoBehaviour:
   m_ObjectHideFlags: 1

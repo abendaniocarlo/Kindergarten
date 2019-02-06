@@ -17,7 +17,16 @@ public class ShapesActivity : MonoBehaviour {
     int[] AnsVar = { 2, 5, 8, 11, 14};
     int[] positionX = { -300, -118, 132, 311 };
     int[] positionY = { 236, 75, -75 };
-    int keyLog = 0;
+
+    int[] YPosition = { 26, -64 };
+    int[] XPosition = { -143, -71, 0, 74, 146 };
+    public static int keyLog;
+    public GameObject ScoreBoard;
+    public GameObject PanelBoard;
+    public static int myScore;
+    public GameObject Star;
+    string result;
+    string Shapes;
     int answer;
     int[] Final;
     int Total = 0;
@@ -46,8 +55,7 @@ public class ShapesActivity : MonoBehaviour {
         List<int> FinChoice = new List<int>();
         List<int> ConvertChoice;
         Key = 0;
-        if (keyLog != 5)
-        {
+    
             if (keyLog == 0)
             {
                 AnsVar = randomPos(AnsVar);
@@ -56,31 +64,36 @@ public class ShapesActivity : MonoBehaviour {
             MyAnswer = SceneManager.GetActiveScene().name;
             if (MyAnswer == "Shapes Activities")
             {
+                Shapes = "Shp Circle";
                 questions[0].SetActive(true);
                 answer = 1;
                 Def = 2;
             }
             else if (MyAnswer == "Shapes Oblong")
             {
+                Shapes = "Shp Oblong";
                 questions[1].SetActive(true);
                 answer = 2;
                 Def = 5;
             }
             else if (MyAnswer == "Shapes Square")
             {
-                questions[2].SetActive(true);
+                Shapes = "Shp Square";
+                questions[3].SetActive(true);
                 answer = 3;
                 Def = 8;
             }
             else if (MyAnswer == "Shapes Triangle")
             {
-                questions[3].SetActive(true);
+                Shapes = "Shp Triangle";
+                questions[4].SetActive(true);
                 answer = 4;
                 Def = 11;
             }
             else if (MyAnswer == "Shapes Rectangle")
             {
-                questions[4].SetActive(true);
+                Shapes = "Shp Rectangle";
+                questions[2].SetActive(true);
                 answer = 5;
                 Def = 14;
             }
@@ -141,7 +154,7 @@ public class ShapesActivity : MonoBehaviour {
 
 
             //    questions[PreQuest - 1].SetActive(false);
-                for (int y = 0; y != 12; y++)
+          /*      for (int y = 0; y != 12; y++)
                 {
                     for (int x = 0; x != 12; x++)
                     {
@@ -151,7 +164,7 @@ public class ShapesActivity : MonoBehaviour {
                         }
                     }
 
-                }
+                }*/
 
             }
             for (int a = 0; a != 12; a++)
@@ -172,11 +185,8 @@ public class ShapesActivity : MonoBehaviour {
           
             PreQuest = answer;
             PreChoice = Final;
-        }
-        else
-        {
-            Debug.Log("Eng Game");
-        }
+        
+      
     }
     public void Circle()
     {
@@ -210,7 +220,7 @@ public class ShapesActivity : MonoBehaviour {
         if (Key == 3)
         {
             keyLog++;
-            Start();
+            StartCoroutine("RestartGame");
         }
 
     }
@@ -247,7 +257,7 @@ public class ShapesActivity : MonoBehaviour {
         if (Key == 3)
         {
             keyLog++;
-            Start();
+            StartCoroutine("RestartGame");
         }
     }
 
@@ -285,7 +295,7 @@ public class ShapesActivity : MonoBehaviour {
         if (Key == 3)
         {
             keyLog++;
-            Start();
+            StartCoroutine("RestartGame");
         }
     }
     public void Square()
@@ -322,7 +332,7 @@ public class ShapesActivity : MonoBehaviour {
         if (Key == 3)
         {
             keyLog++;
-            Start();
+            StartCoroutine("RestartGame");
         }
     }
     public void Triangle()
@@ -359,16 +369,45 @@ public class ShapesActivity : MonoBehaviour {
         if (Key == 3)
         {
             keyLog++;
-            Start();
+            StartCoroutine("RestartGame");
         }
 
     }
-    
-    // Update is called once per frame
-    void Update()
-    {
 
+    IEnumerator ScoreWindow()
+    {
+        int b = 0, c = 0;
+        yield return new WaitForSeconds(1);
+        ScoreBoard.SetActive(true);
+      //  PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " " + Shapes, Total/3);
+        for (int a = 0; a < Total/3; a++)
+        {
+            yield return new WaitForSeconds(0.5f);
+            var createImage = Instantiate(Star, new Vector3(XPosition[b], YPosition[c], 0), Quaternion.identity) as GameObject;
+            createImage.transform.SetParent(PanelBoard.transform, false);
+            b++;
+            if (a == 4)
+            {
+                b = 0;
+                c++;
+            }
+        }
     }
+    IEnumerator RestartGame()
+    {
+        yield return new WaitForSeconds(1);
+       
+        if (keyLog != 10)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else
+        {
+          
+            StartCoroutine("ScoreWindow");
+        }
+    }
+
     public void HomeBtn()
     {
         SceneManager.LoadScene("Layout Activities Shapes");

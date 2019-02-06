@@ -11,18 +11,25 @@ public class SetCompare : MonoBehaviour {
     int[] setIndex = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
     //Question Position
     int[] SetPosition = { 141, 85, 28, -23, -74};
-   int[] YPosition = { -27, 25 };
+   int[] ZPosition = { -27, 25 };
     //box positions
    int[] BoxPositionX = { -62, -1, 54 };
    int[] BoxPositionY = { 56, 12, -27, -82 };
    int[] minValues = { 1, 2, 3};
    int[] Final = new int[2];
    int QuestVal;
-   int keyLog;
    int[] Quest = { 0, 1, 2 };
    public static int Score;
    int choice;
    int MyVar;
+
+   int[] YPosition = { 26, -64 };
+   int[] XPosition = { -143, -71, 0, 74, 146 };
+   public static int keyLog;
+   public GameObject ScoreBoard;
+   public GameObject PanelBoard;
+   public static int myScore;
+   public GameObject Star;
 	// Use this for initialization
 	void Start () {
         if (keyLog == 0)
@@ -87,7 +94,7 @@ public class SetCompare : MonoBehaviour {
         }
         for (int a = 0; a <= QuestVal;a++)
         {
-            var createImage = Instantiate(setObjects[setIndex[keyLog]], new Vector3(YPosition[c], SetPosition[b], 0), Quaternion.identity) as GameObject;
+            var createImage = Instantiate(setObjects[setIndex[keyLog]], new Vector3(ZPosition[c], SetPosition[b], 0), Quaternion.identity) as GameObject;
             createImage.transform.SetParent(canvas.transform, false);
             b++;
             if (a ==4)
@@ -134,6 +141,7 @@ public class SetCompare : MonoBehaviour {
 	}
     public void SetOne()
     {
+        keyLog++;
         StartCoroutine("RestartGame");
         if (choice == 0)
         {
@@ -148,6 +156,7 @@ public class SetCompare : MonoBehaviour {
     }
     public void SetTwo()
     {
+        keyLog++;
         StartCoroutine("RestartGame");
         if (choice ==1)
         {
@@ -159,20 +168,7 @@ public class SetCompare : MonoBehaviour {
             Debug.Log("Wrong");
         }
     }
-    IEnumerator RestartGame()
-    {
-        yield return new WaitForSeconds(1);
-       // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        if(keyLog!=10){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        else
-        {
-            Debug.Log("Game Ended"); // Score Board pop out
-        }
-        
 
-    }
     public int[] randomPos(int[] array)
     {
         for (int t = 0; t < array.Length; t++)
@@ -184,8 +180,42 @@ public class SetCompare : MonoBehaviour {
         }
         return array;
     }
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    IEnumerator ScoreWindow()
+    {
+        int b = 0, c = 0;
+        yield return new WaitForSeconds(1);
+        ScoreBoard.SetActive(true);
+        //  PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " CompareOne", Score);
+        for (int a = 0; a < Score; a++)
+        {
+           yield return new WaitForSeconds(0.5f);
+            var createImage = Instantiate(Star, new Vector3(XPosition[b], YPosition[c], 0), Quaternion.identity) as GameObject;
+            createImage.transform.SetParent(PanelBoard.transform, false);
+            b++;
+            if (a == 4)
+            {
+                b = 0;
+                c++;
+            }
+        }
+    }
+    IEnumerator RestartGame()
+    {
+        yield return new WaitForSeconds(1);
+
+        if (keyLog != 2)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else
+        {
+
+            StartCoroutine("ScoreWindow");
+        }
+    }
+
+    public void Done()
+    {
+        // SceneManager.LoadScene("Layout Activities Shapes");
+    }
 }
