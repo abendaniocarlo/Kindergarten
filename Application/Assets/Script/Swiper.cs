@@ -10,19 +10,81 @@ public class Swiper : MonoBehaviour {
     public GameObject Final;
     public GameObject DoneBtn;
     public GameObject[] FinalImg;
+    public GameObject Game;
+ 
     GameObject thisTrail;
     Vector3 startPos;
+    string myColor;
     Plane objPlane;
-    int KeyLog = 0;
+    public static int KeyLog;
+    public static int State=0;
     string myName;
+    string ColorIndex1;
+   public static int trail;
     void Start()
     {
-      
+        nextBTN.SetActive(false);
         objPlane = new Plane(Camera.main.transform.forward * -1, this.transform.position);
         DoneBtn.SetActive(true);
-        Images[KeyLog].SetActive(true);
-        trailPrefab[KeyLog].SetActive(true);
        
+        myColor = PlayerPrefs.GetString("ColorIndex1","No Color");
+        if (State == 0)
+        {
+
+
+            if (myColor == "Colors Activities")
+            {
+
+                KeyLog = 0;
+                trail = 0;
+            }
+            else if (myColor == "Colors Brown")
+            {
+
+                KeyLog = 3;
+                trail = 1;
+            }
+            else if (myColor == "Colors Green")
+            {
+
+                KeyLog = 6;
+                trail = 2;
+            }
+            else if (myColor == "Colors Orange")
+            {
+
+                KeyLog = 9;
+                trail = 3;
+            }
+            else if (myColor == "Colors Pink")
+            {
+
+                KeyLog = 12;
+                trail = 4;
+            }
+            else if (myColor == "Colors Red")
+            {
+
+                KeyLog = 15;
+                trail = 5;
+            }
+            else if (myColor == "Colors Yellow")
+            {
+
+                KeyLog = 18;
+                trail =6;
+            }
+            else if (myColor == "Colors Purple")
+            {
+
+                KeyLog = 21;
+                trail = 7;
+            }
+        }
+
+        trailPrefab[trail].SetActive(true);
+       // Debug.Log(KeyLog);
+        Images[KeyLog].SetActive(true);
     }
 
 
@@ -37,7 +99,7 @@ public class Swiper : MonoBehaviour {
             float rayDistance;
             if (objPlane.Raycast(mRay, out rayDistance))
                 startPos = mRay.GetPoint(rayDistance);
-            thisTrail = (GameObject)Instantiate(trailPrefab[KeyLog],
+            thisTrail = (GameObject)Instantiate(trailPrefab[trail],
                                                             startPos,
                                                         Quaternion.identity);
         }
@@ -57,15 +119,19 @@ public class Swiper : MonoBehaviour {
                 Destroy(thisTrail);
         }
     }
+    public void ColorGame()
+    {
+        SceneManager.LoadScene(myColor);
+    }
     public void next()
     {
+        
         Final.SetActive(false);
         FinalImg[KeyLog].SetActive(false);
         Images[KeyLog].SetActive(false);
-        trailPrefab[KeyLog].SetActive(false);
-        if (KeyLog == 0)
+     //   trailPrefab[KeyLog].SetActive(false);
+       /* if (KeyLog == 0)
         {
-            
             myName = "DrawBlue";
         }
         else if (KeyLog == 1)
@@ -99,22 +165,37 @@ public class Swiper : MonoBehaviour {
             {
                 Destroy(gos);
             }
-        }
-        
+        }*/
+        StartCoroutine("Restart");
       
-        KeyLog++;
-        if (KeyLog != 7)
-        {
-            Start();
-
-        }
+     
+       
 
     }
     public void Done()
     {
+        nextBTN.SetActive(true);
         Final.SetActive(true);
         FinalImg[KeyLog].SetActive(true);
         DoneBtn.SetActive(false);
+        if (State == 2)
+        {
+            Debug.Log("change");
+            nextBTN.SetActive(false);
+            Game.SetActive(true);
+            KeyLog = KeyLog - 2;
+       
+        }
+    
+        
+        KeyLog++;
+        State++;
+      
+    }
+    IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void BackBTN()
     {

@@ -32,6 +32,8 @@ public class ColorsActivity : MonoBehaviour {
     int[] PreValue = {31,50};
     int[] PreChoice;
     string result;
+    string MyColor;
+    string ColorIndex;
 	// Use this for initialization
 	void Start () {
         int b = 0;
@@ -64,6 +66,10 @@ public class ColorsActivity : MonoBehaviour {
                 color = "TapClr Blue";
                 questions[0].SetActive(true);
                 answer = 1;
+               PlayerPrefs.SetString("ColorIndex1", MyAnswer);
+               MyColor = PlayerPrefs.GetString("ColorIndex1", "No Color");
+              
+                
                 Def = 2;
             }
             else if (MyAnswer == "Colors Brown")
@@ -71,6 +77,7 @@ public class ColorsActivity : MonoBehaviour {
                 color = "TapClr Brown";
                 questions[1].SetActive(true);
                 answer = 2;
+                PlayerPrefs.SetString("ColorIndex1", MyAnswer);
                 Def = 5;
             }
             else if (MyAnswer == "Colors Green")
@@ -78,6 +85,7 @@ public class ColorsActivity : MonoBehaviour {
                 color = "TapClr Green";
                 questions[2].SetActive(true);
                 answer = 3;
+                PlayerPrefs.SetString("ColorIndex1", MyAnswer);
                 Def = 8;
             }
             else if (MyAnswer == "Colors Orange")
@@ -85,6 +93,7 @@ public class ColorsActivity : MonoBehaviour {
                 color = "TapClr Orange";
                 questions[3].SetActive(true);
                 answer = 4;
+                PlayerPrefs.SetString("ColorIndex1", MyAnswer);
                 Def = 11;
             }
             else if (MyAnswer == "Colors Pink")
@@ -92,6 +101,7 @@ public class ColorsActivity : MonoBehaviour {
                 color = "TapClr Pink";
                 questions[4].SetActive(true);
                 answer = 5;
+                PlayerPrefs.SetString("ColorIndex1", MyAnswer);
                 Def = 14;
             }
             else if (MyAnswer == "Colors Red")
@@ -99,6 +109,7 @@ public class ColorsActivity : MonoBehaviour {
                 color = "TapClr Red";
                 questions[5].SetActive(true);
                 answer = 6;
+                PlayerPrefs.SetString("ColorIndex1", MyAnswer);
                 Def = 17;
             }
             else if (MyAnswer == "Colors Yellow")
@@ -106,6 +117,7 @@ public class ColorsActivity : MonoBehaviour {
                 color = "TapClr Yellow";
                 questions[6].SetActive(true);
                 answer = 7;
+                PlayerPrefs.SetString("ColorIndex1", MyAnswer);
                 Def = 20;
             }
             else if (MyAnswer == "Colors Purple")
@@ -113,6 +125,7 @@ public class ColorsActivity : MonoBehaviour {
                 color = "TapClr Purple";
                 questions[7].SetActive(true);
                 answer = 8;
+                PlayerPrefs.SetString("ColorIndex1", MyAnswer);
                 Def = 23;
             }
          

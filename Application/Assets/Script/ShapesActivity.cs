@@ -13,6 +13,7 @@ public class ShapesActivity : MonoBehaviour {
     public GameObject correct1;
     public GameObject correct2;
     public GameObject correct3;
+    public GameObject TutorialPanel;
     int[] variable = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
     int[] AnsVar = { 2, 5, 8, 11, 14};
     int[] positionX = { -300, -118, 132, 311 };
@@ -411,6 +412,14 @@ public class ShapesActivity : MonoBehaviour {
     public void HomeBtn()
     {
         SceneManager.LoadScene("Layout Activities Shapes");
+    }
+    public void Tutorial()
+    {
+        TutorialPanel.SetActive(true);
+    }
+    public void Close()
+    {
+        TutorialPanel.SetActive(false);
     }
     public int[] randomPos(int[] array)
     {

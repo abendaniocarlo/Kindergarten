@@ -3,41 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TouchController : MonoBehaviour {
-    [SerializeField]
-    private Transform Dot1;
-    private Vector2 initialPosition;
-    private float deltaX, deltaY;
-    private Vector2 mousePosition;
-	// Use this for initialization
+    Vector3[] Position;
+    GameObject[] target;
+    int Keylog = 0;
+    //Change me to change the touch phase used.
+    TouchPhase touchPhase = TouchPhase.Ended;
+
+    void Start()
+    {
+      
+      
+            Position[Keylog] = GameObject.FindWithTag("Dots"+Keylog).transform.position;
+      
+   
+ //       Debug.Log(Position);
+    }
     void Update()
     {
-
-        if (Input.GetMouseButtonDown(0))
+       // Debug.Log("s");
+        if (Input.GetButton("Fire1"))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow, 100f);
-            if (Physics.Raycast(ray, out hit))
+          //  Debug.Log("s");
+            if (Mathf.Abs(Input.mousePosition.x) - Mathf.Abs(Position[Keylog].x) < 10 && Mathf.Abs(Input.mousePosition.y) - Mathf.Abs(Position[Keylog].y) < 10)
             {
-                Debug.Log(hit.transform.name);
-                if (hit.collider != null)
-                {
+            Destroy(GameObject.FindWithTag("Dots"+Keylog));
+            Keylog++;
 
-                    GameObject touchedObject = hit.transform.gameObject;
-
-                    Debug.Log("Touched " + touchedObject.transform.name);
-                }
             }
+        
+
         }
     }
-
-    void CastRay()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
-        if (hit)
-        {
-            Debug.Log(hit.collider.gameObject.name);
-        }
-    }    
 }
