@@ -573,6 +573,10 @@ public class ColorsActivity : MonoBehaviour {
     {
         SceneManager.LoadScene("ColorIT");
     }
+    public void TapColorTutorial()
+    {
+        SceneManager.LoadScene("TapTheColors");
+    }
     public void HomeBtn()
     {
         SceneManager.LoadScene("Layout Activities Colors");
