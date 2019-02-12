@@ -390,6 +390,10 @@ public class ShapesActivity : MonoBehaviour {
     {
         SceneManager.LoadScene("Layout Activities Shapes");
     }
+    public void TapShapes()
+    {
+        SceneManager.LoadScene("Tap Shapes");
+    }
     public void Tutorial()
     {
         TutorialPanel.SetActive(true);
