@@ -35,4 +35,9 @@ public class TutorialScript : MonoBehaviour {
         MyVideos.SetActive(true);
         Activity.SetActive(false);
     }
+    public void VideoListClose()
+    {
+        MyVideos.SetActive(false);
+        Activity.SetActive(true);
+    }
 }

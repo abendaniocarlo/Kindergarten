@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TapColorsScr : MonoBehaviour {
 
@@ -42,6 +43,11 @@ public class TapColorsScr : MonoBehaviour {
 
         pinkbtn.onClick.AddListener(() => { StartCoroutine(pinkTap()); });
 
+    }
+
+    public void returnBTN()
+    {
+        SceneManager.LoadScene(PlayerPrefs.GetString("ColorIndex1"));
     }
 
     IEnumerator redTap() {

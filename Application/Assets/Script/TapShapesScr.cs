@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TapShapesScr : MonoBehaviour {
 
@@ -30,6 +31,11 @@ public class TapShapesScr : MonoBehaviour {
 
         ovalbtn.onClick.AddListener(() => { StartCoroutine(ovalTap()); });
 
+    }
+
+    public void returnBTN()
+    {
+        SceneManager.LoadScene(PlayerPrefs.GetString("ShapeIndex", "No Shape"));
     }
 
 
