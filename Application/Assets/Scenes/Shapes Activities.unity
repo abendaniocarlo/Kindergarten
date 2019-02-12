@@ -2600,7 +2600,7 @@ GameObject:
   - component: {fileID: 912041860}
   - component: {fileID: 912041859}
   m_Layer: 5
-  m_Name: ColorIT
+  m_Name: TraceMe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2664,7 +2664,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 912041860}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 411048509}
+        m_MethodName: GoTrace
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &912041860
@@ -3115,7 +3126,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 141, y: 0.000011444}
+  m_AnchoredPosition: {x: 192, y: 8}
   m_SizeDelta: {x: 87.86, y: 87.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1003277145
@@ -6624,7 +6635,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -69, y: 5.6}
+  m_AnchoredPosition: {x: -39, y: 5.6}
   m_SizeDelta: {x: -190.5, y: -11.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2102900733
@@ -6659,7 +6670,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Color IT!
+  m_Text: 'Trace Shape
+
+'
 --- !u!222 &2102900734
 CanvasRenderer:
   m_ObjectHideFlags: 0

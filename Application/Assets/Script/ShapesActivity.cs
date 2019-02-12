@@ -67,6 +67,7 @@ public class ShapesActivity : MonoBehaviour {
             {
                 Shapes = "Shp Circle";
                 questions[0].SetActive(true);
+                PlayerPrefs.SetString("ShapeIndex", MyAnswer);
                 answer = 1;
                 Def = 2;
             }
@@ -74,6 +75,7 @@ public class ShapesActivity : MonoBehaviour {
             {
                 Shapes = "Shp Oblong";
                 questions[1].SetActive(true);
+                PlayerPrefs.SetString("ShapeIndex", MyAnswer);
                 answer = 2;
                 Def = 5;
             }
@@ -81,6 +83,7 @@ public class ShapesActivity : MonoBehaviour {
             {
                 Shapes = "Shp Square";
                 questions[3].SetActive(true);
+                PlayerPrefs.SetString("ShapeIndex", MyAnswer);
                 answer = 3;
                 Def = 8;
             }
@@ -88,6 +91,7 @@ public class ShapesActivity : MonoBehaviour {
             {
                 Shapes = "Shp Triangle";
                 questions[4].SetActive(true);
+                PlayerPrefs.SetString("ShapeIndex", MyAnswer);
                 answer = 4;
                 Def = 11;
             }
@@ -95,6 +99,7 @@ public class ShapesActivity : MonoBehaviour {
             {
                 Shapes = "Shp Rectangle";
                 questions[2].SetActive(true);
+                PlayerPrefs.SetString("ShapeIndex", MyAnswer);
                 answer = 5;
                 Def = 14;
             }
@@ -102,35 +107,7 @@ public class ShapesActivity : MonoBehaviour {
          
             //Debug.Log("a"+AnsVar[keyLog]);
             
-            //Generate questions 
-           /* if (AnsVar[keyLog] == 2)
-            {
-                questions[0].SetActive(true);
-                answer = 1;
-                
-            }
-            else if (AnsVar[keyLog] == 5)
-            {
-                questions[1].SetActive(true);
-                answer = 2;
-            }
-            else if (AnsVar[keyLog] == 8)
-            {
-                questions[2].SetActive(true);
-                answer = 3;
-            }
-            else if (AnsVar[keyLog] == 11)
-            {
-                questions[3].SetActive(true);
-                answer = 4;
-            }
-            else if (AnsVar[keyLog] == 14)
-            {
-                questions[4].SetActive(true);
-                answer = 5;
-            }
-           
-            //end*/
+      
 
             ConvertChoice = new List<int>(variable);
             //change d = "Def" to Ansvar[KeyLog] add all the asset from 0 to 30
