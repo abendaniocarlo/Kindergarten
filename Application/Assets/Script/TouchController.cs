@@ -3,62 +3,70 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TouchController : MonoBehaviour {
-    Vector3[] Position = new Vector3[5]; 
+    public GameObject[] Lines;
     GameObject[] target;
+   // public GameObject Hand;
+    public GameObject Window;
     int Keylog = 0;
+    private float deltaX, deltaY;
+    public static bool locked;
+    private Vector2 mousePosition;
+   
     
-    //Change me to change the touch phase used.
-    TouchPhase touchPhase = TouchPhase.Ended;
-    bool checker = false;
-    int key=0;
-    //List<int> index = new List<int>();
+    private float speed = 10f;
+    private Rigidbody2D Controller;
+    public Camera cam;
+    
     void Start()
     {
-        if (key!= 0)
+        if (cam == null)
         {
-            Keylog++;
-            Debug.Log("ss");
-            key = 0;
+            cam = Camera.main;
         }
-        
-        target = GameObject.FindGameObjectsWithTag("Dots");
-        Debug.Log(target.Length);
-        foreach (GameObject temp in target)
-        {
-            Position[Keylog] = temp.transform.localPosition;
-            Debug.Log(Position[Keylog]);    
-            Keylog++;
-           
-        }
-         
-         
-         //   Debug.Log("Dots (" + Keylog + ")");
-      
-   
- //       Debug.Log(Position);
     }
-    void Update()
+    void Awake()
+    {
+        Controller = GetComponent<Rigidbody2D>();
+
+    }
+    void OnTriggerEnter2D(Collider2D target)
     {
         
-
-
-
-        //if (Input.GetMouseButton(0) && Mathf.Abs(Input.mousePosition.x) - Mathf.Abs(Position.x) < 3 && Mathf.Abs(Input.mousePosition.y) - Mathf.Abs(Position.y) < 3)
-        //{
-        //     Destroy(GameObject.Find("Dots (" + Keylog + ")"));
-        //}
-
+        if (target.name == "Dots (" + Keylog + ")")
+        {
+            Destroy(GameObject.Find("Dots (" + Keylog + ")"));
+             
+            Lines[Keylog].SetActive(true);
+            Keylog++;
+        }
+        
+        Debug.Log("entered");
     }
-    void OnMouseDown()
+    void FixedUpdate()
     {
-        // load a new scene
-        Debug.Log("SGIT");
-    }
-    void Controller()
-    {
-      
-      
      
+        if (Input.touchCount > 0 || Input.GetMouseButton(0))
+        {
+            Vector3 rawPosition = cam.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 targetPosition = new Vector3(rawPosition.x, rawPosition.y, 0.23f);
+            Controller.MovePosition(targetPosition);
+        }
+
+        if (Keylog == 8)
+        {
+            StartCoroutine("ShowWindow");
+        }
     }
+    IEnumerator ShowWindow()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Window.SetActive(true);
+        
+        Destroy(GameObject.Find("SwipeTrail"));
+       
+        Destroy(GameObject.Find("hand"));
+
+    }
+ 
   
 }

@@ -6,6 +6,7 @@ public class TutorialScript : MonoBehaviour {
     public GameObject MyVideos;
     public GameObject Window;
     public GameObject Activity;
+    
 	// Use this for initialization
 	void Start () {
 		
@@ -22,6 +23,11 @@ public class TutorialScript : MonoBehaviour {
     public void GoColor()
     {
         SceneManager.LoadScene("ColorIT");
+    }
+    public void GoTrace()
+    {
+        SceneManager.LoadScene("TraceMe");
+
     }
     public void GoWatch()
     {
