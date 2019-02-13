@@ -19,6 +19,7 @@ public class SetsCategorySCR : MonoBehaviour {
     public Button QuestionAudio;
     public AudioClip QuestionSetsBigger;
     public AudioClip QuestionSetsSmaller;
+    public GameObject TutorialBox;
     int[] Quest = { 0, 1 };
     int[] Position = { 1, 2 };
     int count = 0;
@@ -283,7 +284,11 @@ public class SetsCategorySCR : MonoBehaviour {
         TotalScore = (score*2) + current;
         PlayerPrefs.SetInt("TotalScore", TotalScore);
         PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " Sets", score*2);
-    }   
+    }
+    public void TutorialWindow()
+    {
+        TutorialBox.SetActive(true);
+    }
      public int[] randomPos(int[] array)
     {
            for (int t = 0; t < array.Length; t++)
