@@ -6,8 +6,8 @@ public class TutorialScript : MonoBehaviour {
     public GameObject MyVideos;
     public GameObject Window;
     public GameObject Activity;
-    
-	// Use this for initialization
+    public GameObject TutorialWindow;
+	// Use this for initializastion
 	void Start () {
 		
 	}
@@ -35,9 +35,26 @@ public class TutorialScript : MonoBehaviour {
         MyVideos.SetActive(true);
         Activity.SetActive(false);
     }
+    public void GoWatch2()
+    {
+        
+        Window.SetActive(false);
+        MyVideos.SetActive(true);
+        TutorialWindow.SetActive(false);
+      
+    }
     public void VideoListClose()
     {
         MyVideos.SetActive(false);
         Activity.SetActive(true);
+    }
+    public void TutorialTab()
+    {
+        TutorialWindow.SetActive(true);
+    }
+    public void ExitWindow()
+    {
+        Window.SetActive(false);
+
     }
 }

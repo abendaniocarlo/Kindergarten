@@ -62,10 +62,7 @@ public class PatternTwo : MonoBehaviour {
         for (int a = 0; a <= 3; a++)
         {
             Instantiate(ObjStar[z], new Vector3(EvenNumbers[a], 4, 65), transform.rotation);
-            /*  Vector3 Temp3 = ObjStar[x].transform.localPosition;
-              Temp3 = new Vector3(EvenNumbers[a], 0, 0);
-              ObjStar[x].SetActive(true);
-              ObjStar[x].transform.localPosition = Temp3;*/
+          
 
         }
 

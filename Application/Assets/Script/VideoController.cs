@@ -13,6 +13,7 @@ public class VideoController : MonoBehaviour {
     public GameObject Video01;
     public GameObject Video02;
     public GameObject VideoList;
+    bool show = false;
     void Awake()
     {
        
@@ -22,11 +23,11 @@ public class VideoController : MonoBehaviour {
     }
 	void Start () {
         PauseButton.SetActive(false);
+       
+       
+
 	}
-    private void OnMouseDown()
-    {
-        Debug.Log("Down");
-    }
+   
     public void EXP()
     {
         
@@ -38,13 +39,13 @@ public class VideoController : MonoBehaviour {
         {
             
             player.Pause();
-            Debug.Log("pause");
+           
         }
         else
         {
             
             player.Play();
-            Debug.Log("Play");
+         
         }
     }
     public void Exit()
@@ -65,7 +66,7 @@ public class VideoController : MonoBehaviour {
             PauseButton.SetActive(true);
              if (Input.GetMouseButtonDown(0) || Input.touchCount>0)
             {
-                Debug.Log("s");
+              //  Debug.Log("s");
                 player.Pause();
             }
         }
@@ -77,5 +78,12 @@ public class VideoController : MonoBehaviour {
             
             
         }
+    }
+    public void CloseVideo()
+    {
+    //for patterns or single video
+
+        Video01.SetActive(false);
+        VideoList.SetActive(true);
     }
 }

@@ -7,17 +7,8 @@ using UnityEngine.SceneManagement;
 public class SizesBig : MonoBehaviour {
 
 	 public GameObject[] Small;
-   
     public GameObject[] Biggest;
-  //  public GameObject[] Stars;
-  //  public GameObject SizesCategory;
-  //  public GameObject SetsCategory;
-    //public GameObject ScoreWindow;
-   // public AudioSource SoundFx;
-   // public AudioClip CheckTone;
- //   public AudioClip WrongTone;
- //   public Button QuestionAudio;
- //   public AudioClip QuestionSizes;
+    public GameObject TutorialWin;
     string SceneName;
     int TotalScore, current;
     int[] Indexes = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
@@ -32,7 +23,7 @@ public class SizesBig : MonoBehaviour {
     bool TimerLimit = false;
    public int timeLeft = 20; //Seconds Overall
     public Text countdown; //UI Text Object
-
+    
     int[] YPosition = { 26, -64 };
     int[] XPosition = { -143, -71, 0, 74, 146 };
     public static int keyLog;
@@ -80,6 +71,10 @@ public class SizesBig : MonoBehaviour {
             Biggest[Indexes[keyLog]].transform.localPosition = Temp3;
 
         
+    }
+    public void TutorialWindow()
+    {
+        TutorialWin.SetActive(true);
     }
     public void BigBTN()
     {

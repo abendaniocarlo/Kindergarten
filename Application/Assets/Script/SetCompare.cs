@@ -8,9 +8,10 @@ public class SetCompare : MonoBehaviour {
     public GameObject canvas;
     public GameObject Box1,Box2;
     public GameObject[] Questions;
+    public GameObject TutorialBox;
     int[] setIndex = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
     //Question Position
-    int[] SetPosition = { 141, 85, 28, -23, -74};
+    int[] SetPosition = { 112, 56, -1, -52, -103};
    int[] ZPosition = { -27, 25 };
     //box positions
    int[] BoxPositionX = { -62, -1, 54 };
@@ -179,6 +180,10 @@ public class SetCompare : MonoBehaviour {
             array[r] = tmp;
         }
         return array;
+    }
+    public void TutorialWindow()
+    {
+        TutorialBox.SetActive(true);
     }
     IEnumerator ScoreWindow()
     {
