@@ -95,7 +95,7 @@ public class SortController : MonoBehaviour {
         Debug.Log(mousePosition); 
     }
 
-    private void OnMouseUp()
+/*    private void OnMouseUp()
     {
         if (Input.mousePosition.x < GetComponent<Collider2D>().)
         {
@@ -109,7 +109,7 @@ public class SortController : MonoBehaviour {
             transform.position = new Vector2(initialPosition.x, initialPosition.y);
 
         }
-    }
+    }    */
     public int[] randomPos(int[] array)
     {
         for (int t = 0; t < array.Length; t++)
