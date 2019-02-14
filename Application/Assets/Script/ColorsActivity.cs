@@ -8,6 +8,7 @@ public class ColorsActivity : MonoBehaviour {
     public GameObject[] choice;
     public GameObject[] questions;
     public GameObject TutorialPanel;
+    public GameObject Directions;
     public GameObject ScoreBoard;
     public GameObject[] Star;
     public GameObject wrong1;
@@ -38,6 +39,9 @@ public class ColorsActivity : MonoBehaviour {
 	void Start () {
         int b = 0;
         int c = 0;
+
+        if (keyLog == 0)
+            StartCoroutine(DirectionShow());
 
         wrong1.SetActive(false);
         wrong2.SetActive(false);
@@ -229,6 +233,14 @@ public class ColorsActivity : MonoBehaviour {
         }
 
 	}
+
+    IEnumerator DirectionShow()
+    {
+        Directions.SetActive(true);
+        yield return new WaitForSeconds(9f);
+        Directions.SetActive(false);
+    }
+
     public void blue()
     {
         string name = EventSystem.current.currentSelectedGameObject.name;
@@ -561,6 +573,10 @@ public class ColorsActivity : MonoBehaviour {
            temp++;
         }
     }
+ /*   public void CloseDirection()
+    {
+        Directions.SetActive(false);
+    }*/
     public void Tutorial()
     {
         TutorialPanel.SetActive(true);

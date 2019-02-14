@@ -76,6 +76,10 @@ public class SizesBig : MonoBehaviour {
     {
         TutorialWin.SetActive(true);
     }
+    public void returnbtn()
+    {
+        SceneManager.LoadScene("Layout Activities Sizes");
+    }
     public void BigBTN()
     {
         if (SceneName == "Sizes Big")

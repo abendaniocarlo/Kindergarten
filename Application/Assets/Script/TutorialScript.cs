@@ -57,4 +57,9 @@ public class TutorialScript : MonoBehaviour {
         Window.SetActive(false);
 
     }
+
+    public void BackToPatterns()
+    {
+        SceneManager.LoadScene("Layout Activities Patterns");
+    }
 }

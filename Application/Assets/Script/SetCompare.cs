@@ -11,12 +11,12 @@ public class SetCompare : MonoBehaviour {
     public GameObject TutorialBox;
     int[] setIndex = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
     //Question Position
-    int[] SetPosition = { 112, 56, -1, -52, -103};
-   int[] ZPosition = { -27, 25 };
+    int[] SetPosition = { 202, 112, 21, -68, -142};
+   int[] ZPosition = { -65, 35 };
     //box positions
-   int[] BoxPositionX = { -62, -1, 54 };
-   int[] BoxPositionY = { 56, 12, -27, -82 };
-   int[] minValues = { 1, 2, 3};
+    int[] BoxPositionX = { -116, 5, 115 };
+    int[] BoxPositionY = { 146, 47, -44, -380 };
+    int[] minValues = { 1, 2, 3};
    int[] Final = new int[2];
    int QuestVal;
    int[] Quest = { 0, 1, 2 };
@@ -208,7 +208,7 @@ public class SetCompare : MonoBehaviour {
     {
         yield return new WaitForSeconds(1);
 
-        if (keyLog != 2)
+        if (keyLog != 10)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
