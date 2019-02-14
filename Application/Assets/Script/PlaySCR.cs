@@ -33,9 +33,9 @@ public class PlaySCR : MonoBehaviour {
     {
         SceneManager.LoadScene("Layout Mini Games");
     }
-  //  public void GoJingles()
- ///   {
-  //      SceneManager.LoadScene("");
-  //  }
+    public void GoJingles()
+    {
+        SceneManager.LoadScene("Jingles Layout");
+    }
 
 }

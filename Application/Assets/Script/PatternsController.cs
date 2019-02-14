@@ -21,10 +21,14 @@ public class PatternsController : MonoBehaviour {
     {
         SceneManager.LoadScene("PatternTwo");
     }
- 
-	
-	// Update is called once per frame
-	void Update () {
+    public void GoReturn()
+    {
+        SceneManager.LoadScene("Play Menu");
+    }
+
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }

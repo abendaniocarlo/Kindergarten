@@ -7,6 +7,7 @@ public class ShapesActivity : MonoBehaviour {
 
     public GameObject[] choice;
     public GameObject[] questions;
+    public GameObject Directions;
     public GameObject wrong1;
     public GameObject wrong2;
     public GameObject wrong3;
@@ -42,6 +43,9 @@ public class ShapesActivity : MonoBehaviour {
     {
         int b = 0;
         int c = 0;
+
+        if (keyLog == 0)
+            StartCoroutine(DirectionShow());
 
         wrong1.SetActive(false);
         wrong2.SetActive(false);
@@ -166,6 +170,14 @@ public class ShapesActivity : MonoBehaviour {
         
       
     }
+
+    IEnumerator DirectionShow()
+    {
+        Directions.SetActive(true);
+        yield return new WaitForSeconds(9f);
+        Directions.SetActive(false);
+    }
+
     public void Circle()
     {
         string name = EventSystem.current.currentSelectedGameObject.name;

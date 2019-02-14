@@ -36,14 +36,18 @@ public class ColorController : MonoBehaviour {
     }
     public void Blue()
     {
-        SceneManager.LoadScene("Colors Blue");
+        SceneManager.LoadScene("Colors Activities");
     }
     public void Purple()
     {
         SceneManager.LoadScene("Colors Purple");
     }
-	// Update is called once per frame
-	void Update () {
+    public void GoReturn()
+    {
+        SceneManager.LoadScene("Play Menu");
+    }
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }

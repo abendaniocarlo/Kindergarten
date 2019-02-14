@@ -29,8 +29,12 @@ public class ShapesController : MonoBehaviour {
     {
         SceneManager.LoadScene("Shapes Square");
     }
-	// Update is called once per frame
-	void Update () {
+    public void GoReturn()
+    {
+        SceneManager.LoadScene("Play Menu");
+    }
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }
