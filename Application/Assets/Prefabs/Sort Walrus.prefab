@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4541525272724894}
   - component: {fileID: 212564633769562208}
-  - component: {fileID: 114466615691278790}
   - component: {fileID: 61909786647589560}
   - component: {fileID: 50787728109060480}
+  - component: {fileID: 114006541199921198}
   m_Layer: 0
   m_Name: Sort Walrus
   m_TagString: Walrus
@@ -88,7 +88,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.93, y: 5.85}
   m_EdgeRadius: 0
---- !u!114 &114466615691278790
+--- !u!114 &114006541199921198
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,16 +99,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b959fc2cf6fd1824a977cfc4b6cd2206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropPoint: {fileID: 0}
   myObject:
   - {fileID: 1423849619075720, guid: b431732642969e740ae461ac8ae0d0c3, type: 2}
   - {fileID: 1408329414749674, guid: e582dca2312281641816ab8eb8ffca48, type: 2}
   - {fileID: 1246440670528198, guid: d546f019556ba0e44901b1cbb4182478, type: 2}
   - {fileID: 1417222191987582, guid: 241476055ca89bd47b873fcbfdcab366, type: 2}
   - {fileID: 1192148244603664}
+  Objects: []
+  setObjects:
+  - {fileID: 1111417904284604, guid: f905be48e4e29a64d9f1198a3a6417c6, type: 2}
+  - {fileID: 1173083590220668, guid: 7908843f6f72f5347bfe3821b1370a1d, type: 2}
+  - {fileID: 1067622433224278, guid: 6ead01a12d49eb14580c60e0efc125ea, type: 2}
+  - {fileID: 1515184512185306, guid: 410af1ddab2d767479b0d7d4be5da0d1, type: 2}
+  - {fileID: 1328645432983498, guid: fa41d930617b6704abe44a2dca49a726, type: 2}
+  Boxes:
+  - {fileID: 1654585337854848, guid: 3f4f463bee40d65448416c0facf28ad2, type: 2}
+  - {fileID: 1654585337854848, guid: 3f4f463bee40d65448416c0facf28ad2, type: 2}
+  - {fileID: 1654585337854848, guid: 3f4f463bee40d65448416c0facf28ad2, type: 2}
+  - {fileID: 1654585337854848, guid: 3f4f463bee40d65448416c0facf28ad2, type: 2}
+  - {fileID: 1654585337854848, guid: 3f4f463bee40d65448416c0facf28ad2, type: 2}
   setIndex: 0000000001000000020000000300000004000000
   KeyLog: 0
-  TagName: 
 --- !u!212 &212564633769562208
 SpriteRenderer:
   m_ObjectHideFlags: 1

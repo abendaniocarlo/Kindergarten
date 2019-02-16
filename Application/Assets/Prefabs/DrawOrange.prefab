@@ -9,31 +9,31 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1867743818606620}
+  m_RootGameObject: {fileID: 1300329859519600}
   m_IsPrefabAsset: 1
---- !u!1 &1867743818606620
+--- !u!1 &1300329859519600
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4070532896646582}
-  - component: {fileID: 114575245299486186}
-  - component: {fileID: 96609506695465384}
+  - component: {fileID: 4429722444031136}
+  - component: {fileID: 114622421271478818}
+  - component: {fileID: 96105820180950436}
   m_Layer: 0
   m_Name: DrawOrange
-  m_TagString: DrawOrange
+  m_TagString: DrawBlue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4070532896646582
+--- !u!4 &4429722444031136
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1867743818606620}
+  m_GameObject: {fileID: 1300329859519600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 472.50366, y: 174.78256, z: -2.125}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,13 +41,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!96 &96609506695465384
+--- !u!96 &96105820180950436
 TrailRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1867743818606620}
+  m_GameObject: {fileID: 1300329859519600}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -80,13 +80,13 @@ TrailRenderer:
   m_Time: Infinity
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 1
+    widthMultiplier: 1.030301
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.5081978
-        value: 0.4861107
+        time: 0.4626469
+        value: 0.5371462
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -98,8 +98,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.9245283, g: 0.55645806, b: 0, a: 1}
-      key1: {r: 0.9245283, g: 0.55645806, b: 0, a: 1}
+      key0: {r: 1, g: 0.7069097, b: 0.0141509175, a: 1}
+      key1: {r: 1, g: 0.7069097, b: 0.0141509175, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -133,12 +133,12 @@ TrailRenderer:
   m_MinVertexDistance: 1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &114575245299486186
+--- !u!114 &114622421271478818
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1867743818606620}
+  m_GameObject: {fileID: 1300329859519600}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e83e204bd9b66384b95474cb9dd88d95, type: 3}
