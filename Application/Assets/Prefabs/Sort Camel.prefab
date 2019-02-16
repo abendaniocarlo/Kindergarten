@@ -20,10 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4009468390167380}
   - component: {fileID: 212638566938874646}
-  - component: {fileID: 114356442263505480}
   - component: {fileID: 61995570164799868}
-  - component: {fileID: 114263758425389120}
   - component: {fileID: 50787973357845136}
+  - component: {fileID: 114429437037692590}
   m_Layer: 0
   m_Name: Sort Camel
   m_TagString: Camel
@@ -89,7 +88,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.02, y: 6.21}
   m_EdgeRadius: 0
---- !u!114 &114263758425389120
+--- !u!114 &114429437037692590
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,37 +99,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b959fc2cf6fd1824a977cfc4b6cd2206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropPoint: {fileID: 0}
   myObject:
   - {fileID: 1423849619075720}
   - {fileID: 1408329414749674, guid: e582dca2312281641816ab8eb8ffca48, type: 2}
   - {fileID: 1246440670528198, guid: d546f019556ba0e44901b1cbb4182478, type: 2}
   - {fileID: 1417222191987582, guid: 241476055ca89bd47b873fcbfdcab366, type: 2}
   - {fileID: 1192148244603664, guid: de6bff3c2accec54bb2fadeb1689e847, type: 2}
+  Objects: []
+  setObjects:
+  - {fileID: 1111417904284604, guid: f905be48e4e29a64d9f1198a3a6417c6, type: 2}
+  - {fileID: 1173083590220668, guid: 7908843f6f72f5347bfe3821b1370a1d, type: 2}
+  - {fileID: 1067622433224278, guid: 6ead01a12d49eb14580c60e0efc125ea, type: 2}
+  - {fileID: 1515184512185306, guid: 410af1ddab2d767479b0d7d4be5da0d1, type: 2}
+  - {fileID: 1328645432983498, guid: fa41d930617b6704abe44a2dca49a726, type: 2}
+  Boxes:
+  - {fileID: 1922667154585982, guid: 232d645ff35529043b372ae04f1eb3a8, type: 2}
+  - {fileID: 1391416689704352, guid: 72a499740f128df4db3b2786610ff824, type: 2}
+  - {fileID: 1015936630772298, guid: 61fed0581d923cc4f8e699c80e383ca5, type: 2}
+  - {fileID: 1423127466237502, guid: e00c331c3e0aa4a4c982353702b1c9d6, type: 2}
+  - {fileID: 1654585337854848, guid: 3f4f463bee40d65448416c0facf28ad2, type: 2}
   setIndex: 0000000001000000020000000300000004000000
   KeyLog: 0
-  TagName: 
---- !u!114 &114356442263505480
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1423849619075720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b959fc2cf6fd1824a977cfc4b6cd2206, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DropPoint: {fileID: 0}
-  myObject:
-  - {fileID: 1423849619075720}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  setIndex: 0000000001000000020000000300000004000000
-  KeyLog: 0
-  TagName: 
 --- !u!212 &212638566938874646
 SpriteRenderer:
   m_ObjectHideFlags: 1

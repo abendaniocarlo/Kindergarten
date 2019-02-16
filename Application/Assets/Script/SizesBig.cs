@@ -76,6 +76,16 @@ public class SizesBig : MonoBehaviour {
     {
         TutorialWin.SetActive(true);
     }
+    public void GoBig()
+    {
+        PlayerPrefs.SetString("SizeMode", "BigSize");
+        SceneManager.LoadScene("SizeTutorial1");
+    }
+    public void GoSmall()
+    {
+        PlayerPrefs.SetString("SizeMode", "SmallSize");
+        SceneManager.LoadScene("SizeTutorial1");
+    }
     public void returnbtn()
     {
         SceneManager.LoadScene("Layout Activities Sizes");
