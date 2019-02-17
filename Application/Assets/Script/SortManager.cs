@@ -17,17 +17,17 @@ public class SortManager : MonoBehaviour {
     public static string answer;
     private Vector2 mousePosition;
     public string TagName;
-    int Camel;
-    int Elephant;
-    int Walrus;
-    int Lion;
-    int Count;
-    int donkey;
-    bool BCamel;
-     bool BElephant;
-     bool BWalrus;
-    bool BLion;
-     bool Bdonkey;
+    int Camel=0;
+    int Elephant=0;
+    int Walrus=0;
+    int Lion=0;
+    int Count=0;
+    int donkey=0;
+    bool BCamel = false;
+    bool BElephant = false;
+    bool BWalrus = false;
+    bool BLion = false;
+    bool Bdonkey = false;
      public GameObject Board;
 	// Use this for initialization
 	void Start () {
@@ -36,7 +36,7 @@ public class SortManager : MonoBehaviour {
         {
             Instantiate(myObject[setIndex[a]], new Vector3(PosY[a], -4.3f, 0), transform.rotation);
         }
-          
+    
        // StartCoroutine("PrefabGuard");
 	}
     
@@ -62,6 +62,7 @@ public class SortManager : MonoBehaviour {
         if (Camel == 4)
         {
             BCamel = true;
+            Debug.Log("s");
             foreach (GameObject temp in GameObject.FindGameObjectsWithTag("Camel"))
             {
                 Destroy(temp);
@@ -105,8 +106,10 @@ public class SortManager : MonoBehaviour {
             }
             Count++;
         }
-        if (BCamel && Bdonkey && BElephant && BLion && BWalrus)
+        Debug.Log(BCamel);
+        if (BCamel == true && Bdonkey == true && BElephant == true && BLion == true && BWalrus == true)
         {
+          //  Debug.Log(!BCamel);
             Board.SetActive(true);
         }
        
