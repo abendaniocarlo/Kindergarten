@@ -58,6 +58,10 @@ public class TutorialScript : MonoBehaviour {
 
     }
 
+    public void GoSetSort()
+    {
+        SceneManager.LoadScene("SetSort");
+    }
     public void BackToPatterns()
     {
         SceneManager.LoadScene("Layout Activities Patterns");

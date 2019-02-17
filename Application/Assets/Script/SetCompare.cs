@@ -186,6 +186,10 @@ public class SetCompare : MonoBehaviour {
     {
         TutorialBox.SetActive(true);
     }
+    public void returnbtn()
+    {
+        SceneManager.LoadScene("Layout Activities Sets");
+    }
     IEnumerator ScoreWindow()
     {
         int b = 0, c = 0;
