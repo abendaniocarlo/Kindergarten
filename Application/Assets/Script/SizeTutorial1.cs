@@ -8,6 +8,10 @@ public class SizeTutorial1 : MonoBehaviour {
     public GameObject[] Big;
     public GameObject Circle;
     public GameObject Board;
+    public GameObject bigTxt;
+    public GameObject smallTxt;
+    public AudioSource SoundFx;
+    public AudioClip thatsright;
     public static int[] SmallIndex = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
     public static int[] BigIndex = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
     int[] PositionY = {-250,250 };
@@ -33,8 +37,13 @@ public class SizeTutorial1 : MonoBehaviour {
             Temp1 = new Vector3(PositionY[1], 2, 0);
             Big[BigIndex[KeyLog]].transform.localPosition = Temp1;
             Big[BigIndex[KeyLog]].SetActive(true);
-	
-	}
+
+        if (Mode == "BigSize")
+            bigTxt.SetActive(true);
+        else
+            smallTxt.SetActive(true);
+
+    }
     public void SmallBTN()
     {
 
@@ -49,6 +58,7 @@ public class SizeTutorial1 : MonoBehaviour {
         else
         {
             KeyLog++;
+            SoundFx.PlayOneShot(thatsright);
             StartCoroutine("RestartGame");
         }
         
@@ -59,6 +69,7 @@ public class SizeTutorial1 : MonoBehaviour {
         if (Mode == "BigSize")
         {
             KeyLog++;
+            SoundFx.PlayOneShot(thatsright);
             StartCoroutine("RestartGame");
         }
         else
@@ -74,7 +85,7 @@ public class SizeTutorial1 : MonoBehaviour {
     }
     IEnumerator RestartGame()
     {
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(2.01f);
         if (KeyLog != 10)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
