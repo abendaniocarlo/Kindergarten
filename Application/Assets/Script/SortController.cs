@@ -59,10 +59,10 @@ public class SortController : MonoBehaviour {
 	void Update () {
         if (Input.GetButtonUp("Fire1"))
         {
-            foreach (GameObject Temp in GameObject.FindGameObjectsWithTag("Bomb"))
-            {
-                Destroy(Temp);
-            }
+            //foreach (GameObject Temp in GameObject.FindGameObjectsWithTag("Bomb"))
+            //{
+            //    Destroy(Temp);
+            //}
         }
        
         if (Count == 20)
@@ -83,7 +83,7 @@ public class SortController : MonoBehaviour {
                      Controller = GetComponent<Rigidbody2D>();
                     TagName = GetComponent<Rigidbody2D>().tag;
               
-                 //    Parent = GameObject.Find("Panel").transform;
+                    // Parent = GameObject.Find("Panel").transform;
                     //if (Controller.tag == "Camel")
                     //{
 
@@ -131,10 +131,10 @@ public class SortController : MonoBehaviour {
 
                     break;
                 case TouchPhase.Ended:
-                    foreach (GameObject Temp in GameObject.FindGameObjectsWithTag("Bomb"))
-                    {
-                        Destroy(Temp);
-                    }
+                    //foreach (GameObject Temp in GameObject.FindGameObjectsWithTag("Bomb"))
+                    //{
+                    //    Destroy(Temp);
+                    //}
                     if (!locked)
                     {
                         transform.position = new Vector2(initialPosition.x, initialPosition.y);
@@ -213,7 +213,7 @@ public class SortController : MonoBehaviour {
         answer = GetComponent<Collider2D>().tag;
         Controller = GetComponent<Rigidbody2D>();
         TagName = GetComponent<Rigidbody2D>().tag;
-      //  Parent = GameObject.Find("Panel").transform;
+        Parent = GameObject.Find("Panel").transform;
         //if (Controller.tag == "Camel")
         //{
 
