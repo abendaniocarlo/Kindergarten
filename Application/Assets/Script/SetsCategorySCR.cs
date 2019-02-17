@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 public class SetsCategorySCR : MonoBehaviour {
     int[] values = { 8, 17, 26, 35, 44 };
   
@@ -289,7 +291,11 @@ public class SetsCategorySCR : MonoBehaviour {
     {
         TutorialBox.SetActive(true);
     }
-     public int[] randomPos(int[] array)
+    public void ReturnToActivities() // backbtn sa activity
+    {
+        SceneManager.LoadScene("Layout Activities Sets");
+    }
+    public int[] randomPos(int[] array)
     {
            for (int t = 0; t < array.Length; t++)
             {
