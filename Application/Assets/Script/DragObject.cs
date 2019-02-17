@@ -38,7 +38,6 @@ public class DragObject : MonoBehaviour {
         }
         else
         {
-            //PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " " + DragOne, myScore);
             Debug.Log("ScoreBoard");
         }
 

@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4329446134483234}
   - component: {fileID: 212731281555326454}
-  - component: {fileID: 114232389269245902}
   - component: {fileID: 61636982240549016}
   - component: {fileID: 50713271831753418}
+  - component: {fileID: 114430987512717698}
   m_Layer: 0
   m_Name: Sort Elephant
   m_TagString: Elephant
@@ -88,7 +88,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.72, y: 5.99}
   m_EdgeRadius: 0
---- !u!114 &114232389269245902
+--- !u!114 &114430987512717698
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,16 +99,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b959fc2cf6fd1824a977cfc4b6cd2206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropPoint: {fileID: 0}
   myObject:
   - {fileID: 1423849619075720, guid: b431732642969e740ae461ac8ae0d0c3, type: 2}
   - {fileID: 1408329414749674, guid: e582dca2312281641816ab8eb8ffca48, type: 2}
   - {fileID: 1246440670528198}
   - {fileID: 1417222191987582, guid: 241476055ca89bd47b873fcbfdcab366, type: 2}
   - {fileID: 1192148244603664, guid: de6bff3c2accec54bb2fadeb1689e847, type: 2}
+  Objects: []
+  setObjects:
+  - {fileID: 1111417904284604, guid: f905be48e4e29a64d9f1198a3a6417c6, type: 2}
+  - {fileID: 1173083590220668, guid: 7908843f6f72f5347bfe3821b1370a1d, type: 2}
+  - {fileID: 1067622433224278, guid: 6ead01a12d49eb14580c60e0efc125ea, type: 2}
+  - {fileID: 1515184512185306, guid: 410af1ddab2d767479b0d7d4be5da0d1, type: 2}
+  - {fileID: 1328645432983498, guid: fa41d930617b6704abe44a2dca49a726, type: 2}
+  Boxes:
+  - {fileID: 1015936630772298, guid: 61fed0581d923cc4f8e699c80e383ca5, type: 2}
+  - {fileID: 1015936630772298, guid: 61fed0581d923cc4f8e699c80e383ca5, type: 2}
+  - {fileID: 1015936630772298, guid: 61fed0581d923cc4f8e699c80e383ca5, type: 2}
+  - {fileID: 1015936630772298, guid: 61fed0581d923cc4f8e699c80e383ca5, type: 2}
+  - {fileID: 1015936630772298, guid: 61fed0581d923cc4f8e699c80e383ca5, type: 2}
   setIndex: 0000000001000000020000000300000004000000
   KeyLog: 0
-  TagName: 
 --- !u!212 &212731281555326454
 SpriteRenderer:
   m_ObjectHideFlags: 1
