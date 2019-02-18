@@ -199,7 +199,7 @@ public class Swiper : MonoBehaviour {
     }
     public void BackBTN()
     {
-        SceneManager.LoadScene("Colors Activities");
+        SceneManager.LoadScene(PlayerPrefs.GetString("ColorIndex1"));
     }
     public void HomeBtn()
     {

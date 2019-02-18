@@ -19,6 +19,7 @@ public class ColorsCategorySCR : MonoBehaviour {
     public GameObject ColorsCategory;
     public GameObject ShapesCategory;
     public GameObject ScoreWindow;
+    public GameObject cover;
     public AudioSource SoundFx;
     public AudioClip CheckTone;
     public AudioClip WrongTone;
@@ -43,6 +44,7 @@ public class ColorsCategorySCR : MonoBehaviour {
         myAnswer = false;
         check.SetActive(false);
         wrong.SetActive(false);
+        cover.SetActive(false);
         wAnswer = false;
         QuestionAudio = GameObject.Find("QuestionAudio").GetComponent<Button>();
 
@@ -227,6 +229,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            count++;
 
             SoundFx.PlayOneShot(CheckTone);
+            cover.SetActive(true);
 
         }
        else
@@ -235,6 +238,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            wAnswer = true;
 
             SoundFx.PlayOneShot(WrongTone);
+            cover.SetActive(true);
         }
      
            StartCoroutine("PicDelay");
@@ -264,6 +268,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            count++;
 
             SoundFx.PlayOneShot(CheckTone);
+            cover.SetActive(true);
         }
        else
        {
@@ -271,6 +276,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            wAnswer = true;
 
             SoundFx.PlayOneShot(WrongTone);
+            cover.SetActive(true);
         }
        
            StartCoroutine("PicDelay");
@@ -295,6 +301,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            count++;
 
             SoundFx.PlayOneShot(CheckTone);
+            cover.SetActive(true);
         }
        else
        {
@@ -302,6 +309,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            wAnswer = true;
 
             SoundFx.PlayOneShot(WrongTone);
+            cover.SetActive(true);
         }
       
            StartCoroutine("PicDelay");
@@ -326,6 +334,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            count++;
 
             SoundFx.PlayOneShot(CheckTone);
+            cover.SetActive(true);
         }
        else
        {
@@ -333,6 +342,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            wAnswer = true;
 
             SoundFx.PlayOneShot(WrongTone);
+            cover.SetActive(true);
         }
       
            StartCoroutine("PicDelay");
@@ -355,6 +365,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            count++;
 
             SoundFx.PlayOneShot(CheckTone);
+            cover.SetActive(true);
         }
        else
        {
@@ -362,6 +373,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            wAnswer = true;
 
             SoundFx.PlayOneShot(WrongTone);
+            cover.SetActive(true);
         }
       
            StartCoroutine("PicDelay");
@@ -387,6 +399,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            count++;
 
             SoundFx.PlayOneShot(CheckTone);
+            cover.SetActive(true);
         }
        else
        {
@@ -394,6 +407,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            wAnswer = true;
 
             SoundFx.PlayOneShot(WrongTone);
+            cover.SetActive(true);
         }
       
            StartCoroutine("PicDelay");
@@ -414,6 +428,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            count++;
 
             SoundFx.PlayOneShot(CheckTone);
+            cover.SetActive(true);
         }
        else
        {
@@ -421,6 +436,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            wAnswer = true;
 
             SoundFx.PlayOneShot(WrongTone);
+            cover.SetActive(true);
         }
       
            StartCoroutine("PicDelay");
@@ -444,6 +460,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            count++;
 
             SoundFx.PlayOneShot(CheckTone);
+            cover.SetActive(true);
         }
        else
        {
@@ -451,6 +468,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            wAnswer = true;
 
             SoundFx.PlayOneShot(WrongTone);
+            cover.SetActive(true);
         }
       
            StartCoroutine("PicDelay");
@@ -475,6 +493,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            count++;
 
             SoundFx.PlayOneShot(CheckTone);
+            cover.SetActive(true);
         }
        else
        {
@@ -482,6 +501,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            wAnswer = true;
 
             SoundFx.PlayOneShot(WrongTone);
+            cover.SetActive(true);
         }
      
            StartCoroutine("PicDelay");
@@ -503,6 +523,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            count++;
 
             SoundFx.PlayOneShot(CheckTone);
+            cover.SetActive(true);
         }
        else
        {
@@ -510,6 +531,7 @@ public class ColorsCategorySCR : MonoBehaviour {
            wAnswer = true;
 
             SoundFx.PlayOneShot(WrongTone);
+            cover.SetActive(true);
         }
 
        StartCoroutine("PicDelay");

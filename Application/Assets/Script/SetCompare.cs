@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 public class SetCompare : MonoBehaviour {
     public GameObject[] setObjects;
     public GameObject canvas;
+    public AudioSource SoundFx;
+    public AudioClip CheckTone;
+    public AudioClip WrongTone;
     public GameObject Box1,Box2;
     public GameObject[] Questions;
     public GameObject TutorialBox;
@@ -149,11 +152,13 @@ public class SetCompare : MonoBehaviour {
         {
             Score++;
             Debug.Log(Score);
-            
+            SoundFx.PlayOneShot(CheckTone);
+
         }
         else
         {
             Debug.Log("Wrong");
+            SoundFx.PlayOneShot(WrongTone);
         }
     }
     public void SetTwo()
@@ -164,10 +169,12 @@ public class SetCompare : MonoBehaviour {
         {
             Score++;
             Debug.Log(Score);
+            SoundFx.PlayOneShot(CheckTone);
         }
         else
         {
             Debug.Log("Wrong");
+            SoundFx.PlayOneShot(WrongTone);
         }
     }
 

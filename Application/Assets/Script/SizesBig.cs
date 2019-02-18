@@ -29,6 +29,9 @@ public class SizesBig : MonoBehaviour {
     public static int keyLog;
     public GameObject ScoreBoard;
     public GameObject PanelBoard;
+    public AudioSource SoundFx;
+    public AudioClip CheckTone;
+    public AudioClip WrongTone;
     public static int myScore;
     public GameObject Star;
 
@@ -96,11 +99,13 @@ public class SizesBig : MonoBehaviour {
         {
             // right answer
             total++;
+            SoundFx.PlayOneShot(CheckTone);
             //      Debug.Log("Big");
         }
         else
         {
             Debug.Log("Wrong");
+            SoundFx.PlayOneShot(WrongTone);
         }
       
         keyLog++;
@@ -114,11 +119,13 @@ public class SizesBig : MonoBehaviour {
         {
             // right answer 
             total++;
-      //      Debug.Log("Small");
+            SoundFx.PlayOneShot(CheckTone);
+            //      Debug.Log("Small");
         }
         else
         {
             Debug.Log("Wrong");
+            SoundFx.PlayOneShot(WrongTone);
         }
         keyLog++;
         StartCoroutine("RestartGame");
