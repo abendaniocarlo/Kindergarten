@@ -450,7 +450,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -462,7 +462,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 357322256}
   m_OnClick:
     m_PersistentCalls:
@@ -558,6 +558,7 @@ MonoBehaviour:
   Board: {fileID: 237793207}
   Panel: {fileID: 1137901799}
   Star: {fileID: 1465600200430500, guid: a196ab079cdcab7468d0f2166596cd9d, type: 2}
+  myButton: {fileID: 357322255}
 --- !u!68 &441409647
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1972,12 +1973,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1475266210}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: beab568e10037dc46963c8ae0ebd5f68, type: 3}
+  m_Script: {fileID: 11500000, guid: e2b65aa6af159d541a1e9271718fd875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Board: {fileID: 0}
-  Panel: {fileID: 0}
-  Star: {fileID: 0}
 --- !u!68 &1475266212
 EdgeCollider2D:
   m_ObjectHideFlags: 0

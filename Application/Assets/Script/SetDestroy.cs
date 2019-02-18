@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class SetDestroy : MonoBehaviour {
     int number;
     int[] objCount;
@@ -14,6 +15,7 @@ public class SetDestroy : MonoBehaviour {
     public GameObject Board;
     public GameObject Panel;
     public GameObject Star;
+    public Button myButton;
     int[] value;
     public static bool Answer = false;
     int[] YPosition = { 26, -64 };
@@ -34,11 +36,18 @@ public class SetDestroy : MonoBehaviour {
     int TCherry;
     public static int KeyLog;
     public static int Score;
+    void Start()
+    {
+        
+        myButton.interactable = false;
+      //  Debug.Log("hi");
 
+    }
    
     void OnTriggerEnter2D(Collider2D col)
     {
      // Debug.Log(number);
+
         if (number == 0)
         {
             number = SetSpawn.number[0];
@@ -47,42 +56,42 @@ public class SetDestroy : MonoBehaviour {
          
             StartCoroutine("MyGame");
         }
-
+        myButton.interactable = true;
         if (col.tag=="Apple")
         {
             TApple++;
-            Debug.Log(TApple);
+          //  Debug.Log(TApple);
         }
         else if (col.tag == "Banana")
         {
             TBananas++;
-            Debug.Log(TBananas);
+         //   Debug.Log(TBananas);
         }
         else if (col.tag == "Grapes")
         {
             TGrapes++;
-            Debug.Log(TGrapes);
+         //   Debug.Log(TGrapes);
         }
         else if (col.tag == "Orange")
         {
             TOrange++;
-            Debug.Log(TOrange);
+      //      Debug.Log(TOrange);
 
         }
         else if (col.tag == "Pineapple")
         {
             TPineapple++;
-            Debug.Log(TPineapple);
+        //    Debug.Log(TPineapple);
         }
         else if (col.tag == "Watermelon")
         {
             TWatermelon++;
-            Debug.Log(TWatermelon);
+        //    Debug.Log(TWatermelon);
         }
         else if (col.tag == "Cherry")
         {
             TCherry++;
-            Debug.Log(TCherry);
+          //  Debug.Log(TCherry);
         }
         // Destroy(col.gameObject);
     }
@@ -200,6 +209,6 @@ public class SetDestroy : MonoBehaviour {
     }
     void Update()
     {
-     
+      
     }
 }
