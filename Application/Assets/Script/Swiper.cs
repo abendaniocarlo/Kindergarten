@@ -23,6 +23,7 @@ public class Swiper : MonoBehaviour {
    public static int trail;
     void Start()
     {
+        
         nextBTN.SetActive(false);
         objPlane = new Plane(Camera.main.transform.forward * -1, this.transform.position);
         DoneBtn.SetActive(true);
@@ -81,6 +82,7 @@ public class Swiper : MonoBehaviour {
                 trail = 7;
             }
         }
+        Debug.Log(State);
 
         trailPrefab[trail].SetActive(true);
        // Debug.Log(KeyLog);
@@ -121,6 +123,8 @@ public class Swiper : MonoBehaviour {
     }
     public void ColorGame()
     {
+        KeyLog = 0;
+        State = 0;
         SceneManager.LoadScene(myColor);
     }
     public void next()
@@ -167,9 +171,9 @@ public class Swiper : MonoBehaviour {
             }
         }*/
         StartCoroutine("Restart");
-      
-     
-       
+
+
+    
 
     }
     public void Done()
@@ -199,10 +203,16 @@ public class Swiper : MonoBehaviour {
     }
     public void BackBTN()
     {
+        KeyLog = 0;
+        State = 0;
         SceneManager.LoadScene("Colors Activities");
+   
     }
     public void HomeBtn()
     {
+        KeyLog = 0;
+        State = 0;
         SceneManager.LoadScene("Main Menu");
+      
     }
 }

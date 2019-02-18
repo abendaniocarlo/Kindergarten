@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class SizeShuffle : MonoBehaviour {
     public GameObject[] Small;
     public GameObject[] Medium;
@@ -11,6 +11,7 @@ public class SizeShuffle : MonoBehaviour {
     public GameObject Board;
     public GameObject Panel;
     public GameObject Star;
+    
     int[] YPosition = { 26, -64 };
     int[] XPosition = { -143, -71, 0, 74, 146 };
     public static int KeyLog=0;
@@ -52,16 +53,16 @@ public class SizeShuffle : MonoBehaviour {
         Small[AIndex[KeyLog]].transform.localPosition = Temp1;
 
 
-        Vector3 Temp2 = Medium[AIndex[KeyLog]].transform.position;
-        Temp2 = new Vector3(PositionX[Cindex[1]], -76, 0);
-        Medium[AIndex[KeyLog]].transform.localPosition = Temp2;
+            Vector3 Temp2 = Medium[AIndex[KeyLog]].transform.position;
+            Temp2 = new Vector3(PositionX[Cindex[1]], -76, 0);
+            Medium[AIndex[KeyLog]].transform.localPosition = Temp2;
 
 
-        Vector3 Temp3 = Large[AIndex[KeyLog]].transform.position;
-        Temp3 = new Vector3(PositionX[Cindex[2]], -46, 0);
-        Large[AIndex[KeyLog]].transform.localPosition = Temp3;
-        PIndex = Cindex;
-        Value = 0;
+            Vector3 Temp3 = Large[AIndex[KeyLog]].transform.position;
+            Temp3 = new Vector3(PositionX[Cindex[2]], -46, 0);
+            Large[AIndex[KeyLog]].transform.localPosition = Temp3;
+            PIndex = Cindex;
+            Value = 0;
      
     }
     public void ShuffleBtn()

@@ -115,10 +115,14 @@ public class SortController : MonoBehaviour {
                     //    GameObject InstantiatedGameObject = Instantiate(Boxes[4], new Vector3(6.5f, 0, 0), transform.rotation);
                     //    InstantiatedGameObject.transform.SetParent(Parent);
                     //}
-                    if (!locked)
+                
+                    if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
                     {
-                       deltaX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
-                       deltaY = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
+
+                        deltaX = touchPos.x - transform.position.x;
+
+                        deltaY = touchPos.y - transform.position.y;
+
                     }
                     break;
 
@@ -128,6 +132,7 @@ public class SortController : MonoBehaviour {
 
                         transform.position = new Vector2(touchPos.x - deltaX, touchPos.y - deltaY);
                     }
+
 
                     break;
                 case TouchPhase.Ended:

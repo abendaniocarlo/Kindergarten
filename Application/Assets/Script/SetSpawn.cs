@@ -125,12 +125,15 @@ public class SetSpawn : MonoBehaviour {
     {
         if (SetDestroy.Answer == false)
         {
-
+          
           //      Debug.Log("hit");
         Rect rect = new Rect(100,150, 300, 100);
-      
-        if (rect.Contains(Input.mousePosition))
+        if (Input.touchCount > 0)
         {
+            Touch touch2 = Input.GetTouch(0);
+            if (rect.Contains(touch2.position))
+            {
+
                 if (Input.touchCount > 0)
                 {
                     Touch touch = Input.GetTouch(0);
@@ -157,9 +160,14 @@ public class SetSpawn : MonoBehaviour {
                             Instantiate(myObject[FruitIndex], touchPos, Quaternion.identity);
                         }
                     }
-                    
+
 
                 }
+            }
+        }
+        if (rect.Contains(Input.mousePosition))
+        {
+      
 
                 if (Input.GetMouseButtonDown(0))
                 {
