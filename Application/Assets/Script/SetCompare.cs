@@ -13,6 +13,7 @@ public class SetCompare : MonoBehaviour {
     public GameObject Box1,Box2;
     public GameObject[] Questions;
     public GameObject TutorialBox;
+    string result;
     int[] setIndex = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
     //Question Position
     int[] SetPosition = { 202, 112, 21, -68, -142};
@@ -196,6 +197,9 @@ public class SetCompare : MonoBehaviour {
     }
     public void returnbtn()
     {
+        Score = 0;
+        keyLog = 0;
+        myScore = 0;
         SceneManager.LoadScene("Layout Activities Sets");
     }
     IEnumerator ScoreWindow()
@@ -203,7 +207,8 @@ public class SetCompare : MonoBehaviour {
         int b = 0, c = 0;
         yield return new WaitForSeconds(1);
         ScoreBoard.SetActive(true);
-        //  PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " CompareOne", Score);
+      
+        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " SetTwo", Score);
         for (int a = 0; a < Score; a++)
         {
            yield return new WaitForSeconds(0.5f);
@@ -216,6 +221,9 @@ public class SetCompare : MonoBehaviour {
                 c++;
             }
         }
+        Score = 0;
+        keyLog = 0;
+        myScore = 0;
     }
     IEnumerator RestartGame()
     {
@@ -234,6 +242,9 @@ public class SetCompare : MonoBehaviour {
 
     public void Done()
     {
-        // SceneManager.LoadScene("Layout Activities Shapes");
+        Score = 0;
+        keyLog = 0;
+        myScore = 0;
+        SceneManager.LoadScene("Layout Activities Sets");
     }
 }

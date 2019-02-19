@@ -6,10 +6,16 @@ using UnityEngine.SceneManagement;
 public class SetsController : MonoBehaviour
 {
 
+    public GameObject LockedIcon;
+    string result;
     // Use this for initialization
     void Start()
     {
-
+        if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " SetOne", 0) != 0)
+        {
+            Debug.Log("true");
+            LockedIcon.SetActive(false);
+        }
     }
     public void GoSet1VSet2()
     {

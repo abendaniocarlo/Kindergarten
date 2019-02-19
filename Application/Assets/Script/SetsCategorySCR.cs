@@ -279,13 +279,21 @@ public class SetsCategorySCR : MonoBehaviour {
 
     public void next()
     {
-      
-        SetsCategory.SetActive(false);
-        PatternsCategory.SetActive(true);
-        current = PlayerPrefs.GetInt("TotalScore");
-        TotalScore = (score*2) + current;
-        PlayerPrefs.SetInt("TotalScore", TotalScore);
-        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " Sets", score*2);
+        if(SceneManager.GetActiveScene().name == "Sets Activity" )
+        {
+            SceneManager.LoadScene("Layout Activities Sets");
+            PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " SetOne", score*2);
+        }
+        else
+        {
+            SetsCategory.SetActive(false);
+            PatternsCategory.SetActive(true);
+            current = PlayerPrefs.GetInt("TotalScore");
+            TotalScore = (score * 2) + current;
+            PlayerPrefs.SetInt("TotalScore", TotalScore);
+            PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " Sets", score * 2);
+        }
+        
     }
     public void TutorialWindow()
     {
@@ -313,6 +321,7 @@ public class SetsCategorySCR : MonoBehaviour {
     public void ActivityDone()
     {
         // to record score here
+        
         SceneManager.LoadScene("Layout Activities Sets");
     }
 }
