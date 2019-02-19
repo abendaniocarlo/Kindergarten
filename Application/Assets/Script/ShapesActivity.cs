@@ -15,8 +15,9 @@ public class ShapesActivity : MonoBehaviour {
     public GameObject correct2;
     public GameObject correct3;
     public GameObject TutorialPanel;
+    int[] wrong = { 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26 };
     int[] variable = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
-    int[] AnsVar = { 2, 5, 8, 11, 14};
+    int[] AnsVar = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
     int[] positionX = { -300, -118, 132, 311 };
     int[] positionY = { 236, 75, -75 };
 
@@ -31,7 +32,7 @@ public class ShapesActivity : MonoBehaviour {
     string Shapes;
     int answer;
     int[] Final;
-    int Total = 0;
+    public static int Total = 0;
     int Key;
     int PreQuest;
     string MyAnswer;
@@ -55,17 +56,14 @@ public class ShapesActivity : MonoBehaviour {
         correct3.SetActive(false);
 
         variable = randomPos(variable);
+        wrong = randomPos(wrong);
         positionX = randomPos(positionX);
         positionY = randomPos(positionY);
         List<int> FinChoice = new List<int>();
         List<int> ConvertChoice;
         Key = 0;
     
-            if (keyLog == 0)
-            {
                 AnsVar = randomPos(AnsVar);
-           //     answer = 0;
-            }
             MyAnswer = SceneManager.GetActiveScene().name;
             if (MyAnswer == "Shapes Activities")
             {
@@ -117,15 +115,15 @@ public class ShapesActivity : MonoBehaviour {
             //change d = "Def" to Ansvar[KeyLog] add all the asset from 0 to 30
             for (int d = Def; d != Def - 3; d--)
             {
-                FinChoice.Add(d);
-                ConvertChoice.Remove(d);
+                FinChoice.Add(AnsVar[d]);
+                //ConvertChoice.Remove(d);
             }
 
             PreValue = ConvertChoice.ToArray();
 
             for (int d = 0; d != 9; d++)
             {
-                FinChoice.Add(PreValue[d]);
+                FinChoice.Add(wrong[d]);
 
             }
 
@@ -382,6 +380,9 @@ public class ShapesActivity : MonoBehaviour {
                 c++;
             }
         }
+        myScore = 0;
+        Total = 0;
+        keyLog = 0;
     }
     IEnumerator RestartGame()
     {
@@ -401,6 +402,9 @@ public class ShapesActivity : MonoBehaviour {
     public void HomeBtn()
     {
         SceneManager.LoadScene("Layout Activities Shapes");
+        myScore = 0;
+        Total = 0;
+        keyLog = 0;
     }
     public void TapShapes()
     {

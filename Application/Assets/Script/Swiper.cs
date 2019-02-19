@@ -205,8 +205,7 @@ public class Swiper : MonoBehaviour {
     {
         KeyLog = 0;
         State = 0;
-        SceneManager.LoadScene("Colors Activities");
-   
+        SceneManager.LoadScene(PlayerPrefs.GetString("ColorIndex1"));
     }
     public void HomeBtn()
     {

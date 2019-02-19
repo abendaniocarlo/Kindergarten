@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class SetSpawn : MonoBehaviour {
     public GameObject[] myObject;
     public Transform[] TButtons;
@@ -125,18 +126,17 @@ public class SetSpawn : MonoBehaviour {
     {
         if (SetDestroy.Answer == false)
         {
-          
-          //      Debug.Log("hit");
-        Rect rect = new Rect(100,150, 300, 100);
-        if (Input.touchCount > 0)
+
+            //      Debug.Log("hit");
+          Rect rect = new Rect(150, 100, 700, 400);
+            if (Input.touchCount > 0)
         {
-            Touch touch2 = Input.GetTouch(0);
-            if (rect.Contains(touch2.position))
+            Touch touch = Input.GetTouch(0);
+            if (rect.Contains(touch.position))
             {
 
-                if (Input.touchCount > 0)
-                {
-                    Touch touch = Input.GetTouch(0);
+               
+                   // Touch touch = Input.GetTouch(0);
                     Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
 
                     if (touch.phase == TouchPhase.Began)
@@ -162,7 +162,6 @@ public class SetSpawn : MonoBehaviour {
                     }
 
 
-                }
             }
         }
         if (rect.Contains(Input.mousePosition))
@@ -217,5 +216,10 @@ public class SetSpawn : MonoBehaviour {
             array[r] = tmp;
         }
         return array;
+    }
+
+    public void backbtn()
+    {
+        SceneManager.LoadScene("Layout Games Sets");
     }
 }

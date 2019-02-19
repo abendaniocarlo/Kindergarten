@@ -71,6 +71,7 @@ public class PatternOne : MonoBehaviour {
 	}
     public void Done()
     {
+        
         SceneManager.LoadScene("Layout Activities Patterns");
     }
     public int[] randomPos(int[] array)

@@ -290,10 +290,7 @@ public class SetsCategorySCR : MonoBehaviour {
     public void TutorialWindow()
     {
         TutorialBox.SetActive(true);
-    }
-    public void ReturnToActivities() // backbtn sa activity
-    {
-        SceneManager.LoadScene("Layout Activities Sets");
+        PlayerPrefs.SetString("SetIndex", "Set1");
     }
     public int[] randomPos(int[] array)
     {
@@ -305,5 +302,17 @@ public class SetsCategorySCR : MonoBehaviour {
                 array[r] = tmp;
             }
             return array;
+    }
+
+
+    // sa activities
+    public void ReturnToActivities() // backbtn sa activity
+    {
+        SceneManager.LoadScene("Layout Activities Sets");
+    }
+    public void ActivityDone()
+    {
+        // to record score here
+        SceneManager.LoadScene("Layout Activities Sets");
     }
 }

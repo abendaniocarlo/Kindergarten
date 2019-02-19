@@ -11,6 +11,8 @@ public class MiniGamesController : MonoBehaviour
     {
 
     }
+
+    // papunta sa layout ng games
     public void GoColorGames()
     {
         SceneManager.LoadScene("Layout Games Colors");
@@ -36,12 +38,41 @@ public class MiniGamesController : MonoBehaviour
         SceneManager.LoadScene("Play Menu");
     }
 
-
+    // pabalik sa layout ng minigames
     public void GoBackMiniGames()
     {
         SceneManager.LoadScene("Layout Mini Games");
     }
 
+    // game sets
+    public void GoFillTheBasket()
+    {
+        SceneManager.LoadScene("SetGame");
+    }
+
+    // game sizes
+    public void GoSizesShuffle()
+    {
+        SceneManager.LoadScene("SizesGame");
+    }
+
+    // game colors
+    public void GoColorCatch()
+    {
+        SceneManager.LoadScene("ColorsCatch");
+    }
+
+    // game shapes
+    public void GoShapesCatch()
+    {
+        SceneManager.LoadScene("ShapesCatch");
+    }
+
+    // game patterns
+    public void GoPatterns()
+    {
+        SceneManager.LoadScene("PatternGame");
+    }
 
     // Update is called once per frame
     void Update()

@@ -33,14 +33,14 @@ public class JinglesController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Rect rect = new Rect(200,100,500,300);
+     
         if (Input.touchCount > 0)
         {
+            Rect rect1 = new Rect(150, 100, 700, 400);
             Touch touch = Input.GetTouch(0);
-            if (rect.Contains(touch.position))
+            if (rect1.Contains(touch.position))
             {
-                if (Input.touchCount>0)
-                {
+             
 
                     if (player.isPlaying)
                     {
@@ -53,13 +53,14 @@ public class JinglesController : MonoBehaviour
                         Debug.Log("s");
                         player.Play();
 
-                    }
-                }
+                   }
+                
              
             }
         }
-        
-           if (rect.Contains(Input.mousePosition))
+        Rect rect = new Rect(150, 100, 700, 400);
+     //   Rect rect = new Rect(200, 100, 500, 300);
+        if (rect.Contains(Input.mousePosition))
              {
                  if (Input.GetMouseButtonDown(0))
                  {

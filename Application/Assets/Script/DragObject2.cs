@@ -34,7 +34,7 @@ public class DragObject2 : MonoBehaviour {
         
         yield return new WaitForSeconds(1);
         right = false;
-        if (keyLog != 10)
+        if (keyLog != 2)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -59,10 +59,7 @@ public class DragObject2 : MonoBehaviour {
             switch (touch.phase)
             {
                 case TouchPhase.Began:
-                    foreach (GameObject temp in Object2)
-                    {
-                        temp.SetActive(true);
-                    }
+                   
                     FillMe[0].SetActive(true);
                     if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
                     {
@@ -85,18 +82,20 @@ public class DragObject2 : MonoBehaviour {
                 case TouchPhase.Ended:
                     FillMe[0].SetActive(false);
              
-                    foreach (GameObject temp in Object1)
-                    {
-                        if (temp.tag != GetComponent<Collider2D>().tag)
-                        {
-                            temp.SetActive(false);
-                        }
-                    }
+                
                     if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 1 &&
 
                     Mathf.Abs(transform.position.y - DropPoint.position.y) <= 1)
                     {
                         keyLog++;
+                         foreach (GameObject temp in Object2)
+                    {
+                        temp.SetActive(true);
+                    }
+                        foreach (GameObject temp in Object1)
+                        {
+                            temp.SetActive(false);
+                        }
                         transform.position = new Vector2(DropPoint.position.x, DropPoint.position.y);
                        // locked = true;
                         answer = GetComponent<Collider2D>().tag;
@@ -131,9 +130,7 @@ public class DragObject2 : MonoBehaviour {
       //  Debug.Log(PatternTwo.TagName);
              if (!locked)
             {
-            foreach(GameObject temp in Object2){
-                temp.SetActive(true);
-            }
+            
             FillMe[0].SetActive(true);
             deltaX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
             deltaY = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
@@ -164,6 +161,10 @@ public class DragObject2 : MonoBehaviour {
                 {
                     temp.SetActive(false);
                 }
+            }
+            foreach (GameObject temp in Object2)
+            {
+                temp.SetActive(true);
             }
             transform.position = new Vector2(DropPoint.position.x, DropPoint.position.y);
           //  locked = true;

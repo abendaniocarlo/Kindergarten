@@ -10,6 +10,7 @@ public class SizeTutorial1 : MonoBehaviour {
     public GameObject Board;
     public GameObject bigTxt;
     public GameObject smallTxt;
+    public GameObject message;
     public AudioSource SoundFx;
     public AudioClip thatsright;
     public static int[] SmallIndex = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
@@ -59,6 +60,7 @@ public class SizeTutorial1 : MonoBehaviour {
         {
             KeyLog++;
             SoundFx.PlayOneShot(thatsright);
+            message.SetActive(true);
             StartCoroutine("RestartGame");
         }
         
@@ -70,6 +72,7 @@ public class SizeTutorial1 : MonoBehaviour {
         {
             KeyLog++;
             SoundFx.PlayOneShot(thatsright);
+            message.SetActive(true);
             StartCoroutine("RestartGame");
         }
         else

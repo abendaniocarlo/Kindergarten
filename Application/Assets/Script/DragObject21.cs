@@ -84,9 +84,9 @@ public class DragObject21 : MonoBehaviour {
                     break;
                 case TouchPhase.Ended:
                     FillMe[0].SetActive(false);
-                    if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 0.5f &&
+                    if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 2 &&
 
-                    Mathf.Abs(transform.position.y - DropPoint.position.y) <= 0.5)
+                    Mathf.Abs(transform.position.y - DropPoint.position.y) <= 2)
                     {
                         keyLog++;
                         transform.position = new Vector2(DropPoint.position.x, DropPoint.position.y);
@@ -149,8 +149,8 @@ public class DragObject21 : MonoBehaviour {
     private void OnMouseUp()
     {
         FillMe[0].SetActive(false);
-        if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 1.5f &&
-         Mathf.Abs(transform.position.y - DropPoint.position.y) <= 1.5f)
+        if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 2 &&
+         Mathf.Abs(transform.position.y - DropPoint.position.y) <= 2)
         {
 
             keyLog++;
@@ -167,7 +167,7 @@ public class DragObject21 : MonoBehaviour {
             {
                 Debug.Log("Wrong");
             }
-            if (keyLog != 10)
+            if (keyLog != 2)
             {
                 StartCoroutine("RestartGame");
             }

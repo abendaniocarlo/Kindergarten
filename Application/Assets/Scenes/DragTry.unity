@@ -671,10 +671,10 @@ RectTransform:
   m_Father: {fileID: 1407970737}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 441.31, y: 252.04}
-  m_SizeDelta: {x: 101.38, y: 103.92}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -56.690002, y: -58.960007}
+  m_SizeDelta: {x: 101.380005, y: 103.91998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &230135657
 MonoBehaviour:
@@ -907,7 +907,7 @@ Transform:
   m_GameObject: {fileID: 572415665}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.87, y: 0.986754, z: 1}
+  m_LocalScale: {x: 1.2684599, y: 0.9374163, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1000,7 +1000,7 @@ GameObject:
   - component: {fileID: 629918883}
   m_Layer: 0
   m_Name: col circle
-  m_TagString: Bomb
+  m_TagString: Circle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1118,7 +1118,7 @@ GameObject:
   - component: {fileID: 649918167}
   m_Layer: 0
   m_Name: col star
-  m_TagString: Bomb
+  m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1236,7 +1236,7 @@ GameObject:
   - component: {fileID: 677027817}
   m_Layer: 0
   m_Name: col oblong
-  m_TagString: Bomb
+  m_TagString: Oblong
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1373,10 +1373,10 @@ RectTransform:
   m_Father: {fileID: 143108196}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 397, y: 203}
-  m_SizeDelta: {x: 149.6, y: 148.1}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -101, y: -108}
+  m_SizeDelta: {x: 149.59998, y: 148.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &747127225
 MonoBehaviour:
@@ -1477,7 +1477,7 @@ GameObject:
   - component: {fileID: 781076073}
   m_Layer: 0
   m_Name: col triangle
-  m_TagString: Bomb
+  m_TagString: Triangle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1643,7 +1643,7 @@ GameObject:
   - component: {fileID: 896557963}
   m_Layer: 0
   m_Name: col rectangle
-  m_TagString: Bomb
+  m_TagString: Rectangle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2482,7 +2482,7 @@ GameObject:
   - component: {fileID: 1531630284}
   m_Layer: 0
   m_Name: col square
-  m_TagString: Bomb
+  m_TagString: Square
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2736,7 +2736,7 @@ GameObject:
   - component: {fileID: 1771163211}
   m_Layer: 0
   m_Name: col pentagon
-  m_TagString: Bomb
+  m_TagString: Pentagon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

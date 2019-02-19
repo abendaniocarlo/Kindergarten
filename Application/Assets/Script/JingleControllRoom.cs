@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class JingleControllRoom : MonoBehaviour {
     public GameObject MyCanvas;
@@ -76,5 +77,9 @@ public class JingleControllRoom : MonoBehaviour {
         MyCanvas.SetActive(false);
         Audio.SetActive(false);
         Twinkle.SetActive(true);
+    }
+    public void backbtn()
+    {
+        SceneManager.LoadScene("Play Menu");
     }
 }
