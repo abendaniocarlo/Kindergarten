@@ -5,15 +5,23 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class ColorCatchScores : MonoBehaviour {
     private Text TextScore;
+    public GameObject scorewindow;
+    public GameObject spawnarea;
+    public GameObject owlie;
     public GameObject[] CatchObj;
     private int score = 0;
     private string[] myObj = { "DrawBlue", "DrawBrown", "DrawOrange", "DrawRed", "DrawYellow", "DrawGreen", "DrawPink" };
     string Shape;
     bool temp = true;
     int KeyLog = 0;
+    int count = 0;
+    int number = 0;
+    public GameObject[] Stars;
+    float finalScore = 0;
     void Start()
     {
         Shape = myObj[KeyLog];
+    
         CatchObj[KeyLog].SetActive(true);
         //  StartCoroutine("myShape");
     }
@@ -36,14 +44,17 @@ public class ColorCatchScores : MonoBehaviour {
             score++;
             if (score % 5 == 0)
             {
+               
                 KeyLog++;
                 CatchObj[KeyLog].SetActive(true);
                 CatchObj[KeyLog - 1].SetActive(false);
                 Shape = myObj[KeyLog];
+                Debug.Log(KeyLog);
             }
-            if (KeyLog < 7) {
+            if (KeyLog >= 7)
+            {
                 KeyLog = 0;
-            
+
             }
             TextScore.text = score.ToString();
         }
@@ -55,16 +66,27 @@ public class ColorCatchScores : MonoBehaviour {
 
 
         }
+
+        if (score == 35)
+            StartCoroutine(RestartGame());
+
         Debug.Log(Shape);
     }
     IEnumerator RestartGame()
     {
+        Debug.Log("yow wtf");
         yield return new WaitForSecondsRealtime(2f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        finalScore = score / 3.5f;
+        owlie.SetActive(false);
+        spawnarea.SetActive(false);
+        scorewindow.SetActive(true);
+        int count = (int)finalScore;
+
+        for (int x = 0; x != count; x++)
+            Stars[x].SetActive(true);
     }
     void Update()
     {
-
         //    print(Shape);
 
     }
@@ -84,4 +106,13 @@ public class ColorCatchScores : MonoBehaviour {
             Debug.Log(Shape);
         }
     }*/
+
+    public void backbtn()
+    {
+        SceneManager.LoadScene("Layout Games Colors");
+    }
+    public void retrybtn()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

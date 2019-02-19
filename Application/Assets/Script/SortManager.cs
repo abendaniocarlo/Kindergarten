@@ -19,6 +19,7 @@ public class SortManager : MonoBehaviour {
     private Vector2 mousePosition;
     public string TagName;
     public static string Mode;
+    string result;
     int Camel=0;
     int Elephant=0;
     int Walrus=0;
@@ -39,9 +40,10 @@ public class SortManager : MonoBehaviour {
         {
             Instantiate(myObject[setIndex[a]], new Vector3(PosY[a], -4.3f, 0), transform.rotation);
         }
-    
-       // StartCoroutine("PrefabGuard");
-	}
+       // Debug.Log(PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " " + "Shp Circle"));
+
+        // StartCoroutine("PrefabGuard");
+    }
     
     public int[] randomPos(int[] array)
     {
@@ -109,7 +111,7 @@ public class SortManager : MonoBehaviour {
             }
             Count++;
         }
-        Debug.Log(BCamel);
+       // Debug.Log(BCamel);
         if (BCamel == true && Bdonkey == true && BElephant == true && BLion == true && BWalrus == true)
         {
           //  Debug.Log(!BCamel);

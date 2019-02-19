@@ -9,6 +9,7 @@ public class SizesBig : MonoBehaviour {
 	 public GameObject[] Small;
     public GameObject[] Biggest;
     public GameObject TutorialWin;
+    public GameObject directions;
     string SceneName;
     int TotalScore, current;
     int[] Indexes = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
@@ -37,8 +38,12 @@ public class SizesBig : MonoBehaviour {
 
     void Start()
     {
-       // QuestionAudio = GameObject.Find("QuestionAudio").GetComponent<Button>();
-       SceneName = SceneManager.GetActiveScene().name;
+        if (keyLog == 0)
+            StartCoroutine(DirectionPlay());
+        
+
+        // QuestionAudio = GameObject.Find("QuestionAudio").GetComponent<Button>();
+        SceneName = SceneManager.GetActiveScene().name;
        if (SceneName == "Sizes Big")
        {
            size = "Size Big";
@@ -92,6 +97,12 @@ public class SizesBig : MonoBehaviour {
       
         PlayerPrefs.SetString("SizeMode", "SmallSize");
         SceneManager.LoadScene("SizeTutorial1");
+    }
+    IEnumerator DirectionPlay()
+    {
+        directions.SetActive(true);
+        yield return new WaitForSeconds(7f);
+        directions.SetActive(false);
     }
     public void returnbtn()
     {

@@ -34,30 +34,30 @@ public class JinglesController : MonoBehaviour
     void Update()
     {
      
-        if (Input.touchCount > 0)
-        {
-            Rect rect1 = new Rect(150, 100, 700, 400);
-            Touch touch = Input.GetTouch(0);
-            if (rect1.Contains(touch.position))
-            {
+        //if (Input.touchCount > 0)
+        //{
+        //    Rect rect1 = new Rect(150, 100, 700, 400);
+        //    Touch touch = Input.GetTouch(0);
+        //    if (rect1.Contains(touch.position))
+        //    {
              
 
-                    if (player.isPlaying)
-                    {
+        //            if (player.isPlaying)
+        //            {
 
-                        Debug.Log("T");
-                        player.Pause();
-                    }
-                    else
-                    {
-                        Debug.Log("s");
-                        player.Play();
+        //                Debug.Log("T");
+        //                player.Pause();
+        //            }
+        //            else
+        //            {
+        //                Debug.Log("s");
+        //                player.Play();
 
-                   }
+        //           }
                 
              
-            }
-        }
+        //    }
+        //}
         Rect rect = new Rect(150, 100, 700, 400);
      //   Rect rect = new Rect(200, 100, 500, 300);
         if (rect.Contains(Input.mousePosition))

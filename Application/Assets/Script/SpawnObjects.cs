@@ -10,6 +10,7 @@ public class SpawnObjects : MonoBehaviour {
     private BoxCollider2D col;
     float x1, x2;
 	void Start () {
+        Screen.orientation = ScreenOrientation.Portrait;
         StartCoroutine(SpawnFruit(1f));
 	}
     void Awake()

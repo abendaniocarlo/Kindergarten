@@ -24,11 +24,13 @@ public class DragObject : MonoBehaviour {
    
 	// Use this for initialization
 	void Start () {
+        
 
         initialPosition = transform.position;
       //  TagName = PatternOne.TagName;
 
 	}
+    
     IEnumerator RestartGame()
     {
         yield return new WaitForSeconds(1);
@@ -57,72 +59,72 @@ public class DragObject : MonoBehaviour {
         TagName = PatternOne.TagName;
    //   Debug.Log(PatternOne.TagName);
        
-        if (Input.touchCount > 0 && !locked)
-        {
-            Touch touch = Input.GetTouch(0);
-            Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                    if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
-                    {
+        //if (Input.touchCount > 0 && !locked)
+        //{
+        //    Touch touch = Input.GetTouch(0);
+        //    Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+        //    switch (touch.phase)
+        //    {
+        //        case TouchPhase.Began:
+        //            if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
+        //            {
 
-                        deltaX = touchPos.x - transform.position.x;
+        //                deltaX = touchPos.x - transform.position.x;
 
-                        deltaY = touchPos.y - transform.position.y;
+        //                deltaY = touchPos.y - transform.position.y;
 
-                    }
-                    break;
+        //            }
+        //            break;
 
-                case TouchPhase.Moved:
-                    if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
-                    {
+        //        case TouchPhase.Moved:
+        //            if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
+        //            {
 
-                        transform.position = new Vector2(touchPos.x - deltaX, touchPos.y - deltaY);
-                    }
-                    break;
-                case TouchPhase.Ended:
-                    if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 2 &&
+        //                transform.position = new Vector2(touchPos.x - deltaX, touchPos.y - deltaY);
+        //            }
+        //            break;
+        //        case TouchPhase.Ended:
+        //            if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 2 &&
 
-                    Mathf.Abs(transform.position.y - DropPoint.position.y) <=2)
-                    {
-                        keyLog++;
-                        transform.position = new Vector2(DropPoint.position.x, DropPoint.position.y);
-                        locked = true;
-                       answer = GetComponent<Collider2D>().tag;
-                       if (answer == TagName)
-                       {
-                           myScore++;
-                           Debug.Log(myScore);
-                       }
-                       else
-                       {
-                           Debug.Log("Wrong");
-                       }
-                       if (keyLog != 10)
-                       {
-                           StartCoroutine("RestartGame");
-                       }
-                       else
-                       {
-                           StartCoroutine("ScoreWindow");
-                       }
-
-
-                    }
-
-                    else
-                    {
-                        transform.position = new Vector2(initialPosition.x, initialPosition.y);
-                    }
-                    break;
+        //            Mathf.Abs(transform.position.y - DropPoint.position.y) <=2)
+        //            {
+        //                keyLog++;
+        //                transform.position = new Vector2(DropPoint.position.x, DropPoint.position.y);
+        //                locked = true;
+        //               answer = GetComponent<Collider2D>().tag;
+        //               if (answer == TagName)
+        //               {
+        //                   myScore++;
+        //                   Debug.Log(myScore);
+        //               }
+        //               else
+        //               {
+        //                   Debug.Log("Wrong");
+        //               }
+        //               if (keyLog != 10)
+        //               {
+        //                   StartCoroutine("RestartGame");
+        //               }
+        //               else
+        //               {
+        //                   StartCoroutine("ScoreWindow");
+        //               }
 
 
-            }
+        //            }
+
+        //            else
+        //            {
+        //                transform.position = new Vector2(initialPosition.x, initialPosition.y);
+        //            }
+        //            break;
+
+
+        //    }
 
 
             
-        }
+        //}
     }
     private void OnMouseDown()
     {

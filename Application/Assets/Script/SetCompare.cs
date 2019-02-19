@@ -34,13 +34,17 @@ public class SetCompare : MonoBehaviour {
    public static int keyLog;
    public GameObject ScoreBoard;
    public GameObject PanelBoard;
-   public static int myScore;
+    public GameObject directions;
+    public GameObject other;
+    public static int myScore;
    public GameObject Star;
 	// Use this for initialization
 	void Start () {
         if (keyLog == 0)
         {
             setIndex = randomPos(setIndex);
+            StartCoroutine(DirectionPlay());
+
         }
         int b = 0, c=0 ,x=0,y=0;
         minValues = randomPos(minValues);
@@ -189,6 +193,14 @@ public class SetCompare : MonoBehaviour {
             array[r] = tmp;
         }
         return array;
+    }
+    IEnumerator DirectionPlay()
+    {
+        other.SetActive(false);
+        directions.SetActive(true);
+        yield return new WaitForSeconds(6f);
+        other.SetActive(true);
+        directions.SetActive(false);
     }
     public void TutorialWindow()
     {

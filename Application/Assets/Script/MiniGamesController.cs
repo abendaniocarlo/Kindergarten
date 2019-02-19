@@ -16,6 +16,15 @@ public class MiniGamesController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+      //  Screen.orientation = ScreenOrientation.LandscapeLeft;
+
+        Screen.autorotateToLandscapeLeft = true;
+        Screen.autorotateToLandscapeRight = true;
+        Screen.autorotateToPortrait = false;
+        Screen.autorotateToPortraitUpsideDown = false;
+
+        Screen.orientation = ScreenOrientation.AutoRotation;
+
         if (SceneManager.GetActiveScene().name == "Layout Mini Games")
         {
             Debug.Log(PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "Shp Oblong"));

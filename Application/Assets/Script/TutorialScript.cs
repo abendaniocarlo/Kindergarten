@@ -52,6 +52,10 @@ public class TutorialScript : MonoBehaviour {
     {
         TutorialWindow.SetActive(true);
     }
+    public void ExitTutorialWindow() // this for scene na walang window tutorial
+    {
+        TutorialWindow.SetActive(false);
+    }
     public void ExitWindow()
     {
         Window.SetActive(false);

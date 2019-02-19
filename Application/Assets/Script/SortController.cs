@@ -38,7 +38,7 @@ public class SortController : MonoBehaviour {
 
         setIndex = randomPos(setIndex);
         initialPosition = transform.position;
-
+        
       
 	}
     //void OnTriggerEnter2D(Collider2D target)
@@ -66,93 +66,93 @@ public class SortController : MonoBehaviour {
         }
        
         
-        if (Input.touchCount > 0 && !locked)
-        {
-                     ///    Controller = GetComponent<Rigidbody2D>();
-        //    TagName = GetComponent<Rigidbody2D>().tag;
-            Touch touch = Input.GetTouch(0);
-            Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                     answer = GetComponent<Collider2D>().tag;
-                    Controller = GetComponent<Rigidbody2D>();
-                    TagName = GetComponent<Rigidbody2D>().tag;
+        //if (Input.touchCount > 0 && !locked)
+        //{
+        //             ///    Controller = GetComponent<Rigidbody2D>();
+        ////    TagName = GetComponent<Rigidbody2D>().tag;
+        //    Touch touch = Input.GetTouch(0);
+        //    Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+        //    switch (touch.phase)
+        //    {
+        //        case TouchPhase.Began:
+        //             answer = GetComponent<Collider2D>().tag;
+        //            Controller = GetComponent<Rigidbody2D>();
+        //            TagName = GetComponent<Rigidbody2D>().tag;
 
-                    Parent = GameObject.Find("Panel").transform;
-                    if (Controller.tag == "Camel")
-                    {
+        //            Parent = GameObject.Find("Panel").transform;
+        //            if (Controller.tag == "Camel")
+        //            {
 
-                        GameObject InstantiatedGameObject = Instantiate(Boxes[0], new Vector3(-6.5f, 0, 0), transform.rotation);
-                        InstantiatedGameObject.transform.SetParent(Parent);
+        //                GameObject InstantiatedGameObject = Instantiate(Boxes[0], new Vector3(-6.5f, 0, 0), transform.rotation);
+        //                InstantiatedGameObject.transform.SetParent(Parent);
 
-                    }
-                    else if (Controller.tag == "Donkey")
-                    {
+        //            }
+        //            else if (Controller.tag == "Donkey")
+        //            {
 
-                        GameObject InstantiatedGameObject = Instantiate(Boxes[1], new Vector3(-3, 0, 0), transform.rotation);
-                        InstantiatedGameObject.transform.SetParent(Parent);
-                    }
-                    else if (Controller.tag == "Elephant")
-                    {
-                        GameObject InstantiatedGameObject = Instantiate(Boxes[2], new Vector3(1f, 0, 0), transform.rotation);
-                        InstantiatedGameObject.transform.SetParent(Parent);
+        //                GameObject InstantiatedGameObject = Instantiate(Boxes[1], new Vector3(-3, 0, 0), transform.rotation);
+        //                InstantiatedGameObject.transform.SetParent(Parent);
+        //            }
+        //            else if (Controller.tag == "Elephant")
+        //            {
+        //                GameObject InstantiatedGameObject = Instantiate(Boxes[2], new Vector3(1f, 0, 0), transform.rotation);
+        //                InstantiatedGameObject.transform.SetParent(Parent);
 
-                    }
-                    else if (Controller.tag == "Lion")
-                    {
+        //            }
+        //            else if (Controller.tag == "Lion")
+        //            {
 
-                        GameObject InstantiatedGameObject = Instantiate(Boxes[3], new Vector3(3.7f, 0, 0), transform.rotation);
-                        InstantiatedGameObject.transform.SetParent(Parent);
-                    }
-                    else if (Controller.tag == "Walrus")
-                    {
+        //                GameObject InstantiatedGameObject = Instantiate(Boxes[3], new Vector3(3.7f, 0, 0), transform.rotation);
+        //                InstantiatedGameObject.transform.SetParent(Parent);
+        //            }
+        //            else if (Controller.tag == "Walrus")
+        //            {
 
-                        GameObject InstantiatedGameObject = Instantiate(Boxes[4], new Vector3(6.5f, 0, 0), transform.rotation);
-                        InstantiatedGameObject.transform.SetParent(Parent);
-                    }
+        //                GameObject InstantiatedGameObject = Instantiate(Boxes[4], new Vector3(6.5f, 0, 0), transform.rotation);
+        //                InstantiatedGameObject.transform.SetParent(Parent);
+        //            }
 
-                    if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
-                    {
+        //            if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
+        //            {
 
-                        deltaX = touchPos.x - transform.position.x;
+        //                deltaX = touchPos.x - transform.position.x;
 
-                        deltaY = touchPos.y - transform.position.y;
+        //                deltaY = touchPos.y - transform.position.y;
 
-                    }
-                    break;
+        //            }
+        //            break;
 
-                case TouchPhase.Moved:
-                    if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
-                    {
+        //        case TouchPhase.Moved:
+        //            if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
+        //            {
 
-                        transform.position = new Vector2(touchPos.x - deltaX, touchPos.y - deltaY);
-                    }
-
-
-                    break;
-                case TouchPhase.Ended:
-                    foreach (GameObject Temp in GameObject.FindGameObjectsWithTag("Bomb"))
-                    {
-                        Destroy(Temp);
-                    }
-                    if (!locked)
-                    {
-                        transform.position = new Vector2(initialPosition.x, initialPosition.y);
-                    }
-                    else
-                    {
-                        locked = false;
-                        number++;
-                    }
-                    break;
+        //                transform.position = new Vector2(touchPos.x - deltaX, touchPos.y - deltaY);
+        //            }
 
 
-            }
+        //            break;
+        //        case TouchPhase.Ended:
+        //            foreach (GameObject Temp in GameObject.FindGameObjectsWithTag("Bomb"))
+        //            {
+        //                Destroy(Temp);
+        //            }
+        //            if (!locked)
+        //            {
+        //                transform.position = new Vector2(initialPosition.x, initialPosition.y);
+        //            }
+        //            else
+        //            {
+        //                locked = false;
+        //                number++;
+        //            }
+        //            break;
+
+
+        //    }
 
 
 
-        }
+        //}
 	}
     void OnTriggerEnter2D(Collider2D target)
     {

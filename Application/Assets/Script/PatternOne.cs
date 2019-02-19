@@ -5,16 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class PatternOne : MonoBehaviour {
     public GameObject[] ObjStar;
-   
+    public GameObject directions;
+    public GameObject other;
+
     int[] oddNumbers = {-27,17, -4};
      int[] EvenNumbers = { -15, 6, 207 };
      int[] ObjIndex = { 0, 1, 2, 3, 4, 5, 6 };
-    int z, x; 
-   
+    int z, x;
+    public static int keyLog;
+
     public static string TagName;
 	void Start () {
+        if (keyLog == 0)
+        {
+            StartCoroutine(DirectionPlay());
+            keyLog++;
+        }
         //odd numbers positions
-        
+
         ObjIndex = randomPos(ObjIndex);
         x = ObjIndex[1];
         z = ObjIndex[0];
@@ -69,6 +77,16 @@ public class PatternOne : MonoBehaviour {
        
 		
 	}
+
+    IEnumerator DirectionPlay()
+    {
+        other.SetActive(false);
+        directions.SetActive(true);
+        yield return new WaitForSeconds(8.5f);
+        directions.SetActive(false);
+        other.SetActive(true);
+    }
+
     public void Done()
     {
         

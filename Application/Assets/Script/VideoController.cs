@@ -61,31 +61,31 @@ public class VideoController : MonoBehaviour {
 	// Update is called once per frame
     void Update()
     {
-        Rect rect = new Rect(200, 100, 500, 300);
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            if (rect.Contains(touch.position))
-            {
-                if (Input.touchCount > 0)
-                {
+        Rect rect = new Rect(150, 400, 700, 200);
+        //if (Input.touchCount > 0)
+        //{
+        //    Touch touch = Input.GetTouch(0);
+        //    if (rect.Contains(touch.position))
+        //    {
+        //        if (Input.touchCount > 0)
+        //        {
 
-                    if (player.isPlaying)
-                    {
+        //            if (player.isPlaying)
+        //            {
 
-                        Debug.Log("T");
-                        player.Pause();
-                    }
-                    else
-                    {
-                        Debug.Log("s");
-                        player.Play();
+        //                Debug.Log("T");
+        //                player.Pause();
+        //            }
+        //            else
+        //            {
+        //                Debug.Log("s");
+        //                player.Play();
 
-                    }
-                }
+        //            }
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
         if (rect.Contains(Input.mousePosition))
         {
