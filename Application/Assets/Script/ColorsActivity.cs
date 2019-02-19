@@ -17,6 +17,7 @@ public class ColorsActivity : MonoBehaviour {
     public GameObject correct1;
     public GameObject correct2;
     public GameObject correct3;
+    
     int[] wrong = { 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32 };
     int[] variable = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
   int[] AnsVar = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
@@ -36,6 +37,7 @@ public class ColorsActivity : MonoBehaviour {
     string result;
     string MyColor;
     string ColorIndex;
+    int count;
 	// Use this for initialization
 	void Start () {
         int b = 0;
@@ -555,7 +557,7 @@ public class ColorsActivity : MonoBehaviour {
         }
         else
         {
-         //   PlayerPrefs.SetInt(PlayerPrefs.GetString(result)+" "+color,Total/3);
+           PlayerPrefs.SetInt(PlayerPrefs.GetString(result)+" "+color,Total/3);
             StartCoroutine("ScoreWindow");
         }
         
@@ -565,14 +567,15 @@ public class ColorsActivity : MonoBehaviour {
         int temp=0;
         yield return new WaitForSeconds(1);
         ScoreBoard.SetActive(true);
-       // Debug.Log(Total);
         
+       Debug.Log(Total/3);
+        keyLog = 0;    
         while (temp != Total/3)
         {
             Star[temp].SetActive(true);
            temp++;
         }
-        keyLog = 0;
+        Total = 0;
     }
  /*   public void CloseDirection()
     {
@@ -592,6 +595,7 @@ public class ColorsActivity : MonoBehaviour {
     }
     public void TapColorTutorial()
     {
+       
         SceneManager.LoadScene("TapTheColors");
     }
     public void HomeBtn()

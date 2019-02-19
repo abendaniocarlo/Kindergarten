@@ -165,7 +165,7 @@ public class DragObject : MonoBehaviour {
             {
                 Debug.Log("Wrong");
             }
-            if (keyLog != 2)
+            if (keyLog != 10)
             {
                 StartCoroutine("RestartGame");
             }
@@ -189,8 +189,8 @@ public class DragObject : MonoBehaviour {
        int b=0, c=0;
        yield return new WaitForSeconds(1);
        ScoreBoard.SetActive(true);
-     
-        
+
+       PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " PatternOne", myScore);
         for (int a = 0; a < myScore; a++)
        {
             yield return new WaitForSeconds(.3f);
