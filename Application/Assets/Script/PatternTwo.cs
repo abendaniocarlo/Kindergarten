@@ -6,14 +6,22 @@ using UnityEngine.SceneManagement;
 public class PatternTwo : MonoBehaviour {
 
     public GameObject[] ObjStar;
+    public GameObject directions;
+    public GameObject other;
     int[] oddNumbers = { -29, -24, -5, 0 };
     int[] EvenNumbers = { -18, -11, 6,12 };
     int[] ObjIndex = { 0, 1, 2, 3, 4, 5, 6 };
     int z, x;
+    public static int keyLog;
 
     public static string TagName;
     void Start()
     {
+        if (keyLog == 0)
+        {
+            StartCoroutine(DirectionPlay());
+            keyLog++;
+        }
         //odd numbers positions
 
         ObjIndex = randomPos(ObjIndex);
@@ -68,6 +76,16 @@ public class PatternTwo : MonoBehaviour {
 
 
     }
+
+    IEnumerator DirectionPlay()
+    {
+        other.SetActive(false);
+        directions.SetActive(true);
+        yield return new WaitForSeconds(8.5f);
+        directions.SetActive(false);
+        other.SetActive(true);
+    }
+
     public void Done()
     {
         SceneManager.LoadScene("Layout Activities Patterns");

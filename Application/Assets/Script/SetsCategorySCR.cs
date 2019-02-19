@@ -15,6 +15,7 @@ public class SetsCategorySCR : MonoBehaviour {
     public GameObject SetsCategory;
     public GameObject PatternsCategory;
     public GameObject ScoreWindow;
+    public GameObject directions;
     public AudioSource SoundFx;
     public AudioClip CheckTone;
     public AudioClip WrongTone;
@@ -43,6 +44,8 @@ public class SetsCategorySCR : MonoBehaviour {
     public Text countdown; //UI Text Object
 	void Start () {
         QuestionAudio = GameObject.Find("QuestionAudio").GetComponent<Button>();
+        if (keyLog == 0)
+            StartCoroutine(DirectionPlay());
 
         bool type = false;
         int[] box = { -370, 130 };
@@ -186,6 +189,12 @@ public class SetsCategorySCR : MonoBehaviour {
             timeLeft--;
         }
 
+    }
+    IEnumerator DirectionPlay()
+    {
+        directions.SetActive(true);
+        yield return new WaitForSeconds(6f);
+        directions.SetActive(false);
     }
     public void set1()
     {

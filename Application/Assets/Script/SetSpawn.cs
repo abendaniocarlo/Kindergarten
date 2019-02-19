@@ -7,6 +7,8 @@ public class SetSpawn : MonoBehaviour {
     public GameObject[] myObject;
     public Transform[] TButtons;
     public GameObject treeshake;
+    public AudioSource SoundFx;
+    public AudioClip willSpeak;
     public GameObject tree;
     public Text[] QText;
     public GameObject[] OText;
@@ -17,12 +19,15 @@ public class SetSpawn : MonoBehaviour {
  	// Use this for initialization
     public static int FruitIndex = 8;
     public static int KeyLog;
-   public static int[] question = { 3, 5, 4, 2,5 };
+    public static int tune = 0;
+    public static int[] question = { 3, 5, 4, 2,5 };
    public static int[] number = { 2, 3, 4 };
    public static int[] Obj = { 0, 1, 2, 3, 4, 5, 6 };
    int[] YPostion = { 146, 76, 15, -50, -114 };
 
 	void Start () {
+        if(tune == 0)
+            SoundFx.PlayOneShot(willSpeak);
 
         question = randomPos(question);
         number = randomPos(number);
@@ -44,49 +49,56 @@ public class SetSpawn : MonoBehaviour {
         FruitIndex = 0;
         CButtons[0].transform.localPosition = new Vector3(CButtons[0].transform.localPosition.x, -234, 0);
         myButton[0].interactable = false;
-        StartCoroutine("ButtonSettings");  
+        StartCoroutine("ButtonSettings");
+        tune++;
     }
     public void Banana()
     {
         FruitIndex = 1;
         CButtons[1].transform.localPosition = new Vector3(-204.4f, -234, 0);
         myButton[1].interactable = false;
-        StartCoroutine("ButtonSettings");  
+        StartCoroutine("ButtonSettings");
+        tune++;
     }
     public void Grapes()
     {
         FruitIndex = 2;
         CButtons[2].transform.localPosition = new Vector3(-98.8f, -234, 0);
         myButton[2].interactable = false;
-        StartCoroutine("ButtonSettings");  
+        StartCoroutine("ButtonSettings");
+        tune++;
     }
     public void Orange()
     {
         FruitIndex = 3;
         CButtons[3].transform.localPosition = new Vector3(6.8f, -234, 0);
         myButton[3].interactable = false;
-        StartCoroutine("ButtonSettings");  
+        StartCoroutine("ButtonSettings");
+        tune++;
     }
     public void PineApple()
     {
         FruitIndex = 4;
         CButtons[4].transform.localPosition = new Vector3(112.4f, -234, 0);
         myButton[4].interactable = false;
-        StartCoroutine("ButtonSettings");  
+        StartCoroutine("ButtonSettings");
+        tune++;
     }
     public void Watermelon()
     {
         FruitIndex = 5;
         CButtons[5].transform.localPosition = new Vector3(218, -234, 0);
         myButton[5].interactable = false;
-        StartCoroutine("ButtonSettings");  
+        StartCoroutine("ButtonSettings");
+        tune++;
     }
     public void Cherry()
     {
         FruitIndex = 6;
         CButtons[6].transform.localPosition = new Vector3(323.6f, -234, 0);
         myButton[6].interactable = false;
-        StartCoroutine("ButtonSettings");  
+        StartCoroutine("ButtonSettings");
+        tune++;
     }
     IEnumerator NoOption()
     {
@@ -233,6 +245,7 @@ public class SetSpawn : MonoBehaviour {
 
     public void backbtn()
     {
+        tune = 0;
         SceneManager.LoadScene("Layout Games Sets");
     }
 }

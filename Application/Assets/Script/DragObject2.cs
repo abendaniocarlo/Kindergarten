@@ -26,9 +26,9 @@ public class DragObject2 : MonoBehaviour {
     {
         locked = false;
         initialPosition = transform.position;
-
-
+        
     }
+
     IEnumerator RestartGame()
     {
         
@@ -52,82 +52,83 @@ public class DragObject2 : MonoBehaviour {
         
        // Debug.Log(PatternOne.TagName);
 
-        if (Input.touchCount>0)
-        {
-            Touch touch = Input.GetTouch(0);
-            Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
+        //if (Input.touchCount>0)
+        //{
+        //    Touch touch = Input.GetTouch(0);
+        //    Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+        //    switch (touch.phase)
+        //    {
+        //        case TouchPhase.Began:
                    
-                    FillMe[0].SetActive(true);
-                    if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
-                    {
+        //            FillMe[0].SetActive(true);
+        //            if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
+        //            {
                       
 
-                        deltaX = touchPos.x - transform.position.x;
+        //                deltaX = touchPos.x - transform.position.x;
 
-                        deltaY = touchPos.y - transform.position.y;
+        //                deltaY = touchPos.y - transform.position.y;
 
-                    }
-                    break;
+        //            }
+        //            break;
 
-                case TouchPhase.Moved:
-                    if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
-                    {
+        //        case TouchPhase.Moved:
+        //            if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
+        //            {
 
-                        transform.position = new Vector2(touchPos.x - deltaX, touchPos.y - deltaY);
-                    }
-                    break;
-                case TouchPhase.Ended:
-                    FillMe[0].SetActive(false);
+        //                transform.position = new Vector2(touchPos.x - deltaX, touchPos.y - deltaY);
+        //            }
+        //            break;
+        //        case TouchPhase.Ended:
+        //            FillMe[0].SetActive(false);
              
                 
-                    if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 1 &&
+        //            if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 1 &&
 
-                    Mathf.Abs(transform.position.y - DropPoint.position.y) <= 1)
-                    {
-                        keyLog++;
-                         foreach (GameObject temp in Object2)
-                    {
-                        temp.SetActive(true);
-                    }
-                        foreach (GameObject temp in Object1)
-                        {
-                            temp.SetActive(false);
-                        }
-                        transform.position = new Vector2(DropPoint.position.x, DropPoint.position.y);
-                       // locked = true;
-                        answer = GetComponent<Collider2D>().tag;
-                        if (answer == TagName)
-                        {
-                            right = true;
-                        }
-                        else
-                        {
-                            Debug.Log("Wrong");
-                        }
-                        StartCoroutine("RestartGame");
-
-
-                    }
-
-                    else
-                    {
-                        transform.position = new Vector2(initialPosition.x, initialPosition.y);
-                    }
-                    break;
+        //            Mathf.Abs(transform.position.y - DropPoint.position.y) <= 1)
+        //            {
+        //                keyLog++;
+        //                 foreach (GameObject temp in Object2)
+        //            {
+        //                temp.SetActive(true);
+        //            }
+        //                foreach (GameObject temp in Object1)
+        //                {
+        //                    temp.SetActive(false);
+        //                }
+        //                transform.position = new Vector2(DropPoint.position.x, DropPoint.position.y);
+        //               // locked = true;
+        //                answer = GetComponent<Collider2D>().tag;
+        //                if (answer == TagName)
+        //                {
+        //                    right = true;
+        //                }
+        //                else
+        //                {
+        //                    Debug.Log("Wrong");
+        //                }
+        //                StartCoroutine("RestartGame");
 
 
-            }
+        //            }
+
+        //            else
+        //            {
+        //                transform.position = new Vector2(initialPosition.x, initialPosition.y);
+        //            }
+        //            break;
+
+
+        //    }
 
 
 
-        }
+        //}
     }
     private void OnMouseDown()
     {
-      //  Debug.Log(PatternTwo.TagName);
+        //  Debug.Log(PatternTwo.TagName);
+        value = GetComponent<Collider2D>().tag;
              if (!locked)
             {
             
@@ -157,7 +158,7 @@ public class DragObject2 : MonoBehaviour {
 
             foreach (GameObject temp in Object1)
             {
-                if (temp.tag != GetComponent<Collider2D>().tag)
+                if (temp.tag != value)
                 {
                     temp.SetActive(false);
                 }
