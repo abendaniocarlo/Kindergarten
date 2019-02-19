@@ -5,11 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class SizesController : MonoBehaviour
 {
-
+    string result;
+    public GameObject LockedIcon;
     // Use this for initialization
     void Start()
     {
-
+        if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "SizeBig",0)!=0)
+        {
+            LockedIcon.SetActive(false);
+        }
     }
     public void GoBIG()
     {

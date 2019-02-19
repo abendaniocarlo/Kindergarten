@@ -12,7 +12,7 @@ public class DragObject21 : MonoBehaviour {
     private Vector2 mousePosition;
     public static string answer;
     public string TagName;
-
+    string result;
     public static bool locked;
   //  public static bool locked2;
     public static bool Unlock;
@@ -194,6 +194,7 @@ public class DragObject21 : MonoBehaviour {
         int b = 0, c = 0;
         yield return new WaitForSeconds(1);
         ScoreBoard.SetActive(true);
+        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " PatternTwo", myScore);
         for (int a = 0; a < myScore; a++)
         {
             var createImage = Instantiate(Star, new Vector3(XPosition[b], YPosition[c], 0), Quaternion.identity) as GameObject;

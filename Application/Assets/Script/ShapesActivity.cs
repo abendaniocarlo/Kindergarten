@@ -367,7 +367,7 @@ public class ShapesActivity : MonoBehaviour {
         int b = 0, c = 0;
         yield return new WaitForSeconds(1);
         ScoreBoard.SetActive(true);
-      //  PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " " + Shapes, Total/3);
+       PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " " + Shapes, Total/3);
         for (int a = 0; a < Total/3; a++)
         {
             yield return new WaitForSeconds(0.5f);

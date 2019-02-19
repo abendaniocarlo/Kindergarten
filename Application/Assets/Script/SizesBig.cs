@@ -23,7 +23,7 @@ public class SizesBig : MonoBehaviour {
     bool TimerLimit = false;
    public int timeLeft = 20; //Seconds Overall
     public Text countdown; //UI Text Object
-    
+    string myMode;
     int[] YPosition = { 26, -64 };
     int[] XPosition = { -143, -71, 0, 74, 146 };
     public static int keyLog;
@@ -42,10 +42,12 @@ public class SizesBig : MonoBehaviour {
        if (SceneName == "Sizes Big")
        {
            size = "Size Big";
+           myMode = "SizeBig";
        }
        else if(SceneName == "Sizes Small")
        {
            size = "Size Small";
+           myMode = "SizeSmall";
        }
             myKey = 0;
             if (keyLog == 0)
@@ -81,16 +83,21 @@ public class SizesBig : MonoBehaviour {
     }
     public void GoBig()
     {
+       
         PlayerPrefs.SetString("SizeMode", "BigSize");
         SceneManager.LoadScene("SizeTutorial1");
     }
     public void GoSmall()
     {
+      
         PlayerPrefs.SetString("SizeMode", "SmallSize");
         SceneManager.LoadScene("SizeTutorial1");
     }
     public void returnbtn()
     {
+        myScore = 0;
+        keyLog = 0;
+        total = 0;
         SceneManager.LoadScene("Layout Activities Sizes");
     }
     public void BigBTN()
@@ -149,7 +156,7 @@ public class SizesBig : MonoBehaviour {
               int b = 0, c = 0;
               yield return new WaitForSeconds(1);
               ScoreBoard.SetActive(true);
-              //  PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " "+size, total);
+              PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " "+myMode, total);
               for (int a = 0; a < total; a++)
               {
                   yield return new WaitForSeconds(0.5f);
@@ -180,6 +187,9 @@ public class SizesBig : MonoBehaviour {
 
           public void Done()
           {
-            //  SceneManager.LoadScene("Layout Activities Shapes");
+              myScore = 0;
+              keyLog = 0;
+              total = 0;
+            SceneManager.LoadScene("Layout Activities Sizes");
           }
 }

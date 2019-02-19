@@ -4,10 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PatternsController : MonoBehaviour {
-
+    string result;
+    public GameObject LockedIcon;
 	// Use this for initialization
 	void Start () {
-		
+        if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " PatternOne", 0) != 0)
+        {
+            LockedIcon.SetActive(false);
+        }
 	}
     public void GoOne()
     {
