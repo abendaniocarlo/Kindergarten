@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class SetSpawn : MonoBehaviour {
     public GameObject[] myObject;
     public Transform[] TButtons;
+    public GameObject treeshake;
+    public GameObject tree;
     public Text[] QText;
     public GameObject[] OText;
     public GameObject[] QFruit;
@@ -21,6 +23,7 @@ public class SetSpawn : MonoBehaviour {
    int[] YPostion = { 146, 76, 15, -50, -114 };
 
 	void Start () {
+
         question = randomPos(question);
         number = randomPos(number);
         Obj = randomPos(Obj);
@@ -128,50 +131,51 @@ public class SetSpawn : MonoBehaviour {
         {
 
             //      Debug.Log("hit");
-          Rect rect = new Rect(150, 100, 700, 400);
-            if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            if (rect.Contains(touch.position))
-            {
+          Rect rect = new Rect(150, 400, 700, 200);
+        //    if (Input.touchCount > 0)
+        //{
+        //    Touch touch = Input.GetTouch(0);
+        //    if (rect.Contains(touch.position))
+        //    {
 
                
-                   // Touch touch = Input.GetTouch(0);
-                    Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+        //           // Touch touch = Input.GetTouch(0);
+        //            Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
 
-                    if (touch.phase == TouchPhase.Began)
-                    {
+        //            if (touch.phase == TouchPhase.Began)
+        //            {
 
-                        if (FruitIndex == 8)
-                        {
-                            int x = 0;
-                            while (x != 7)
-                            {
-
-
-                                CButtons[x].transform.localPosition = new Vector3(CButtons[x].transform.localPosition.x, -234, 0);
-
-                                x++;
-                                StartCoroutine("NoOption");
-                            }
-                        }
-                        else
-                        {
-                            Instantiate(myObject[FruitIndex], touchPos, Quaternion.identity);
-                        }
-                    }
+        //                if (FruitIndex == 8)
+        //                {
+        //                    int x = 0;
+        //                    while (x != 7)
+        //                    {
 
 
-            }
-        }
+        //                        CButtons[x].transform.localPosition = new Vector3(CButtons[x].transform.localPosition.x, -234, 0);
+
+        //                        x++;
+        //                        StartCoroutine("NoOption");
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    Instantiate(myObject[FruitIndex], touchPos, Quaternion.identity);
+        //                }
+        //            }
+
+
+        //    }
+        //}
         if (rect.Contains(Input.mousePosition))
         {
       
 
                 if (Input.GetMouseButtonDown(0))
                 {
+                    StartCoroutine("ToShake");
 
-                
+
                     Vector2 down = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
                     if (Input.GetMouseButtonDown(0))
@@ -216,6 +220,15 @@ public class SetSpawn : MonoBehaviour {
             array[r] = tmp;
         }
         return array;
+    }
+    IEnumerator ToShake()
+    {
+        tree.SetActive(false);
+        treeshake.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        tree.SetActive(true);
+        treeshake.SetActive(false);
+
     }
 
     public void backbtn()
