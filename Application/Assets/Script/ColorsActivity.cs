@@ -17,8 +17,9 @@ public class ColorsActivity : MonoBehaviour {
     public GameObject correct1;
     public GameObject correct2;
     public GameObject correct3;
+    int[] wrong = { 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32 };
     int[] variable = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
-  int[] AnsVar = { 2, 5, 8, 11, 14, 17, 20,23};
+  int[] AnsVar = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
     int[] positionX = { -300, -118, 132, 311 };
     int[] positionY = { 236, 75, -75 };
     public static int keyLog = 0;
@@ -51,6 +52,7 @@ public class ColorsActivity : MonoBehaviour {
         correct3.SetActive(false);
 
         variable = randomPos(variable);
+        wrong = randomPos(wrong);
         positionX = randomPos(positionX);
         positionY = randomPos(positionY);
         List<int> FinChoice = new List<int>();
@@ -60,10 +62,7 @@ public class ColorsActivity : MonoBehaviour {
         {
          //   questions[0].SetActive(true);
             answer = 1;
-            if (keyLog == 0)
-            {
-                AnsVar = randomPos(AnsVar);
-            }
+            AnsVar = randomPos(AnsVar);
             MyAnswer = SceneManager.GetActiveScene().name;
             if (MyAnswer == "Colors Activities")
             {
@@ -180,21 +179,22 @@ public class ColorsActivity : MonoBehaviour {
 
             ConvertChoice = new List<int>(variable);
           //change d = "Def" to Ansvar[KeyLog] add all the asset from 0 to 30
-            for (int d = Def; d != Def - 3; d--)
+            for (int d = 0; d != 3; d++)
             {
-                FinChoice.Add(d);
-                ConvertChoice.Remove(d);
+                FinChoice.Add(AnsVar[d]);
+               // ConvertChoice.Remove(d);
             }
 
           PreValue = ConvertChoice.ToArray();
            // PreValue = randomPos(PreValue);
             for (int d = 0; d != 9; d++)
             {
-                FinChoice.Add(PreValue[d]);
+                FinChoice.Add(wrong[d]);
             }
 
             Final = FinChoice.ToArray();
             Final = randomPos(Final);
+            
             /*     if (keyLog != 0)
               {
 
@@ -572,6 +572,7 @@ public class ColorsActivity : MonoBehaviour {
             Star[temp].SetActive(true);
            temp++;
         }
+        keyLog = 0;
     }
  /*   public void CloseDirection()
     {
@@ -595,6 +596,7 @@ public class ColorsActivity : MonoBehaviour {
     }
     public void HomeBtn()
     {
+        keyLog = 0;
         SceneManager.LoadScene("Layout Activities Colors");
     }
 

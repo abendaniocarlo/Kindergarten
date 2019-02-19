@@ -192,6 +192,7 @@ public class SetCompare : MonoBehaviour {
     public void TutorialWindow()
     {
         TutorialBox.SetActive(true);
+        PlayerPrefs.SetString("SetIndex", "Set2");
     }
     public void returnbtn()
     {

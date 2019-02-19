@@ -46,6 +46,9 @@ public class DragObject : MonoBehaviour {
     }
     public void Done()
     {
+        keyLog = 0;
+        locked = false;
+        myScore = 0;
         SceneManager.LoadScene("Layout Activities Patterns");
     }
 	// Update is called once per frame
@@ -79,9 +82,9 @@ public class DragObject : MonoBehaviour {
                     }
                     break;
                 case TouchPhase.Ended:
-                    if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 0.5f &&
+                    if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 2 &&
 
-                    Mathf.Abs(transform.position.y - DropPoint.position.y) <= 0.5f)
+                    Mathf.Abs(transform.position.y - DropPoint.position.y) <=2)
                     {
                         keyLog++;
                         transform.position = new Vector2(DropPoint.position.x, DropPoint.position.y);
@@ -143,14 +146,16 @@ public class DragObject : MonoBehaviour {
 
     private void OnMouseUp()
     {
-        if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 0.5f &&
-         Mathf.Abs(transform.position.y - DropPoint.position.y) <= 0.5f)
+        if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 2 &&
+         Mathf.Abs(transform.position.y - DropPoint.position.y) <= 2)
         {
 
             keyLog++;
+            Debug.Log(TagName);
             transform.position = new Vector2(DropPoint.position.x, DropPoint.position.y);
             locked = true;
             answer = GetComponent<Collider2D>().tag;
+            Debug.Log(answer);
             if (answer == TagName)
             {
                 myScore++;
@@ -184,9 +189,12 @@ public class DragObject : MonoBehaviour {
        int b=0, c=0;
        yield return new WaitForSeconds(1);
        ScoreBoard.SetActive(true);
-       for (int a = 0; a < myScore; a++)
+     
+        
+        for (int a = 0; a < myScore; a++)
        {
-           var createImage = Instantiate(Star, new Vector3(XPosition[b], YPosition[c], 0), Quaternion.identity) as GameObject;
+            yield return new WaitForSeconds(.3f);
+            var createImage = Instantiate(Star, new Vector3(XPosition[b], YPosition[c], 0), Quaternion.identity) as GameObject;
            createImage.transform.SetParent(PanelBoard.transform, false);
            b++;
            if (a == 4)
@@ -195,6 +203,10 @@ public class DragObject : MonoBehaviour {
                c++;
            }
        }
-   }
+       
+        myScore = 0;
+        keyLog = 0;
+        locked = false;
+    }
 
 }

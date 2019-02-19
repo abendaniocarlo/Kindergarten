@@ -59,63 +59,59 @@ public class SortController : MonoBehaviour {
 	void Update () {
         if (Input.GetButtonUp("Fire1"))
         {
-            //foreach (GameObject Temp in GameObject.FindGameObjectsWithTag("Bomb"))
-            //{
-            //    Destroy(Temp);
-            //}
+            foreach (GameObject Temp in GameObject.FindGameObjectsWithTag("Bomb"))
+            {
+                Destroy(Temp);
+            }
         }
        
-        if (Count == 20)
-        {
-            Debug.Log("Desigh Here");
-        }
+        
         if (Input.touchCount > 0 && !locked)
         {
-           
-            Controller = GetComponent<Rigidbody2D>();
-            TagName = GetComponent<Rigidbody2D>().tag;
+                     ///    Controller = GetComponent<Rigidbody2D>();
+        //    TagName = GetComponent<Rigidbody2D>().tag;
             Touch touch = Input.GetTouch(0);
             Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
             switch (touch.phase)
             {
                 case TouchPhase.Began:
                      answer = GetComponent<Collider2D>().tag;
-                     Controller = GetComponent<Rigidbody2D>();
+                    Controller = GetComponent<Rigidbody2D>();
                     TagName = GetComponent<Rigidbody2D>().tag;
-              
-                    // Parent = GameObject.Find("Panel").transform;
-                    //if (Controller.tag == "Camel")
-                    //{
 
-                    //  GameObject InstantiatedGameObject =  Instantiate(Boxes[0], new Vector3(-6.5f, 0, 0), transform.rotation);
-                    //  InstantiatedGameObject.transform.SetParent(Parent);   
-          
-                    //}
-                    //else if (Controller.tag == "Donkey")
-                    //{
+                    Parent = GameObject.Find("Panel").transform;
+                    if (Controller.tag == "Camel")
+                    {
 
-                    //    GameObject InstantiatedGameObject = Instantiate(Boxes[1], new Vector3(-3, 0, 0), transform.rotation);
-                    //    InstantiatedGameObject.transform.SetParent(Parent);
-                    //}
-                    //else if (Controller.tag == "Elephant")
-                    //{
-                    //    GameObject InstantiatedGameObject = Instantiate(Boxes[2], new Vector3(1f, 0, 0), transform.rotation);
-                    //    InstantiatedGameObject.transform.SetParent(Parent);
-          
-                    //}
-                    //else if (Controller.tag == "Lion")
-                    //{
+                        GameObject InstantiatedGameObject = Instantiate(Boxes[0], new Vector3(-6.5f, 0, 0), transform.rotation);
+                        InstantiatedGameObject.transform.SetParent(Parent);
 
-                    //    GameObject InstantiatedGameObject = Instantiate(Boxes[3], new Vector3(3.7f, 0, 0), transform.rotation);
-                    //    InstantiatedGameObject.transform.SetParent(Parent);
-                    //}
-                    //else if (Controller.tag == "Walrus")
-                    //{
+                    }
+                    else if (Controller.tag == "Donkey")
+                    {
 
-                    //    GameObject InstantiatedGameObject = Instantiate(Boxes[4], new Vector3(6.5f, 0, 0), transform.rotation);
-                    //    InstantiatedGameObject.transform.SetParent(Parent);
-                    //}
-                
+                        GameObject InstantiatedGameObject = Instantiate(Boxes[1], new Vector3(-3, 0, 0), transform.rotation);
+                        InstantiatedGameObject.transform.SetParent(Parent);
+                    }
+                    else if (Controller.tag == "Elephant")
+                    {
+                        GameObject InstantiatedGameObject = Instantiate(Boxes[2], new Vector3(1f, 0, 0), transform.rotation);
+                        InstantiatedGameObject.transform.SetParent(Parent);
+
+                    }
+                    else if (Controller.tag == "Lion")
+                    {
+
+                        GameObject InstantiatedGameObject = Instantiate(Boxes[3], new Vector3(3.7f, 0, 0), transform.rotation);
+                        InstantiatedGameObject.transform.SetParent(Parent);
+                    }
+                    else if (Controller.tag == "Walrus")
+                    {
+
+                        GameObject InstantiatedGameObject = Instantiate(Boxes[4], new Vector3(6.5f, 0, 0), transform.rotation);
+                        InstantiatedGameObject.transform.SetParent(Parent);
+                    }
+
                     if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
                     {
 
@@ -136,10 +132,10 @@ public class SortController : MonoBehaviour {
 
                     break;
                 case TouchPhase.Ended:
-                    //foreach (GameObject Temp in GameObject.FindGameObjectsWithTag("Bomb"))
-                    //{
-                    //    Destroy(Temp);
-                    //}
+                    foreach (GameObject Temp in GameObject.FindGameObjectsWithTag("Bomb"))
+                    {
+                        Destroy(Temp);
+                    }
                     if (!locked)
                     {
                         transform.position = new Vector2(initialPosition.x, initialPosition.y);
@@ -219,37 +215,37 @@ public class SortController : MonoBehaviour {
         Controller = GetComponent<Rigidbody2D>();
         TagName = GetComponent<Rigidbody2D>().tag;
         Parent = GameObject.Find("Panel").transform;
-        //if (Controller.tag == "Camel")
-        //{
+        if (Controller.tag == "Camel")
+        {
 
-        //  GameObject InstantiatedGameObject =  Instantiate(Boxes[0], new Vector3(-6.5f, 0, 0), transform.rotation);
-        //  InstantiatedGameObject.transform.SetParent(Parent);   
-          
-        //}
-        //else if (Controller.tag == "Donkey")
-        //{
+            GameObject InstantiatedGameObject = Instantiate(Boxes[0], new Vector3(-6.5f, 0, 0), transform.rotation);
+            InstantiatedGameObject.transform.SetParent(Parent);
 
-        //    GameObject InstantiatedGameObject = Instantiate(Boxes[1], new Vector3(-3, 0, 0), transform.rotation);
-        //    InstantiatedGameObject.transform.SetParent(Parent);
-        //}
-        //else if (Controller.tag == "Elephant")
-        //{
-        //    GameObject InstantiatedGameObject = Instantiate(Boxes[2], new Vector3(1f, 0, 0), transform.rotation);
-        //    InstantiatedGameObject.transform.SetParent(Parent);
-          
-        //}
-        //else if (Controller.tag == "Lion")
-        //{
+        }
+        else if (Controller.tag == "Donkey")
+        {
 
-        //    GameObject InstantiatedGameObject = Instantiate(Boxes[3], new Vector3(3.7f, 0, 0), transform.rotation);
-        //    InstantiatedGameObject.transform.SetParent(Parent);
-        //}
-        //else if (Controller.tag == "Walrus")
-        //{
+            GameObject InstantiatedGameObject = Instantiate(Boxes[1], new Vector3(-3, 0, 0), transform.rotation);
+            InstantiatedGameObject.transform.SetParent(Parent);
+        }
+        else if (Controller.tag == "Elephant")
+        {
+            GameObject InstantiatedGameObject = Instantiate(Boxes[2], new Vector3(1f, 0, 0), transform.rotation);
+            InstantiatedGameObject.transform.SetParent(Parent);
 
-        //    GameObject InstantiatedGameObject = Instantiate(Boxes[4], new Vector3(6.5f, 0, 0), transform.rotation);
-        //    InstantiatedGameObject.transform.SetParent(Parent);
-        //}
+        }
+        else if (Controller.tag == "Lion")
+        {
+
+            GameObject InstantiatedGameObject = Instantiate(Boxes[3], new Vector3(3.7f, 0, 0), transform.rotation);
+            InstantiatedGameObject.transform.SetParent(Parent);
+        }
+        else if (Controller.tag == "Walrus")
+        {
+
+            GameObject InstantiatedGameObject = Instantiate(Boxes[4], new Vector3(6.5f, 0, 0), transform.rotation);
+            InstantiatedGameObject.transform.SetParent(Parent);
+        }
         if (!locked)
         {
            deltaX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;

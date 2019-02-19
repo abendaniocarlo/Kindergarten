@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SortManager : MonoBehaviour {
 
@@ -17,6 +18,7 @@ public class SortManager : MonoBehaviour {
     public static string answer;
     private Vector2 mousePosition;
     public string TagName;
+    public static string Mode;
     int Camel=0;
     int Elephant=0;
     int Walrus=0;
@@ -31,6 +33,7 @@ public class SortManager : MonoBehaviour {
      public GameObject Board;
 	// Use this for initialization
 	void Start () {
+        Mode = PlayerPrefs.GetString("SetIndex", "No mode");
         setIndex = randomPos(setIndex);
         for (int a = 0; a != 5; a++)
         {
@@ -114,4 +117,27 @@ public class SortManager : MonoBehaviour {
         }
        
 	}
+
+
+    public void Retry()
+    {
+        KeyLog = 0;
+
+        StartCoroutine("TryAgain");
+    }
+    IEnumerator TryAgain()
+    {
+        yield return new WaitForSeconds(.3f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void backbtn()
+    {
+        KeyLog = 0;
+        if (Mode == "Set1")
+            SceneManager.LoadScene("Sets Activity");
+
+        else
+            SceneManager.LoadScene("Sets Compare");
+    }
 }
