@@ -19,8 +19,8 @@ public class VideoController : MonoBehaviour {
        
         player = GetComponent<VideoPlayer>();
         player.Pause();
-         
-       
+        PlayButton.SetActive(false);
+        
     }
 	void Start () {
         PauseButton.SetActive(false);
@@ -40,13 +40,13 @@ public class VideoController : MonoBehaviour {
         {
             
             player.Pause();
-           
+            PlayButton.SetActive(true);
         }
         else
         {
             
             player.Play();
-         
+            PlayButton.SetActive(false);
         }
     }
     public void Exit()
@@ -61,7 +61,19 @@ public class VideoController : MonoBehaviour {
 	// Update is called once per frame
     void Update()
     {
-        Rect rect = new Rect(150, 400, 700, 200);
+
+        if (player.isPlaying)
+        {
+
+
+            PlayButton.SetActive(false);
+
+        }
+        else
+        {
+            PlayButton.SetActive(true);
+        }
+        Rect rect = new Rect(100, 50, 800, 500);
         //if (Input.touchCount > 0)
         //{
         //    Touch touch = Input.GetTouch(0);
@@ -86,9 +98,10 @@ public class VideoController : MonoBehaviour {
 
         //    }
         //}
-
+      
         if (rect.Contains(Input.mousePosition))
         {
+          //  Debug.Log("ss");
             if (Input.GetMouseButtonDown(0))
             {
 

@@ -191,11 +191,19 @@ public class MiniGamesController : MonoBehaviour
     {
         SceneManager.LoadScene("ColorsCatch");
     }
+    public void GoColorTap()
+    {
+        SceneManager.LoadScene("ColorsTapGame");
+    }
 
     // game shapes
     public void GoShapesCatch()
     {
         SceneManager.LoadScene("ShapesCatch");
+    }
+    public void GoShapeTap()
+    {
+        SceneManager.LoadScene("ShapesTapGame");
     }
 
     // game patterns

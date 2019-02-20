@@ -58,167 +58,167 @@ public class PatternTutorial : MonoBehaviour {
         TagName = PatternOne.TagName;
         //   Debug.Log(PatternOne.TagName);
 
-        if (Input.touchCount > 0 && !locked)
-        {
-            Touch touch = Input.GetTouch(0);
-            Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                    answer = GetComponent<Collider2D>().tag;
+        //if (Input.touchCount > 0 && !locked)
+        //{
+        //    Touch touch = Input.GetTouch(0);
+        //    Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+        //    switch (touch.phase)
+        //    {
+        //        case TouchPhase.Began:
+        //            answer = GetComponent<Collider2D>().tag;
 
        
-                    if (answer == "DrawBlue")
-                    {
-                        SGuide[0].SetActive(true);
-                        LGuide[0].SetActive(true);
+        //            if (answer == "DrawBlue")
+        //            {
+        //                SGuide[0].SetActive(true);
+        //                LGuide[0].SetActive(true);
            
-                    }
-                    else if (answer == "DrawBrown")
-                    {
-                        SGuide[1].SetActive(true);
-                        LGuide[2].SetActive(true);
-                    }
-                    else if (answer == "DrawGreen")
-                    {
-                        SGuide[2].SetActive(true);
-                        LGuide[4].SetActive(true);
-                    }
+        //            }
+        //            else if (answer == "DrawBrown")
+        //            {
+        //                SGuide[1].SetActive(true);
+        //                LGuide[2].SetActive(true);
+        //            }
+        //            else if (answer == "DrawGreen")
+        //            {
+        //                SGuide[2].SetActive(true);
+        //                LGuide[4].SetActive(true);
+        //            }
 
-                    if (answer == "DrawOrange")
-                    {
-                        SGuide[3].SetActive(true);
-                        LGuide[1].SetActive(true);
+        //            if (answer == "DrawOrange")
+        //            {
+        //                SGuide[3].SetActive(true);
+        //                LGuide[1].SetActive(true);
      
-                    }
-                    else if (answer == "DrawRed")
-                    {
-                        SGuide  [4].SetActive(true);
-                        LGuide[3].SetActive(true);
-                    }
-                    else if (answer == "DrawViolet")
-                    {
-                        SGuide[5].SetActive(true);
-                        LGuide[5].SetActive(true);
-                    }
-                    if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
-                    {
+        //            }
+        //            else if (answer == "DrawRed")
+        //            {
+        //                SGuide  [4].SetActive(true);
+        //                LGuide[3].SetActive(true);
+        //            }
+        //            else if (answer == "DrawViolet")
+        //            {
+        //                SGuide[5].SetActive(true);
+        //                LGuide[5].SetActive(true);
+        //            }
+        //            if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
+        //            {
 
-                        deltaX = touchPos.x - transform.position.x;
+        //                deltaX = touchPos.x - transform.position.x;
 
-                        deltaY = touchPos.y - transform.position.y;
+        //                deltaY = touchPos.y - transform.position.y;
 
-                    }
-                    break;
+        //            }
+        //            break;
 
-                case TouchPhase.Moved:
-                    if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
-                    {
+        //        case TouchPhase.Moved:
+        //            if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
+        //            {
 
-                        transform.position = new Vector2(touchPos.x - deltaX, touchPos.y - deltaY);
-                    }
-                    break;
-                case TouchPhase.Ended:
-                    if (answer == "DrawBlue")
-                        {
-                            SGuide[0].SetActive(false);
-                            LGuide[0].SetActive(false);
-                            DropEffect[0].SetActive(false);
-                        }
-                        else if (answer == "DrawBrown")
-                        {
-                            SGuide[1].SetActive(false);
-                            LGuide[2].SetActive(false);
-                            DropEffect[2].SetActive(false);
-                        }
-                        else if (answer == "DrawGreen")
-                        {
-                            SGuide[2].SetActive(false);
-                            LGuide[4].SetActive(false);
-                            DropEffect[4].SetActive(false);
-                        }
+        //                transform.position = new Vector2(touchPos.x - deltaX, touchPos.y - deltaY);
+        //            }
+        //            break;
+        //        case TouchPhase.Ended:
+        //            if (answer == "DrawBlue")
+        //                {
+        //                    SGuide[0].SetActive(false);
+        //                    LGuide[0].SetActive(false);
+        //                    DropEffect[0].SetActive(false);
+        //                }
+        //                else if (answer == "DrawBrown")
+        //                {
+        //                    SGuide[1].SetActive(false);
+        //                    LGuide[2].SetActive(false);
+        //                    DropEffect[2].SetActive(false);
+        //                }
+        //                else if (answer == "DrawGreen")
+        //                {
+        //                    SGuide[2].SetActive(false);
+        //                    LGuide[4].SetActive(false);
+        //                    DropEffect[4].SetActive(false);
+        //                }
 
-                        if (answer == "DrawOrange")
-                        {
-                            SGuide[3].SetActive(false);
-                            LGuide[1].SetActive(false);
-                            DropEffect[2].SetActive(false);
-                        }
-                        else if (answer == "DrawRed")
-                        {
-                            SGuide[4].SetActive(false);
-                            LGuide[3].SetActive(false);
-                            DropEffect[4].SetActive(false);
-                        }
-                        else if (answer == "DrawViolet")
-                        {
-                            SGuide[5].SetActive(false);
-                            LGuide[5].SetActive(false);
-                            DropEffect[5].SetActive(false);
-                        }
-                    if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 0.5f &&
+        //                if (answer == "DrawOrange")
+        //                {
+        //                    SGuide[3].SetActive(false);
+        //                    LGuide[1].SetActive(false);
+        //                    DropEffect[2].SetActive(false);
+        //                }
+        //                else if (answer == "DrawRed")
+        //                {
+        //                    SGuide[4].SetActive(false);
+        //                    LGuide[3].SetActive(false);
+        //                    DropEffect[4].SetActive(false);
+        //                }
+        //                else if (answer == "DrawViolet")
+        //                {
+        //                    SGuide[5].SetActive(false);
+        //                    LGuide[5].SetActive(false);
+        //                    DropEffect[5].SetActive(false);
+        //                }
+        //            if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 0.5f &&
 
-                    Mathf.Abs(transform.position.y - DropPoint.position.y) <= 0.5f)
-                    {
-                        if (answer == "DrawBlue")
-                        {
+        //            Mathf.Abs(transform.position.y - DropPoint.position.y) <= 0.5f)
+        //            {
+        //                if (answer == "DrawBlue")
+        //                {
 
-                            Stars[0].SetActive(true);
+        //                    Stars[0].SetActive(true);
 
-                        }
-                        else if (answer == "DrawBrown")
-                        {
+        //                }
+        //                else if (answer == "DrawBrown")
+        //                {
 
-                            Stars[1].SetActive(true);
+        //                    Stars[1].SetActive(true);
 
-                        }
-                        else if (answer == "DrawGreen")
-                        {
+        //                }
+        //                else if (answer == "DrawGreen")
+        //                {
 
-                            Stars[2].SetActive(true);
+        //                    Stars[2].SetActive(true);
 
-                        }
+        //                }
 
-                        if (answer == "DrawOrange")
-                        {
+        //                if (answer == "DrawOrange")
+        //                {
 
-                            Circles[1].SetActive(true);
+        //                    Circles[1].SetActive(true);
 
-                        }
-                        else if (answer == "DrawRed")
-                        {
+        //                }
+        //                else if (answer == "DrawRed")
+        //                {
 
-                            Circles[2].SetActive(true);
+        //                    Circles[2].SetActive(true);
 
-                        }
-                        else if (answer == "DrawViolet")
-                        {
-                            Circles[2].SetActive(true);
-                            Board.SetActive(true);
+        //                }
+        //                else if (answer == "DrawViolet")
+        //                {
+        //                    Circles[2].SetActive(true);
+        //                    Board.SetActive(true);
 
-                        }
-                        keyLog++;
-                        transform.position = new Vector2(DropPoint.position.x, DropPoint.position.y);
-                        locked = true;
-                        answer = GetComponent<Collider2D>().tag;
+        //                }
+        //                keyLog++;
+        //                transform.position = new Vector2(DropPoint.position.x, DropPoint.position.y);
+        //                locked = true;
+        //                answer = GetComponent<Collider2D>().tag;
 
-                        locked = false;
-
-
-                    }
-
-                    else
-                    {
-                        transform.position = new Vector2(initialPosition.x, initialPosition.y);
-                    }
-                    break;
+        //                locked = false;
 
 
-            }
+        //            }
+
+        //            else
+        //            {
+        //                transform.position = new Vector2(initialPosition.x, initialPosition.y);
+        //            }
+        //            break;
+
+
+        //    }
 
 
 
-        }
+        //}
     }
     private void OnMouseDown()
     {
@@ -318,8 +318,8 @@ public class PatternTutorial : MonoBehaviour {
             LGuide[5].SetActive(false);
             DropEffect[5].SetActive(false);
         }
-        if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 0.5f &&
-         Mathf.Abs(transform.position.y - DropPoint.position.y) <= 0.5f)
+        if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 2 &&
+         Mathf.Abs(transform.position.y - DropPoint.position.y) <= 2)
         {
 
             if (answer == "DrawBlue")
