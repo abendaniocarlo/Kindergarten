@@ -2632,6 +2632,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114120073635275050, guid: 03a9e55aab9db414ea68d2a83f9b495e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224830577861612552, guid: 03a9e55aab9db414ea68d2a83f9b495e,
         type: 2}
       propertyPath: m_RootOrder
@@ -2730,6 +2735,31 @@ Prefab:
     - target: {fileID: 1713598706312762, guid: 03a9e55aab9db414ea68d2a83f9b495e, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114120073635275050, guid: 03a9e55aab9db414ea68d2a83f9b495e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114120073635275050, guid: 03a9e55aab9db414ea68d2a83f9b495e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114120073635275050, guid: 03a9e55aab9db414ea68d2a83f9b495e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1842979601}
+    - target: {fileID: 114120073635275050, guid: 03a9e55aab9db414ea68d2a83f9b495e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Done
+      objectReference: {fileID: 0}
+    - target: {fileID: 114120073635275050, guid: 03a9e55aab9db414ea68d2a83f9b495e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03a9e55aab9db414ea68d2a83f9b495e, type: 2}
@@ -2978,7 +3008,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -0.4857788, y: 85.399994}
+  m_AnchoredPosition: {x: -0.48583984, y: 85.39996}
   m_SizeDelta: {x: -1.9, y: 214.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1854281375

@@ -243,7 +243,7 @@ public class SetSpawn : MonoBehaviour {
 
     }
 
-    public void backbtn()
+    public void Done()
     {
         tune = 0;
         SceneManager.LoadScene("Layout Games Sets");

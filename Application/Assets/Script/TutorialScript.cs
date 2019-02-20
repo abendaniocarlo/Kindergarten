@@ -62,6 +62,14 @@ public class TutorialScript : MonoBehaviour {
 
     }
 
+    public void GoPatternOneTutorials()
+    {
+        SceneManager.LoadScene("PatternTutorial1");
+    }
+    public void GoPatternTwoTutorials()
+    {
+        SceneManager.LoadScene("PatternTutorial2");
+    }
     public void GoSetSort()
     {
         SceneManager.LoadScene("SetSort");

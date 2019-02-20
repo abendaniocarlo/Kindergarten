@@ -11,6 +11,9 @@ public class PatternCreator : MonoBehaviour {
     public GameObject ScoreBoard;
     public GameObject Star;
     public GameObject[] myButton;
+    public AudioSource SoundFx;
+    public AudioClip willSpeak;
+    public static int tune = 0;
     public Button[] Buttons;
     int[] YPosition = { 26, -64 };
     int[] Quest = { 0, 1 };
@@ -29,6 +32,8 @@ public class PatternCreator : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        if (tune ==0)
+            SoundFx.PlayOneShot(willSpeak);
 
         Index = randomPos(Index);
         PositionY = randomPos(PositionY);
@@ -55,6 +60,7 @@ public class PatternCreator : MonoBehaviour {
 
         }
 
+        tune++;
      //   Debug.Log(PTwo[0]);
      //   Debug.Log(PTwo[1]);
 
@@ -331,6 +337,12 @@ public class PatternCreator : MonoBehaviour {
             array[r] = tmp;
         }
         return array;
+    }
+
+    public void Done()
+    {
+        tune = 0;
+        SceneManager.LoadScene("Layout Games Patterns");
     }
 
     // Update is called once per frame

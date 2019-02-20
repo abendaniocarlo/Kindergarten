@@ -173,6 +173,10 @@ public class SizeShuffle : MonoBehaviour {
 
 
     }
+    public void Done()
+    {
+        SceneManager.LoadScene("Layout Games Sizes");
+    }
 	// Update is called once per frame
 	void Update () {
 		

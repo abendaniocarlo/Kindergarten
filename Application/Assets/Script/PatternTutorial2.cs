@@ -46,7 +46,7 @@ public class PatternTutorial2 : MonoBehaviour {
     }
     public void Done()
     {
-        SceneManager.LoadScene("DragTry");
+        SceneManager.LoadScene("PatternTwo");
     }
     public void Retry()
     {
@@ -58,242 +58,242 @@ public class PatternTutorial2 : MonoBehaviour {
         TagName = PatternOne.TagName;
         //   Debug.Log(PatternOne.TagName);
 
-        if (Input.touchCount > 0 && !locked)
-        {
-            Touch touch = Input.GetTouch(0);
-            Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                    answer = GetComponent<Collider2D>().tag;
+        //if (Input.touchCount > 0 && !locked)
+        //{
+        //    Touch touch = Input.GetTouch(0);
+        //    Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+        //    switch (touch.phase)
+        //    {
+        //        case TouchPhase.Began:
+        //            answer = GetComponent<Collider2D>().tag;
 
 
-                    if (answer == "DrawBlue")
-                    {
-                        SGuide[0].SetActive(true);
-                        //  LGuide[0].SetActive(true);
+        //            if (answer == "DrawBlue")
+        //            {
+        //                SGuide[0].SetActive(true);
+        //                //  LGuide[0].SetActive(true);
 
-                    }
-                    else if (answer == "DrawBrown")
-                    {
-                        SGuide[1].SetActive(true);
+        //            }
+        //            else if (answer == "DrawBrown")
+        //            {
+        //                SGuide[1].SetActive(true);
 
-                    }
-                    else if (answer == "DrawYellow")
-                    {
-                        SGuide[2].SetActive(true);
+        //            }
+        //            else if (answer == "DrawYellow")
+        //            {
+        //                SGuide[2].SetActive(true);
 
-                    }
-                    else if (answer == "Bomb")
-                    {
-                        SGuide[3].SetActive(true);
+        //            }
+        //            else if (answer == "Bomb")
+        //            {
+        //                SGuide[3].SetActive(true);
 
-                    }
-                    else if (answer == "DrawGreen")
-                    {
-                        SGuide[4].SetActive(true);
+        //            }
+        //            else if (answer == "DrawGreen")
+        //            {
+        //                SGuide[4].SetActive(true);
 
-                    }
-                    else if (answer == "DrawOrange")
-                    {
-                        SGuide[5].SetActive(true);
+        //            }
+        //            else if (answer == "DrawOrange")
+        //            {
+        //                SGuide[5].SetActive(true);
 
-                    }
-                    else if (answer == "Shapes")
-                    {
-                        SGuide[6].SetActive(true);
+        //            }
+        //            else if (answer == "Shapes")
+        //            {
+        //                SGuide[6].SetActive(true);
 
-                    }
-                    else if (answer == "Circle")
-                    {
-                        SGuide[7].SetActive(true);
+        //            }
+        //            else if (answer == "Circle")
+        //            {
+        //                SGuide[7].SetActive(true);
 
-                    }
-                    else if (answer == "DrawRed")
-                    {
-                        SGuide[8].SetActive(true);
+        //            }
+        //            else if (answer == "DrawRed")
+        //            {
+        //                SGuide[8].SetActive(true);
 
-                    }
-                    else if (answer == "DrawViolet")
-                    {
-                        SGuide[9].SetActive(true);
+        //            }
+        //            else if (answer == "DrawViolet")
+        //            {
+        //                SGuide[9].SetActive(true);
 
-                    }
-                    else if (answer == "Square")
-                    {
-                        SGuide[10].SetActive(true);
+        //            }
+        //            else if (answer == "Square")
+        //            {
+        //                SGuide[10].SetActive(true);
 
-                    }
-                    else if (answer == "Rectangle")
-                    {
-                        SGuide[11].SetActive(true);
+        //            }
+        //            else if (answer == "Rectangle")
+        //            {
+        //                SGuide[11].SetActive(true);
 
-                    }
-                    if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
-                    {
+        //            }
+        //            if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
+        //            {
 
-                        deltaX = touchPos.x - transform.position.x;
+        //                deltaX = touchPos.x - transform.position.x;
 
-                        deltaY = touchPos.y - transform.position.y;
+        //                deltaY = touchPos.y - transform.position.y;
 
-                    }
-                    break;
+        //            }
+        //            break;
 
-                case TouchPhase.Moved:
-                    if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
-                    {
+        //        case TouchPhase.Moved:
+        //            if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
+        //            {
 
-                        transform.position = new Vector2(touchPos.x - deltaX, touchPos.y - deltaY);
-                    }
-                    break;
-                case TouchPhase.Ended:
-                    if (answer == "DrawBlue")
-                    {
-                        SGuide[0].SetActive(true);
-                        //  LGuide[0].SetActive(true);
+        //                transform.position = new Vector2(touchPos.x - deltaX, touchPos.y - deltaY);
+        //            }
+        //            break;
+        //        case TouchPhase.Ended:
+        //            if (answer == "DrawBlue")
+        //            {
+        //                SGuide[0].SetActive(true);
+        //                //  LGuide[0].SetActive(true);
 
-                    }
-                    else if (answer == "DrawBrown")
-                    {
-                        SGuide[1].SetActive(false);
+        //            }
+        //            else if (answer == "DrawBrown")
+        //            {
+        //                SGuide[1].SetActive(false);
 
-                    }
-                    else if (answer == "DrawYellow")
-                    {
-                        SGuide[2].SetActive(false);
+        //            }
+        //            else if (answer == "DrawYellow")
+        //            {
+        //                SGuide[2].SetActive(false);
 
-                    }
-                    else if (answer == "Bomb")
-                    {
-                        SGuide[3].SetActive(false);
+        //            }
+        //            else if (answer == "Bomb")
+        //            {
+        //                SGuide[3].SetActive(false);
 
-                    }
-                    else if (answer == "DrawGreen")
-                    {
-                        SGuide[4].SetActive(false);
+        //            }
+        //            else if (answer == "DrawGreen")
+        //            {
+        //                SGuide[4].SetActive(false);
 
-                    }
-                    else if (answer == "DrawOrange")
-                    {
-                        SGuide[5].SetActive(false);
+        //            }
+        //            else if (answer == "DrawOrange")
+        //            {
+        //                SGuide[5].SetActive(false);
 
-                    }
-                    else if (answer == "Shapes")
-                    {
-                        SGuide[6].SetActive(false);
+        //            }
+        //            else if (answer == "Shapes")
+        //            {
+        //                SGuide[6].SetActive(false);
 
-                    }
-                    else if (answer == "Circle")
-                    {
-                        SGuide[7].SetActive(false);
+        //            }
+        //            else if (answer == "Circle")
+        //            {
+        //                SGuide[7].SetActive(false);
 
-                    }
-                    else if (answer == "DrawRed")
-                    {
-                        SGuide[8].SetActive(false);
+        //            }
+        //            else if (answer == "DrawRed")
+        //            {
+        //                SGuide[8].SetActive(false);
 
-                    }
-                    else if (answer == "DrawViolet")
-                    {
-                        SGuide[9].SetActive(false);
+        //            }
+        //            else if (answer == "DrawViolet")
+        //            {
+        //                SGuide[9].SetActive(false);
 
-                    }
-                    else if (answer == "Square")
-                    {
-                        SGuide[10].SetActive(false);
+        //            }
+        //            else if (answer == "Square")
+        //            {
+        //                SGuide[10].SetActive(false);
 
-                    }
-                    else if (answer == "Rectangle")
-                    {
-                        SGuide[11].SetActive(false);
+        //            }
+        //            else if (answer == "Rectangle")
+        //            {
+        //                SGuide[11].SetActive(false);
 
-                    }
-                    if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 0.5f &&
+        //            }
+        //            if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 0.5f &&
 
-                    Mathf.Abs(transform.position.y - DropPoint.position.y) <= 0.5f)
-                    {
-                        if (answer == "DrawBlue")
-                        {
-                            Shapes[0].SetActive(true);
-                            //  LGuide[0].SetActive(true);
+        //            Mathf.Abs(transform.position.y - DropPoint.position.y) <= 0.5f)
+        //            {
+        //                if (answer == "DrawBlue")
+        //                {
+        //                    Shapes[0].SetActive(true);
+        //                    //  LGuide[0].SetActive(true);
 
-                        }
-                        else if (answer == "DrawBrown")
-                        {
-                            Shapes[1].SetActive(true);
+        //                }
+        //                else if (answer == "DrawBrown")
+        //                {
+        //                    Shapes[1].SetActive(true);
 
-                        }
-                        else if (answer == "DrawYellow")
-                        {
-                            Shapes[2].SetActive(true);
+        //                }
+        //                else if (answer == "DrawYellow")
+        //                {
+        //                    Shapes[2].SetActive(true);
 
-                        }
-                        else if (answer == "Bomb")
-                        {
-                            Shapes[3].SetActive(true);
+        //                }
+        //                else if (answer == "Bomb")
+        //                {
+        //                    Shapes[3].SetActive(true);
 
-                        }
-                        else if (answer == "DrawGreen")
-                        {
-                            Shapes[4].SetActive(true);
+        //                }
+        //                else if (answer == "DrawGreen")
+        //                {
+        //                    Shapes[4].SetActive(true);
 
-                        }
-                        else if (answer == "DrawOrange")
-                        {
-                            Shapes[5].SetActive(true);
+        //                }
+        //                else if (answer == "DrawOrange")
+        //                {
+        //                    Shapes[5].SetActive(true);
 
-                        }
-                        else if (answer == "Shapes")
-                        {
-                            Shapes[6].SetActive(true);
+        //                }
+        //                else if (answer == "Shapes")
+        //                {
+        //                    Shapes[6].SetActive(true);
 
-                        }
-                        else if (answer == "Circle")
-                        {
-                            Shapes[7].SetActive(true);
-                        }
-                        else if (answer == "DrawRed")
-                        {
-                            Shapes[8].SetActive(true);
+        //                }
+        //                else if (answer == "Circle")
+        //                {
+        //                    Shapes[7].SetActive(true);
+        //                }
+        //                else if (answer == "DrawRed")
+        //                {
+        //                    Shapes[8].SetActive(true);
 
-                        }
-                        else if (answer == "DrawViolet")
-                        {
-                            Shapes[9].SetActive(true);
+        //                }
+        //                else if (answer == "DrawViolet")
+        //                {
+        //                    Shapes[9].SetActive(true);
 
-                        }
-                        else if (answer == "Square")
-                        {
-                            Shapes[10].SetActive(true);
+        //                }
+        //                else if (answer == "Square")
+        //                {
+        //                    Shapes[10].SetActive(true);
 
-                        }
-                        else if (answer == "Rectangle")
-                        {
-                            Shapes[11].SetActive(true);
+        //                }
+        //                else if (answer == "Rectangle")
+        //                {
+        //                    Shapes[11].SetActive(true);
 
-                        }
-                        keyLog++;
-                        transform.position = new Vector2(DropPoint.position.x, DropPoint.position.y);
-                        locked = true;
-                        answer = GetComponent<Collider2D>().tag;
+        //                }
+        //                keyLog++;
+        //                transform.position = new Vector2(DropPoint.position.x, DropPoint.position.y);
+        //                locked = true;
+        //                answer = GetComponent<Collider2D>().tag;
 
-                        locked = false;
-
-
-                    }
-
-                    else
-                    {
-                        transform.position = new Vector2(initialPosition.x, initialPosition.y);
-                    }
-                    break;
+        //                locked = false;
 
 
-            }
+        //            }
+
+        //            else
+        //            {
+        //                transform.position = new Vector2(initialPosition.x, initialPosition.y);
+        //            }
+        //            break;
+
+
+        //    }
 
 
 
-        }
+        //}
     }
     private void OnMouseDown()
     {
@@ -445,8 +445,8 @@ public class PatternTutorial2 : MonoBehaviour {
             SGuide[11].SetActive(false);
 
         }
-        if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 0.5f &&
-         Mathf.Abs(transform.position.y - DropPoint.position.y) <= 0.5f)
+        if (Mathf.Abs(transform.position.x - DropPoint.position.x) <= 2 &&
+         Mathf.Abs(transform.position.y - DropPoint.position.y) <= 2)
         {
             if (answer == "DrawBlue")
             {
