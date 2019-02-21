@@ -25,7 +25,7 @@ public class CatchingGame : MonoBehaviour {
        /*Vector2 myVel = Owly.velocity;
         myVel.x = Input.GetAxis("Horizontal") * speed;
         Owly.velocity = myVel;*/
-        if (Input.touchCount > 0 || Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))
         {
             Vector3 rawPosition = cam.ScreenToWorldPoint(Input.mousePosition);
             Vector3 targetPosition = new Vector3(rawPosition.x, -7.61f, 0.23f);
