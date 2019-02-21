@@ -21,20 +21,22 @@ public class StatisticsScript : MonoBehaviour {
     int number3 = 0;
     int number4 = 0;
     int number = 0;
-    string result = "";
+    string result;
     // Use this for initialization
     void Start()
     {
+        
         ColorsScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " Colors");
         ShapesScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " Shapes");
         SizesScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " Sizes");
         SetsScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " Sets");
         PatternsScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " Patterns");
-        Debug.Log(ColorsScore);
-        Debug.Log(ShapesScore);
-        Debug.Log(SizesScore);
-        Debug.Log(SetsScore);
-        Debug.Log(PatternsScore);
+        //Debug.Log(PlayerPrefs.GetString(result));
+        //Debug.Log(ColorsScore);
+        //Debug.Log(ShapesScore);
+        //Debug.Log(SizesScore);
+        //Debug.Log(SetsScore);
+        //Debug.Log(PatternsScore);
         while (number != PatternsScore)
         {
             PatternsStars[number].SetActive(true);

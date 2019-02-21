@@ -40,8 +40,23 @@ public class SortManager : MonoBehaviour {
         {
             Instantiate(myObject[setIndex[a]], new Vector3(PosY[a], -4.3f, 0), transform.rotation);
         }
-       // Debug.Log(PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " " + "Shp Circle"));
 
+        //if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " " + "Shp Circles")) 
+        //{
+        //    Debug.Log(PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "Shp Circle"));  
+        //}
+       // PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + "ColorTest2", 20);
+        
+        int xx = 0;
+        PlayerPrefs.GetString(result);
+        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + "ColorTest" + xx))
+        {
+          //  Debug.Log(PlayerPrefs.GetString(result) + "ColorTest");
+            Debug.Log(PlayerPrefs.GetString(result) + "ColorTest");
+            Debug.Log(xx);
+            xx++;
+        }    
+      //  Debug.Log(PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "Shp Circle"));  
         // StartCoroutine("PrefabGuard");
     }
     

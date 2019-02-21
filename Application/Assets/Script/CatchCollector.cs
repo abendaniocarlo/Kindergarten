@@ -9,11 +9,11 @@ public class CatchCollector : MonoBehaviour {
     {
         if (target.tag == "Square" || target.tag == "Rectangle" || target.tag == "Circle" || target.tag == "Oblong" || target.tag == "Triangle")
         {
-            target.gameObject.SetActive(false);
+            Destroy(target.gameObject);
         }
         if (target.tag == "DrawBlue" || target.tag == "DrawRed" || target.tag == "DrawYellow" || target.tag == "DrawPink" || target.tag == "DrawBrown" || target.tag == "DrawGreen" || target.tag == "DrawOrange")
         {
-            target.gameObject.SetActive(false);
+            Destroy(target.gameObject);
         }
     }
 }

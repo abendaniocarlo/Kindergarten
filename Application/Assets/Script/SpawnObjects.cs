@@ -9,9 +9,12 @@ public class SpawnObjects : MonoBehaviour {
     private GameObject[] Objects;
     private BoxCollider2D col;
     float x1, x2;
+    string result;
 	void Start () {
+        PlayerPrefs.GetString(result);
         Screen.orientation = ScreenOrientation.Portrait;
         StartCoroutine(SpawnFruit(1f));
+       
 	}
     void Awake()
     {

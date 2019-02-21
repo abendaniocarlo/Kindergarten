@@ -18,6 +18,7 @@ public class ColorCatchScores : MonoBehaviour {
     int number = 0;
     public GameObject[] Stars;
     float finalScore = 0;
+    string result;
     void Start()
     {
         Shape = myObj[KeyLog];
@@ -49,7 +50,7 @@ public class ColorCatchScores : MonoBehaviour {
                 CatchObj[KeyLog].SetActive(true);
                 CatchObj[KeyLog - 1].SetActive(false);
                 Shape = myObj[KeyLog];
-                Debug.Log(KeyLog);
+            //    Debug.Log(KeyLog);
             }
             if (KeyLog >= 7)
             {
@@ -70,20 +71,105 @@ public class ColorCatchScores : MonoBehaviour {
         if (score == 35)
             StartCoroutine(RestartGame());
 
-        Debug.Log(Shape);
+  //      Debug.Log(Shape);
     }
     IEnumerator RestartGame()
     {
-        Debug.Log("yow wtf");
-        yield return new WaitForSecondsRealtime(2f);
+       
+        yield return new WaitForSecondsRealtime(0);
         finalScore = score / 3.5f;
         owlie.SetActive(false);
         spawnarea.SetActive(false);
         scorewindow.SetActive(true);
-        int count = (int)finalScore;
-
-        for (int x = 0; x != count; x++)
+      
+    
+        for (int x = 0; x != Mathf.RoundToInt(finalScore); x++)
+        {
+            yield return new WaitForSecondsRealtime(.3f);
             Stars[x].SetActive(true);
+        }
+        SaveScore();
+
+      
+        
+    }
+    void SaveScore()
+    {
+        int xx = 0, zz = 0;
+        string current = System.DateTime.Now.ToString("MM/dd/yy");
+        string myDate;
+        int MGScore, test;
+        float FGScore;
+        bool MyBool = true;
+        // myDate = "02/21/19";
+        if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MCDate"))
+        {
+            //meron
+            myDate = PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MCDate");
+            // myDate = "02/21/19";
+            MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + "MGColor");
+
+            if (myDate == current)
+            {
+
+                Debug.Log("Nandito");
+                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx))
+                {
+
+                    Debug.Log("Nandito");
+                    xx++;
+                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx) == false)
+                    {
+                        MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGColor" + (xx - 1));
+                        test = 20;
+                        FGScore = (MGScore + test) / 2;
+                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor" + (xx - 1), Mathf.RoundToInt(FGScore));
+                    }
+
+                }
+
+            }
+            else
+            {
+
+                xx = 0;
+                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx) || MyBool == false)
+                {
+
+                    MGScore = MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGcolor" + xx);
+                    test = 10;
+                    FGScore = (MGScore + test) / 2;
+                    //   PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MGColor" + xx);
+
+                    Debug.Log(FGScore);
+                    xx++;
+                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx) == false)
+                    {
+                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor" + xx, Mathf.RoundToInt(FGScore));
+                        Debug.Log("nice");
+                        MyBool = false;
+                        break;
+                    }
+                }
+            }
+
+        }
+        else
+        {
+
+            PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MCDate", current);
+            PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor0", count);
+        }
+
+        xx = 0;
+
+        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx))
+        {
+
+            Debug.Log(PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGColor" + xx));
+            xx++;
+        }
+
     }
     void Update()
     {
