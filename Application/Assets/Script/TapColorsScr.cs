@@ -15,6 +15,7 @@ public class TapColorsScr : MonoBehaviour {
     public GameObject purple;
     public GameObject brown;
     public GameObject pink;
+    public GameObject toCover;
     public Button redbtn;
     public Button orangebtn;
     public Button yellowbtn;
@@ -53,80 +54,96 @@ public class TapColorsScr : MonoBehaviour {
     IEnumerator redTap() {
         colorname.SetActive(true);
         red.SetActive(true);
+        toCover.SetActive(true);
 
         yield return new WaitForSeconds(1f);
         colorname.SetActive(false);
         red.SetActive(false);
+        toCover.SetActive(false);
     }
 
     IEnumerator orangeTap()
     {
         colorname.SetActive(true);
         orange.SetActive(true);
+        toCover.SetActive(true);
 
         yield return new WaitForSeconds(1f);
         colorname.SetActive(false);
         orange.SetActive(false);
+        toCover.SetActive(false);
     }
 
     IEnumerator yellowTap()
     {
         colorname.SetActive(true);
         yellow.SetActive(true);
+        toCover.SetActive(true);
 
         yield return new WaitForSeconds(1f);
         colorname.SetActive(false);
         yellow.SetActive(false);
+        toCover.SetActive(false);
     }
 
     IEnumerator greenTap()
     {
         colorname.SetActive(true);
         green.SetActive(true);
+        toCover.SetActive(true);
 
         yield return new WaitForSeconds(1f);
         colorname.SetActive(false);
         green.SetActive(false);
+        toCover.SetActive(false);
     }
 
     IEnumerator blueTap()
     {
         colorname.SetActive(true);
         blue.SetActive(true);
+        toCover.SetActive(true);
 
         yield return new WaitForSeconds(1f);
         colorname.SetActive(false);
         blue.SetActive(false);
+        toCover.SetActive(false);
     }
 
     IEnumerator purpleTap()
     {
         colorname.SetActive(true);
         purple.SetActive(true);
+        toCover.SetActive(true);
 
         yield return new WaitForSeconds(1f);
         colorname.SetActive(false);
         purple.SetActive(false);
+        toCover.SetActive(false);
     }
 
     IEnumerator brownTap()
     {
         colorname.SetActive(true);
         brown.SetActive(true);
+        toCover.SetActive(true);
 
         yield return new WaitForSeconds(1f);
         colorname.SetActive(false);
         brown.SetActive(false);
+        toCover.SetActive(false);
     }
 
     IEnumerator pinkTap()
     {
         colorname.SetActive(true);
         pink.SetActive(true);
+        toCover.SetActive(true);
 
         yield return new WaitForSeconds(1f);
         colorname.SetActive(false);
         pink.SetActive(false);
+        toCover.SetActive(false);
     }
 
 

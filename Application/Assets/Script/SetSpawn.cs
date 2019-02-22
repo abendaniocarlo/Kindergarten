@@ -19,17 +19,20 @@ public class SetSpawn : MonoBehaviour {
  	// Use this for initialization
     public static int FruitIndex = 8;
     public static int KeyLog;
-    public static int tune = 0;
+    public static int tune;
     public static int[] question = { 3, 5, 4, 2,5 };
    public static int[] number = { 2, 3, 4 };
    public static int[] Obj = { 0, 1, 2, 3, 4, 5, 6 };
    int[] YPostion = { 146, 76, 15, -50, -114 };
 
 	void Start () {
-        if(tune == 0)
+        if (tune == 0)
+        {
             SoundFx.PlayOneShot(willSpeak);
+            tune++;
+        }
 
-        question = randomPos(question);
+            question = randomPos(question);
         number = randomPos(number);
         Obj = randomPos(Obj);
       //  YPostion = randomPos(YPostion);
@@ -50,7 +53,6 @@ public class SetSpawn : MonoBehaviour {
         CButtons[0].transform.localPosition = new Vector3(CButtons[0].transform.localPosition.x, -234, 0);
         myButton[0].interactable = false;
         StartCoroutine("ButtonSettings");
-        tune++;
     }
     public void Banana()
     {
@@ -58,7 +60,6 @@ public class SetSpawn : MonoBehaviour {
         CButtons[1].transform.localPosition = new Vector3(-204.4f, -234, 0);
         myButton[1].interactable = false;
         StartCoroutine("ButtonSettings");
-        tune++;
     }
     public void Grapes()
     {
@@ -66,7 +67,6 @@ public class SetSpawn : MonoBehaviour {
         CButtons[2].transform.localPosition = new Vector3(-98.8f, -234, 0);
         myButton[2].interactable = false;
         StartCoroutine("ButtonSettings");
-        tune++;
     }
     public void Orange()
     {
@@ -74,7 +74,6 @@ public class SetSpawn : MonoBehaviour {
         CButtons[3].transform.localPosition = new Vector3(6.8f, -234, 0);
         myButton[3].interactable = false;
         StartCoroutine("ButtonSettings");
-        tune++;
     }
     public void PineApple()
     {
@@ -82,7 +81,6 @@ public class SetSpawn : MonoBehaviour {
         CButtons[4].transform.localPosition = new Vector3(112.4f, -234, 0);
         myButton[4].interactable = false;
         StartCoroutine("ButtonSettings");
-        tune++;
     }
     public void Watermelon()
     {
@@ -90,7 +88,6 @@ public class SetSpawn : MonoBehaviour {
         CButtons[5].transform.localPosition = new Vector3(218, -234, 0);
         myButton[5].interactable = false;
         StartCoroutine("ButtonSettings");
-        tune++;
     }
     public void Cherry()
     {
@@ -98,7 +95,6 @@ public class SetSpawn : MonoBehaviour {
         CButtons[6].transform.localPosition = new Vector3(323.6f, -234, 0);
         myButton[6].interactable = false;
         StartCoroutine("ButtonSettings");
-        tune++;
     }
     IEnumerator NoOption()
     {
@@ -245,7 +241,7 @@ public class SetSpawn : MonoBehaviour {
 
     public void Done()
     {
-        tune = 0;
+    //    tune = 0;
         SceneManager.LoadScene("Layout Games Sets");
     }
 }

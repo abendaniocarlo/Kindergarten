@@ -28,6 +28,7 @@ public class SizesBig : MonoBehaviour {
     int[] YPosition = { 26, -64 };
     int[] XPosition = { -143, -71, 0, 74, 146 };
     public static int keyLog;
+    public static int directionOnce;
     public GameObject ScoreBoard;
     public GameObject PanelBoard;
     public AudioSource SoundFx;
@@ -38,8 +39,11 @@ public class SizesBig : MonoBehaviour {
 
     void Start()
     {
-        if (keyLog == 0)
+        if (directionOnce == 0)
+        {
             StartCoroutine(DirectionPlay());
+            directionOnce++;
+        }
         
 
         // QuestionAudio = GameObject.Find("QuestionAudio").GetComponent<Button>();
@@ -103,13 +107,6 @@ public class SizesBig : MonoBehaviour {
         directions.SetActive(true);
         yield return new WaitForSeconds(7f);
         directions.SetActive(false);
-    }
-    public void returnbtn()
-    {
-        myScore = 0;
-        keyLog = 0;
-        total = 0;
-        SceneManager.LoadScene("Layout Activities Sizes");
     }
     public void BigBTN()
     {
@@ -196,11 +193,19 @@ public class SizesBig : MonoBehaviour {
               }
           }
 
-          public void Done()
-          {
-              myScore = 0;
-              keyLog = 0;
-              total = 0;
-            SceneManager.LoadScene("Layout Activities Sizes");
-          }
+            public void returnbtn()
+            {
+                myScore = 0;
+                keyLog = 0;
+                total = 0;
+                SceneManager.LoadScene("Layout Activities Sizes");
+            }
+            public void Done()
+              {
+                   directionOnce = 0;
+                  myScore = 0;
+                  keyLog = 0;
+                  total = 0;
+                SceneManager.LoadScene("Layout Activities Sizes");
+              }
 }

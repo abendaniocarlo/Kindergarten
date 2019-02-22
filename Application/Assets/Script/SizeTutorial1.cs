@@ -116,9 +116,12 @@ public class SizeTutorial1 : MonoBehaviour {
         
         StartCoroutine("TryAgain");
     }
-    public void HomeBTN()
+    public void returnBTN()
     {
-        SceneManager.LoadScene("Sizes Big");
+        if(Mode == "BigSize")
+            SceneManager.LoadScene("Sizes Big");
+        else
+            SceneManager.LoadScene("Sizes Small");
     }
     IEnumerator TryAgain()
     {

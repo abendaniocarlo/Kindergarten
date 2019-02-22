@@ -24,6 +24,7 @@ public class ColorsActivity : MonoBehaviour {
     int[] positionX = { -300, -118, 132, 311 };
     int[] positionY = { 236, 75, -75 };
     public static int keyLog = 0;
+    public static int directionOnce;
     int answer;
     int[] Final;
     string color;
@@ -43,8 +44,10 @@ public class ColorsActivity : MonoBehaviour {
         int b = 0;
         int c = 0;
 
-        if (keyLog == 0)
+        if (directionOnce == 0 ) {
             StartCoroutine(DirectionShow());
+            directionOnce++;
+        }
 
         wrong1.SetActive(false);
         wrong2.SetActive(false);
@@ -546,6 +549,7 @@ public class ColorsActivity : MonoBehaviour {
     }
     public void Done()
     {
+        directionOnce = 0;
         SceneManager.LoadScene("Layout Activities Colors");
     }
     IEnumerator RestartGame()
@@ -600,7 +604,6 @@ public class ColorsActivity : MonoBehaviour {
     }
     public void HomeBtn()
     {
-        keyLog = 0;
         SceneManager.LoadScene("Layout Activities Colors");
     }
 

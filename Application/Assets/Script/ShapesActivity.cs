@@ -24,6 +24,7 @@ public class ShapesActivity : MonoBehaviour {
     int[] YPosition = { 26, -64 };
     int[] XPosition = { -143, -71, 0, 74, 146 };
     public static int keyLog;
+    public static int directionOnce;
     public GameObject ScoreBoard;
     public GameObject PanelBoard;
     public static int myScore;
@@ -45,8 +46,11 @@ public class ShapesActivity : MonoBehaviour {
         int b = 0;
         int c = 0;
 
-        if (keyLog == 0)
+        if (directionOnce == 0)
+        {
             StartCoroutine(DirectionShow());
+            directionOnce++;
+        }
 
         wrong1.SetActive(false);
         wrong2.SetActive(false);
@@ -399,6 +403,15 @@ public class ShapesActivity : MonoBehaviour {
         }
     }
 
+    public void Done()
+    {
+        directionOnce = 0;
+        SceneManager.LoadScene("Layout Activities Shapes");
+        myScore = 0;
+        Total = 0;
+        keyLog = 0;
+
+    }
     public void HomeBtn()
     {
         SceneManager.LoadScene("Layout Activities Shapes");
