@@ -37,6 +37,7 @@ public class ShapesTapGames : MonoBehaviour
     int[] Final;
     string color;
     public static int Total = 0;
+    public static int GrandTotal = 0;
     int Key;
     int PreQuest;
     string MyAnswer;
@@ -114,11 +115,11 @@ public class ShapesTapGames : MonoBehaviour
             for (int d = endOfIndexes[0]; d != endOfIndexes[0] - 3; d--)
             {
                 FinChoice.Add(d);
-                // ConvertChoice.Remove(d);
+           
             }
 
             PreValue = ConvertChoice.ToArray();
-            // PreValue = randomPos(PreValue);
+            
             int yy = 1;
             int n = 0, z = 0;
 
@@ -132,14 +133,14 @@ public class ShapesTapGames : MonoBehaviour
                 {
                     z = 0;
                     yy++;
-                    // Debug.Log("ss");
+                
 
                 }
 
                 z++;
-                //Debug.Log(yy);
+   
                 FinChoice.Add(d);
-                //     Debug.Log(d);
+                
 
             }
             for (int d = endOfIndexes[2]; d != endOfIndexes[2] - 3; d--)
@@ -149,14 +150,13 @@ public class ShapesTapGames : MonoBehaviour
                 {
                     z = 0;
                     yy++;
-                    // Debug.Log("ss");
-
+               
                 }
 
                 z++;
-                //Debug.Log(yy);
+            
                 FinChoice.Add(d);
-                //     Debug.Log(d);
+           
 
             }
             for (int d = endOfIndexes[3]; d != endOfIndexes[3] - 3; d--)
@@ -166,49 +166,21 @@ public class ShapesTapGames : MonoBehaviour
                 {
                     z = 0;
                     yy++;
-                    // Debug.Log("ss");
+           
 
                 }
 
                 z++;
-                //Debug.Log(yy);
+
                 FinChoice.Add(d);
-                //     Debug.Log(d);
+         
 
             }
-
-
-
-
-
-
-
-            //   Debug.Log(FinChoice.ToArray);
             Final = FinChoice.ToArray();
-            //foreach(int temp in Final)
-            // {
-            //     Debug.Log(temp);
-            // }
+        
             Final = randomPos(Final);
 
-            /*     if (keyLog != 0)
-              {
-
-
-       //           questions[PreQuest - 1].SetActive(false);
-               for (int y = 0; y != 12; y++)
-                  {
-                      for (int x = 0; x != 12; x++)
-                      {
-                          if (Final[y] != PreChoice[x])
-                          {
-                              choice[PreChoice[x]].SetActive(false);
-                          }
-                      }
-
-                  }
-
-              }*/
+      
             for (int a = 0; a != 12; a++)
             {
 
@@ -246,7 +218,12 @@ public class ShapesTapGames : MonoBehaviour
         {
             //right answer
             Total++;
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
 
+            }
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
             else if (Key == 2)
@@ -282,7 +259,13 @@ public class ShapesTapGames : MonoBehaviour
         {
             //right answer
             Total++;
-            //     Debug.Log(Total);
+
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
+               
+            }
 
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
@@ -293,7 +276,7 @@ public class ShapesTapGames : MonoBehaviour
         }
         else
         {
-            //      Debug.Log("Wrong");
+            
 
             if (Key == 1) // checkbar if wrong
                 wrong1.SetActive(true);
@@ -320,7 +303,12 @@ public class ShapesTapGames : MonoBehaviour
         {
             //right answer
             Total++;
-            Debug.Log(Total);
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
+            
+            }
 
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
@@ -331,7 +319,7 @@ public class ShapesTapGames : MonoBehaviour
         }
         else
         {
-            Debug.Log("Wrong");
+        
 
             if (Key == 1) // checkbar if wrong
                 wrong1.SetActive(true);
@@ -356,7 +344,14 @@ public class ShapesTapGames : MonoBehaviour
         {
             //right answer
             Total++;
-            Debug.Log(Total);
+        
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
+       
+            }
+            
 
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
@@ -367,7 +362,7 @@ public class ShapesTapGames : MonoBehaviour
         }
         else
         {
-            Debug.Log("Wrong");
+           
 
 
             if (Key == 1) // checkbar if wrong
@@ -393,7 +388,13 @@ public class ShapesTapGames : MonoBehaviour
         {
             //right answer
             Total++;
-            Debug.Log(Total);
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
+               
+            }
+       
 
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
@@ -405,7 +406,7 @@ public class ShapesTapGames : MonoBehaviour
         }
         else
         {
-            Debug.Log("Wrong");
+          
 
             if (Key == 1) // checkbar if wrong
                 wrong1.SetActive(true);
@@ -440,54 +441,138 @@ public class ShapesTapGames : MonoBehaviour
     }
     public void Done()
     {
+       
         SceneManager.LoadScene("Layout Games Shapes");
     }
     IEnumerator RestartGame()
     {
         yield return new WaitForSeconds(1);
+        Total = 0;
         if (keyLog != 10)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else
         {
-            PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " " + color, Total / 3);
+            //PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " " + color, GrandTotal);
+        
+           
             StartCoroutine("ScoreWindow");
+           
         }
 
     }
+
     IEnumerator ScoreWindow()
     {
         int temp = 0;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0);
+     
         ScoreBoard.SetActive(true);
-
-        Debug.Log(Total / 3);
+        SaveScore();
+        
         keyLog = 0;
-        while (temp != Total / 3)
+    
+        while (temp != GrandTotal)
         {
             Star[temp].SetActive(true);
             temp++;
         }
-        Total = 0;
+       GrandTotal = 0;
+      
     }
-    /*   public void CloseDirection()
-       {
-           Directions.SetActive(false);
-       }*/
-    //public void Tutorial()
-    //{
-    //    TutorialPanel.SetActive(true);
-    //}
-    //public void Close()
-    //{
-    //    TutorialPanel.SetActive(false);
-    //}
+    void SaveScore()
+    {
+        int xx = 0, zz = 0;
+        string current = System.DateTime.Now.ToString("MM/dd/yy");
+        string myDate;
+        int MGScore, test;
+        float FGScore;
+        bool MyBool = true;
+        if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MSDate"))
+        {
+            //meron
+
+            myDate = PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MSDate");
+        //    Debug.Log(GrandTotal);
+            MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGShape");
+
+            if (myDate == current)
+            {
+                // equal sa current date;
+
+                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGShape" + xx))
+                {
+
+
+                    xx++;
+                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGShape" + xx) == false)
+                    {
+                        MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGShape" + (xx - 1));
+                        
+                        if (MGScore >= GrandTotal)
+                        {
+                            FGScore = MGScore;
+                   //         Debug.Log("true");
+                            
+                        }
+                        else
+                        {
+                          //  Debug.Log("false");
+                            FGScore = GrandTotal;
+                        }
+
+                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGShape" + (xx - 1), Mathf.RoundToInt(FGScore));
+                    }
+
+                }
+
+            }
+            else
+            {
+
+                xx = 0;
+                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGShape" + xx) || MyBool == false)
+                {
+                    PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MSDate", current);
+                    MGScore = MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGShape" + xx);
+                    xx++;
+                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGShape" + xx) == false)
+                    {
+                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGShape" + xx, GrandTotal);
+
+                        MyBool = false;
+                        break;
+                    }
+                }
+            }
+
+        }
+        else
+        {
+
+            PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MSDate", current);
+            PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGShape0", GrandTotal);
+        }
+
+        xx = 0;
+        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGShape" + xx))
+        {
+            //   Debug.Log("s");
+            // PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MGShape" + xx);
+            //PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MSDate" + xx);
+          Debug.Log("x = "+xx +" - "+ PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGShape" + xx));
+            xx++;
+        }
+
+    }
+  
  
     public void HomeBtn()
     {
+        GrandTotal = 0;
         keyLog = 0;
-        SceneManager.LoadScene("Layout Activities Shapes");
+        SceneManager.LoadScene("Layout Games Shapes");
     }
 
 }

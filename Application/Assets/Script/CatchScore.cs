@@ -21,6 +21,7 @@ public class CatchScore : MonoBehaviour {
     int number = 0;
     public GameObject[] Stars;
     float finalScore = 0;
+    string result;
     void Start () {
         Shape = myObj[KeyLog];
         CatchObj[KeyLog].SetActive(true);
@@ -70,7 +71,7 @@ public class CatchScore : MonoBehaviour {
         if (score == 25)
             StartCoroutine(RestartGame());
 
-        Debug.Log(Shape);
+       // Debug.Log(Shape);
     }
     IEnumerator RestartGame()
     {
@@ -80,33 +81,95 @@ public class CatchScore : MonoBehaviour {
         owlie.SetActive(false);
         spawnarea.SetActive(false);
         scorewindow.SetActive(true);
-        int count = (int)finalScore;
-
-        for (int x = 0; x != count; x++)
+      //  int count = (int)finalScore;
+        SaveScore();
+        for (int x = 0; x != Mathf.RoundToInt(finalScore); x++)
             Stars[x].SetActive(true);
     }
-    void Update()
+    void SaveScore()
     {
-   
-    //    print(Shape);
-      
-    }
+        int xx = 0, zz = 0;
+        string current = System.DateTime.Now.ToString("MM/dd/yy");
+        string myDate;
+        int MGScore, test;
+        float FGScore;
+        bool MyBool = true;
+        if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MSDate"))
+        {
+            //meron
 
-    /*IEnumerator myShape()
-    {
-       
-       while(true){
-            yield return new WaitForSeconds(5.0f);
-            if (KeyLog >= 4)
+           myDate = PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MSDate");
+         //   myDate = "02/22/19";  //test data
+            MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + "MGShape");
+
+            if (myDate == current)
             {
-                KeyLog = 0;
+
+
+                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGShape" + xx))
+                {
+
+
+                    xx++;
+                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGShape" + xx) == false)
+                    {
+                        MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGShape" + (xx - 1));
+
+                        if (MGScore > Mathf.RoundToInt(finalScore))
+                        {
+                            FGScore = MGScore;
+                        }
+                        else
+                        {
+                            FGScore = Mathf.RoundToInt(finalScore);
+                        }
+
+                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGShape" + (xx - 1), Mathf.RoundToInt(FGScore));
+                    }
+
+                }
+
+            }
+            else
+            {
+                // not equal to current date
+
+                xx = 0;
+                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGShape" + xx) || MyBool == false)
+                {
+                    PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MSDate", current);
+                    //  MGScore = MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGcolor" + xx);
+                    xx++;
+                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGShape" + xx) == false)
+                    {
+                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGShape" + xx, Mathf.RoundToInt(finalScore));
+
+                        MyBool = false;
+                        break;
+                    }
+                }
             }
 
-         
-            Shape = myObj[Random.Range(0,4)];
-            Debug.Log(Shape);
         }
-    }*/
+        else
+        {
+            //no date 
+            Debug.Log("date added");
+            PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MSDate", current);
+            PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGShape0", Mathf.RoundToInt(finalScore));
+        }
+
+        xx = 0;
+        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGShape" + xx))
+        {
+           
+            // PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MGColor" + xx);
+            //PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MCDate" + xx);
+            Debug.Log("x = " + xx + PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGShape" + xx));
+            xx++;
+        }
+
+    }
 
     public void backbtn()
     {

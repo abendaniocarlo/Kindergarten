@@ -40,6 +40,7 @@ public class ColorsTapGame : MonoBehaviour
     int[] Final;
     string color;
     public static int Total = 0;
+    public static int GrandTotal = 0;
     int Key;
     int PreQuest;
     string MyAnswer;
@@ -55,10 +56,6 @@ public class ColorsTapGame : MonoBehaviour
     {
         int b = 0;
         int c = 0;
-
-        //if (keyLog == 0)
-        //    StartCoroutine(DirectionShow());
-
         wrong1.SetActive(false);
         wrong2.SetActive(false);
         wrong3.SetActive(false);
@@ -157,9 +154,9 @@ public class ColorsTapGame : MonoBehaviour
                     }
 
                     z++;
-                    //Debug.Log(yy);
+           
                     FinChoice.Add(d);
-                    //     Debug.Log(d);
+                  
 
                 }
             for (int d = endOfIndexes[2]; d != endOfIndexes[2] - 3; d--)
@@ -169,14 +166,14 @@ public class ColorsTapGame : MonoBehaviour
                 {
                     z = 0;
                     yy++;
-                    // Debug.Log("ss");
+                 
 
                 }
 
                 z++;
-                //Debug.Log(yy);
+               
                 FinChoice.Add(d);
-                //     Debug.Log(d);
+        
 
             }
             for (int d = endOfIndexes[3]; d != endOfIndexes[3] - 3; d--)
@@ -186,49 +183,20 @@ public class ColorsTapGame : MonoBehaviour
                 {
                     z = 0;
                     yy++;
-                    // Debug.Log("ss");
-
+                    
                 }
 
                 z++;
-                //Debug.Log(yy);
+      
                 FinChoice.Add(d);
-                //     Debug.Log(d);
+            
 
             }
-
-
-
-
-
-
-
-            //   Debug.Log(FinChoice.ToArray);
             Final = FinChoice.ToArray();
-           //foreach(int temp in Final)
-           // {
-           //     Debug.Log(temp);
-           // }
+      
             Final = randomPos(Final);
 
-            /*     if (keyLog != 0)
-              {
-
-
-       //           questions[PreQuest - 1].SetActive(false);
-               for (int y = 0; y != 12; y++)
-                  {
-                      for (int x = 0; x != 12; x++)
-                      {
-                          if (Final[y] != PreChoice[x])
-                          {
-                              choice[PreChoice[x]].SetActive(false);
-                          }
-                      }
-
-                  }
-
-              }*/
+    
             for (int a = 0; a != 12; a++)
             {
 
@@ -250,13 +218,6 @@ public class ColorsTapGame : MonoBehaviour
         
     }
 
-    //IEnumerator DirectionShow()
-    //{
-    //    Directions.SetActive(true);
-    //    yield return new WaitForSeconds(9f);
-    //    Directions.SetActive(false);
-    //}
-
     public void blue()
     {
         string name = EventSystem.current.currentSelectedGameObject.name;
@@ -266,6 +227,11 @@ public class ColorsTapGame : MonoBehaviour
         {
             //right answer
             Total++;
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
+            }
 
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
@@ -277,7 +243,7 @@ public class ColorsTapGame : MonoBehaviour
         }
         else
         {
-            Debug.Log("Wrong");
+ 
             if (Key == 1) // checkbar if wrong
                 wrong1.SetActive(true);
             else if (Key == 2)
@@ -302,7 +268,12 @@ public class ColorsTapGame : MonoBehaviour
         {
             //right answer
             Total++;
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
 
+            }
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
             else if (Key == 2)
@@ -312,7 +283,7 @@ public class ColorsTapGame : MonoBehaviour
         }
         else
         {
-            Debug.Log("Wrong");
+            
 
             if (Key == 1) // checkbar if wrong
                 wrong1.SetActive(true);
@@ -338,7 +309,12 @@ public class ColorsTapGame : MonoBehaviour
         {
             //right answer
             Total++;
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
 
+            }
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
             else if (Key == 2)
@@ -348,8 +324,7 @@ public class ColorsTapGame : MonoBehaviour
         }
         else
         {
-            Debug.Log("Wrong");
-            
+           
             if (Key == 1) // checkbar if wrong
                 wrong1.SetActive(true);
             else if (Key == 2)
@@ -373,6 +348,12 @@ public class ColorsTapGame : MonoBehaviour
         {
             //right answer
             Total++;
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
+
+            }
 
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
@@ -383,7 +364,7 @@ public class ColorsTapGame : MonoBehaviour
         }
         else
         {
-            Debug.Log("Wrong");
+           
 
             if (Key == 1) // checkbar if wrong
                 wrong1.SetActive(true);
@@ -408,6 +389,11 @@ public class ColorsTapGame : MonoBehaviour
         {
             //right answer
             Total++;
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
+            }
 
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
@@ -418,7 +404,7 @@ public class ColorsTapGame : MonoBehaviour
         }
         else
         {
-            Debug.Log("Wrong");
+            
 
             if (Key == 1) // checkbar if wrong
                 wrong1.SetActive(true);
@@ -444,7 +430,12 @@ public class ColorsTapGame : MonoBehaviour
         {
             //right answer
             Total++;
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
 
+            }
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
             else if (Key == 2)
@@ -454,7 +445,7 @@ public class ColorsTapGame : MonoBehaviour
         }
         else
         {
-            Debug.Log("Wrong");
+            
 
             if (Key == 1) // checkbar if wrong
                 wrong1.SetActive(true);
@@ -479,7 +470,12 @@ public class ColorsTapGame : MonoBehaviour
         {
             //right answer
             Total++;
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
 
+            }
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
             else if (Key == 2)
@@ -490,7 +486,7 @@ public class ColorsTapGame : MonoBehaviour
         else
         {
 
-            Debug.Log("Wrong");
+       
 
             if (Key == 1) // checkbar if wrong
                 wrong1.SetActive(true);
@@ -515,7 +511,12 @@ public class ColorsTapGame : MonoBehaviour
         {
             //right answer
             Total++;
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
 
+            }
 
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
@@ -526,7 +527,7 @@ public class ColorsTapGame : MonoBehaviour
         }
         else
         {
-            Debug.Log("Wrong");
+         
             if (Key == 1) // checkbar if wrong
                 wrong1.SetActive(true);
             else if (Key == 2)
@@ -564,14 +565,16 @@ public class ColorsTapGame : MonoBehaviour
     IEnumerator RestartGame()
     {
         yield return new WaitForSeconds(1);
+        Total = 0;
         if (keyLog != 10)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else
         {
-            PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " " + color, Total / 3);
+          //  PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " " + color, GrandTotal);
             StartCoroutine("ScoreWindow");
+           
         }
 
     }
@@ -581,39 +584,102 @@ public class ColorsTapGame : MonoBehaviour
         yield return new WaitForSeconds(1);
         ScoreBoard.SetActive(true);
 
-        Debug.Log(Total / 3);
+        SaveScore();
         keyLog = 0;
-        while (temp != Total / 3)
+        while (temp != GrandTotal)
         {
             Star[temp].SetActive(true);
             temp++;
         }
         Total = 0;
-    }
-    /*   public void CloseDirection()
-       {
-           Directions.SetActive(false);
-       }*/
-    //public void Tutorial()
-    //{
-    //    TutorialPanel.SetActive(true);
-    //}
-    //public void Close()
-    //{
-    //    TutorialPanel.SetActive(false);
-    //}
-    public void ColorTutorial()
-    {
-        SceneManager.LoadScene("ColorIT");
-    }
-    public void TapColorTutorial()
-    {
+        GrandTotal = 0;
 
-        SceneManager.LoadScene("TapTheColors");
     }
+    void SaveScore()
+    {
+        int xx = 0, zz = 0;
+        string current = System.DateTime.Now.ToString("MM/dd/yy");
+        string myDate;
+        int MGScore;
+        int FGScore;
+        bool MyBool = true;
+        if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MCDate"))
+        {
+            //meron
+
+            myDate = PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MCDate");
+
+           // MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + "MGColor");
+
+            if (myDate == current)
+            {
+
+
+                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx))
+                {
+                    xx++;
+                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx) == false)
+                    {
+                        MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGColor" + (xx - 1));
+                        Debug.Log(MGScore);
+                        if (MGScore >= GrandTotal)
+                        {
+                            FGScore = MGScore;
+                            Debug.Log("true");
+                        }
+                        else
+                        {
+                            FGScore = GrandTotal;
+                            Debug.Log("False");
+                        }
+
+                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor" + (xx - 1), FGScore);
+                    }
+                }
+            }
+            else
+            {
+
+                xx = 0;
+                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx) || MyBool == false)
+                {
+                    PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MCDate", current);
+                 //   MGScore = MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGcolor" + xx);
+                    xx++;
+                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx) == false)
+                    {
+                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor" + xx, GrandTotal);
+
+                        MyBool = false;
+                        break;
+                    }
+                }
+            }
+
+        }
+        else
+        {
+
+            PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MCDate", current);
+            PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor0", GrandTotal);
+        }
+
+        xx = 0;
+        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx))
+        {
+            //   Debug.Log("s");
+            // PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MGColor" + xx);
+            //PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MCDate" + xx);
+            Debug.Log("x = " + xx + PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGColor" + xx));
+            xx++;
+        }
+
+    }
+    
     public void HomeBtn()
     {
         keyLog = 0;
+        GrandTotal = 0;
         SceneManager.LoadScene("Layout Activities Colors");
     }
 
