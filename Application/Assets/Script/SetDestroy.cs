@@ -36,6 +36,7 @@ public class SetDestroy : MonoBehaviour {
     int TCherry;
     public static int KeyLog;
     public static int Score;
+    string result;
     void Start()
     {
         
@@ -172,7 +173,7 @@ public class SetDestroy : MonoBehaviour {
                 Debug.Log("false");
             }
 
-            if (KeyLog != 10)
+            if (KeyLog != 2)
             {
                 StartCoroutine("RestartGame");
             }
@@ -191,6 +192,8 @@ public class SetDestroy : MonoBehaviour {
         KeyLog = 0;
         Board.SetActive(true);
         Answer = true;
+       // Score = 6;
+        SaveScore();
         int b = 0, c = 0;
         for (int a = 0; a != Score; a++)
         {
@@ -204,11 +207,101 @@ public class SetDestroy : MonoBehaviour {
                 c++;
             }
         }
+        Score = 0;  
 
 
     }
-    void Update()
+    void SaveScore()
     {
-      
+        int xx = 0, zz = 0;
+        string current = System.DateTime.Now.ToString("MM/dd/yy");
+        string myDate;
+        int MGScore, test;
+        int FGScore;
+        bool MyBool = true;
+        if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MTDate"))
+        {
+            //meron
+
+            myDate = PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MTDate");
+            //    Debug.Log(Score);
+            MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSet");
+            //myDate = "02/22/19";  //test data
+            if (myDate == current)
+            {
+                // equal sa current date;
+
+                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSet" + xx))
+                {
+
+
+                    xx++;
+                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSet" + xx) == false)
+                    {
+                        MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSet" + (xx - 1));
+
+                        if (MGScore >= Score)
+                        {
+                            FGScore = MGScore;
+                            //         Debug.Log("true");
+
+                        }
+                        else
+                        {
+                            //  Debug.Log("false");
+                            FGScore = Score;
+                        }
+
+                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGSet" + (xx - 1), FGScore);
+                    }
+
+                }
+
+            }
+            else
+            {
+
+                xx = 0;
+                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSet" + xx) || MyBool == false)
+                {
+                    PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MTDate", current);
+                    MGScore = MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSet" + xx);
+                    xx++;
+                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSet" + xx) == false)
+                    {
+                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGSet" + xx, Score);
+
+                        MyBool = false;
+                        break;
+                    }
+                }
+            }
+
+        }
+        else
+        {
+
+            PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MTDate", current);
+            PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGSet0", Score);
+        }
+
+        xx = 0;
+        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSet" + xx))
+        {
+            //   Debug.Log("s");
+            // PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MGSet" + xx);
+            //PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MTDate" + xx);
+            Debug.Log("x = " + xx + " - " + PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSet" + xx));
+            xx++;
+        }
+
     }
+    public void EndBTN()
+    {
+        KeyLog = 0;
+        Score = 0;
+        Answer = false;
+        SceneManager.LoadScene("Layout Games Sets");
+    }
+  
 }

@@ -11,7 +11,7 @@ public class SizeShuffle : MonoBehaviour {
     public GameObject Board;
     public GameObject Panel;
     public GameObject Star;
-    
+    string result;
     int[] YPosition = { 26, -64 };
     int[] XPosition = { -143, -71, 0, 74, 146 };
     public static int KeyLog=0;
@@ -25,6 +25,7 @@ public class SizeShuffle : MonoBehaviour {
     bool PVal = false;
     public static int[] AIndex = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29 };
 	// Use this for initialization
+
 	void Start () {
         if (KeyLog == 0)
         {
@@ -126,7 +127,7 @@ public class SizeShuffle : MonoBehaviour {
     void Restart()
     {
         Value = 0;
-        if (KeyLog != 10)
+        if (KeyLog != 2)
         {
 
 
@@ -156,7 +157,8 @@ public class SizeShuffle : MonoBehaviour {
         yield return new WaitForSeconds(0);
         // Debug.Log(Score);
         Board.SetActive(true);
-       
+       // Score = 2;
+        SaveScore();
         int b = 0, c = 0;
         for (int a = 0; a != Score; a++)
         {
@@ -171,6 +173,90 @@ public class SizeShuffle : MonoBehaviour {
             }
         }
 
+
+    }
+    void SaveScore()
+    {
+        int xx = 0, zz = 0;
+        string current = System.DateTime.Now.ToString("MM/dd/yy");
+        string myDate;
+        int MGScore, test;
+        int FGScore;
+        bool MyBool = true;
+        if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MZDate"))
+        {
+            //meron
+
+            myDate = PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MZDate");
+            //    Debug.Log(Score);
+            MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSize");
+          // myDate = "02/22/19";  //test data
+            if (myDate == current)
+            {
+                // equal sa current date;
+
+                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSize" + xx))
+                {
+
+
+                    xx++;
+                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSize" + xx) == false)
+                    {
+                        MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSize" + (xx - 1));
+
+                        if (MGScore >= Score)
+                        {
+                            FGScore = MGScore;
+                            //         Debug.Log("true");
+
+                        }
+                        else
+                        {
+                            //  Debug.Log("false");
+                            FGScore = Score;
+                        }
+
+                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGSize" + (xx - 1), FGScore);
+                    }
+
+                }
+
+            }
+            else
+            {
+                xx = 0;
+                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSize" + xx) || MyBool == false)
+                {
+                    PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MZDate", current);
+                    MGScore = MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSize" + xx);
+                    xx++;
+                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSize" + xx) == false)
+                    {
+                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGSize" + xx, Score);
+
+                        MyBool = false;
+                        break;
+                    }
+                }
+            }
+
+        }
+        else
+        {
+
+            PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MZDate", current);
+            PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGSize0", Score);
+        }
+
+        xx = 0;
+        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSize" + xx))
+        {
+            //   Debug.Log("s");
+            // PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MGSize" + xx);
+            //PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MZDate" + xx);
+            Debug.Log("x = " + xx + " - " + PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSize" + xx));
+            xx++;
+        }
 
     }
     public void Done()
