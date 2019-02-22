@@ -32,7 +32,8 @@ public class SetCompare : MonoBehaviour {
    int[] YPosition = { 26, -64 };
    int[] XPosition = { -143, -71, 0, 74, 146 };
    public static int keyLog;
-   public GameObject ScoreBoard;
+    public static int directionOnce;
+    public GameObject ScoreBoard;
    public GameObject PanelBoard;
     public GameObject directions;
     public GameObject other;
@@ -43,9 +44,13 @@ public class SetCompare : MonoBehaviour {
         if (keyLog == 0)
         {
             setIndex = randomPos(setIndex);
-            StartCoroutine(DirectionPlay());
-
         }
+        if (directionOnce == 0)
+        {
+            StartCoroutine(DirectionPlay());
+            directionOnce++;
+        }
+
         int b = 0, c=0 ,x=0,y=0;
         minValues = randomPos(minValues);
         Final[0] = 9 - minValues[0];
@@ -254,6 +259,7 @@ public class SetCompare : MonoBehaviour {
 
     public void Done()
     {
+        directionOnce = 0;
         Score = 0;
         keyLog = 0;
         myScore = 0;

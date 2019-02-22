@@ -42,10 +42,15 @@ public class SetsCategorySCR : MonoBehaviour {
     bool TimerLimit = false;
    public int timeLeft = 10; //Seconds Overall
     public Text countdown; //UI Text Object
-	void Start () {
+    public static int directionOnce;
+    void Start () {
         QuestionAudio = GameObject.Find("QuestionAudio").GetComponent<Button>();
-        if (keyLog == 0)
+
+        if (directionOnce == 0)
+        {
             StartCoroutine(DirectionPlay());
+            directionOnce++;
+        }
 
         bool type = false;
         int[] box = { -370, 130 };
@@ -330,7 +335,7 @@ public class SetsCategorySCR : MonoBehaviour {
     public void ActivityDone()
     {
         // to record score here
-        
+        directionOnce = 0;
         SceneManager.LoadScene("Layout Activities Sets");
     }
 }

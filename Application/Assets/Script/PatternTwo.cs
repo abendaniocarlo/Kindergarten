@@ -13,14 +13,15 @@ public class PatternTwo : MonoBehaviour {
     int[] ObjIndex = { 0, 1, 2, 3, 4, 5, 6 };
     int z, x;
     public static int keyLog;
+    public static int directionOnce;
 
     public static string TagName;
     void Start()
     {
-        if (keyLog == 0)
+        if (directionOnce == 0)
         {
             StartCoroutine(DirectionPlay());
-            keyLog++;
+            directionOnce++;
         }
         //odd numbers positions
 
@@ -88,6 +89,7 @@ public class PatternTwo : MonoBehaviour {
 
     public void Done()
     {
+        directionOnce = 0;
         SceneManager.LoadScene("Layout Activities Patterns");
     }
     public int[] randomPos(int[] array)

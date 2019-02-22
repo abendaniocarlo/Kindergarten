@@ -70,12 +70,13 @@ public class TutorialScript : MonoBehaviour {
     {
         SceneManager.LoadScene("PatternTutorial2");
     }
+    public void ToPatternsLayout()
+    {
+        SceneManager.LoadScene("Layout Activities Patterns");
+    }
+
     public void GoSetSort()
     {
         SceneManager.LoadScene("SetSort");
-    }
-    public void BackToPatterns()
-    {
-        SceneManager.LoadScene("Layout Activities Patterns");
     }
 }

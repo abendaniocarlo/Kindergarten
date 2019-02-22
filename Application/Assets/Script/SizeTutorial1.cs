@@ -21,14 +21,18 @@ public class SizeTutorial1 : MonoBehaviour {
    public static string Mode;
 	// Use this for initialization
 	void Start () {
+        
         if (KeyLog == 0)
         {
             SmallIndex = randomPos(SmallIndex);
-            BigIndex = randomPos(BigIndex);
-            Mode = PlayerPrefs.GetString("SizeMode", "No mode");
-          
+            BigIndex = randomPos(BigIndex);          
         }
-              PositionY = randomPos(PositionY);
+
+        Mode = PlayerPrefs.GetString("SizeMode", "No mode");
+
+       // Debug.Log(PlayerPrefs.GetString("SizeMode", "No mode"));
+
+        PositionY = randomPos(PositionY);
             Vector3 Temp = Small[SmallIndex[KeyLog]].transform.position;
             Temp = new Vector3(PositionY[0], -36, 0);
             Small[SmallIndex[KeyLog]].transform.localPosition = Temp;
@@ -116,9 +120,14 @@ public class SizeTutorial1 : MonoBehaviour {
         
         StartCoroutine("TryAgain");
     }
-    public void HomeBTN()
+    public void returnBTN()
     {
-        SceneManager.LoadScene("Sizes Big");
+        KeyLog = 0;
+
+        if(Mode == "BigSize")
+            SceneManager.LoadScene("Sizes Big");
+        else
+            SceneManager.LoadScene("Sizes Small");
     }
     IEnumerator TryAgain()
     {
