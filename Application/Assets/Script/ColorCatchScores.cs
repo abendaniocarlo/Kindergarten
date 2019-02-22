@@ -64,7 +64,7 @@ public class ColorCatchScores : MonoBehaviour {
             transform.position = new Vector2(0, 100);
             target.gameObject.SetActive(false);
             StartCoroutine(RestartGame());
-
+         
 
         }
 
@@ -77,98 +77,122 @@ public class ColorCatchScores : MonoBehaviour {
     {
        
         yield return new WaitForSecondsRealtime(0);
-        finalScore = score / 3.5f;
+       finalScore = score / 3.5f;
         owlie.SetActive(false);
         spawnarea.SetActive(false);
         scorewindow.SetActive(true);
-      
-    
+       SaveScore();
+       // PlayerPrefs.DeleteAll();
         for (int x = 0; x != Mathf.RoundToInt(finalScore); x++)
         {
-            yield return new WaitForSecondsRealtime(.3f);
+         
             Stars[x].SetActive(true);
         }
-        SaveScore();
+       
+        
 
       
         
     }
     void SaveScore()
     {
-        int xx = 0, zz = 0;
+        int xx = 0, zz = 0,d=0;
         string current = System.DateTime.Now.ToString("MM/dd/yy");
         string myDate;
         int MGScore, test;
         float FGScore;
         bool MyBool = true;
-        // myDate = "02/21/19";
-        if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MCDate"))
+        //date exist
+        Debug.Log(PlayerPrefs.HasKey(PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MCDate0")));
+        if (!PlayerPrefs.HasKey(PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MCDate0")))
         {
-            //meron
-            myDate = PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MCDate");
-            // myDate = "02/21/19";
-            MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + "MGColor");
-
-            if (myDate == current)
-            {
-
-                Debug.Log("Nandito");
-                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx))
-                {
-
-                    Debug.Log("Nandito");
-                    xx++;
-                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx) == false)
-                    {
-                        MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGColor" + (xx - 1));
-                        test = 20;
-                        FGScore = (MGScore + test) / 2;
-                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor" + (xx - 1), Mathf.RoundToInt(FGScore));
-                    }
-
-                }
-
-            }
-            else
-            {
-
-                xx = 0;
-                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx) || MyBool == false)
-                {
-
-                    MGScore = MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGcolor" + xx);
-                    test = 10;
-                    FGScore = (MGScore + test) / 2;
-                    //   PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MGColor" + xx);
-
-                    Debug.Log(FGScore);
-                    xx++;
-                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx) == false)
-                    {
-                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor" + xx, Mathf.RoundToInt(FGScore));
-                        Debug.Log("nice");
-                        MyBool = false;
-                        break;
-                    }
-                }
-            }
-
+            Debug.Log("here");
+           // Debug.Log(PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MCDate0", current));
+           /// Debug.Log(PlayerPrefs.HasKey(PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MCDate0")));
+            //PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor0", Mathf.RoundToInt(finalScore));
         }
         else
         {
-
-            PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MCDate", current);
-            PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor0", count);
+            Debug.Log("Date already exist");
         }
+    
+
+       
+        //while (PlayerPrefs.HasKey(PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MCDate"+d)))
+        //{
+        //   //myDate = PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MCDate");
+
+        //    Debug.Log("here");  
+        //    //same day taken
+        //    d++;
+        //    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MCDate" + d) == false)
+        //    {
+        //        myDate = PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MCDate"+(d-1));
+        //        if (myDate == current)
+        //        {
+        //            while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx))
+        //            {
+
+
+        //                xx++;
+        //                if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx) == false)
+        //                {
+        //                    MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGColor" + (xx - 1));
+
+        //                    if (MGScore > Mathf.RoundToInt(finalScore))
+        //                    {
+        //                        FGScore = MGScore;
+        //                    }
+        //                    else
+        //                    {
+        //                        FGScore = Mathf.RoundToInt(finalScore);
+        //                    }
+
+        //                    PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor" + (xx - 1), Mathf.RoundToInt(FGScore));
+        //                 //  
+        //                }
+                  
+        //            }
+        //        }
+        //        else
+        //        {
+        //            // not equal to current date
+        //            PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MCDate" + d, current);
+        //            xx = 0;
+        //            while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MCDate" + xx) || MyBool == false)
+        //            {
+                        
+        //                //  MGScore = MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGcolor" + xx);
+        //                xx++;
+        //                PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MCDate" + xx, current);
+        //                if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx) == false)
+        //                {
+        //                    PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor" + xx, Mathf.RoundToInt(finalScore));
+                           
+        //                    MyBool = false;
+        //                    break;
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+          
+     
+ 
+        //no date
+     //  Debug.Log(PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MCDate0"));
+    
 
         xx = 0;
-
-        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx))
-        {
-
-            Debug.Log(PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGColor" + xx));
-            xx++;
-        }
+        //while (PlayerPrefs.HasKey(PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MGColor" + xx)))
+        //{
+        ////   Debug.Log("s");
+        //        PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MGColor" + xx);
+        //        PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MCDate" + xx);
+        //    Debug.Log("S = " + xx + PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MCDate" + xx));
+        //    Debug.Log("x = "+xx+ PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGColor" + xx));
+        //    xx++;
+        //}
 
     }
     void Update()

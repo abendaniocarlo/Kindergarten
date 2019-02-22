@@ -242,7 +242,11 @@ public class SetSpawn : MonoBehaviour {
         treeshake.SetActive(false);
 
     }
-
+    public void EndBTN()
+    {
+        KeyLog = 0;
+        SceneManager.LoadScene("Layout Games Sets");
+    }
     public void Done()
     {
         tune = 0;
