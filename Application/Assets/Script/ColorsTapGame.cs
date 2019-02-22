@@ -558,10 +558,6 @@ public class ColorsTapGame : MonoBehaviour
         }
         return array;
     }
-    public void Done()
-    {
-        SceneManager.LoadScene("Layout Games Colors");
-    }
     IEnumerator RestartGame()
     {
         yield return new WaitForSeconds(1);
@@ -676,11 +672,17 @@ public class ColorsTapGame : MonoBehaviour
 
     }
     
-    public void HomeBtn()
+    public void backBtn()
     {
         keyLog = 0;
         GrandTotal = 0;
-        SceneManager.LoadScene("Layout Activities Colors");
+        SceneManager.LoadScene("Layout Games Colors");
+    }
+    public void Done()
+    {
+        keyLog = 0;
+        GrandTotal = 0;
+        SceneManager.LoadScene("Layout Games Colors");
     }
 
 }

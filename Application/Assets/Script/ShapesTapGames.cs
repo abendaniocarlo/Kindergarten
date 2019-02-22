@@ -439,11 +439,6 @@ public class ShapesTapGames : MonoBehaviour
         }
         return array;
     }
-    public void Done()
-    {
-       
-        SceneManager.LoadScene("Layout Games Shapes");
-    }
     IEnumerator RestartGame()
     {
         yield return new WaitForSeconds(1);
@@ -568,7 +563,13 @@ public class ShapesTapGames : MonoBehaviour
     }
   
  
-    public void HomeBtn()
+    public void backBtn()
+    {
+        GrandTotal = 0;
+        keyLog = 0;
+        SceneManager.LoadScene("Layout Games Shapes");
+    }
+    public void Done()
     {
         GrandTotal = 0;
         keyLog = 0;
