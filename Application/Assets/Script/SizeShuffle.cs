@@ -127,15 +127,13 @@ public class SizeShuffle : MonoBehaviour {
     void Restart()
     {
         Value = 0;
-        if (KeyLog != 2)
+        if (KeyLog != 10)
         {
-
-
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else
         {
-            KeyLog = 0;
+      
             StartCoroutine("ScoreEval");
            
 
@@ -157,8 +155,9 @@ public class SizeShuffle : MonoBehaviour {
         yield return new WaitForSeconds(0);
         // Debug.Log(Score);
         Board.SetActive(true);
-       // Score = 2;
+        KeyLog = 0;
         SaveScore();
+ 
         int b = 0, c = 0;
         for (int a = 0; a != Score; a++)
         {
@@ -173,94 +172,98 @@ public class SizeShuffle : MonoBehaviour {
             }
         }
 
+        Score = 0;
 
     }
     void SaveScore()
     {
-        int xx = 0, zz = 0;
-        string current = System.DateTime.Now.ToString("MM/dd/yy");
+        //  =myDate = "02/24";
+        int xx = 0, zz = 0, d = 0;
+
+         string current = "02/24";
+       // string current = System.DateTime.Now.ToString("MM/dd");
         string myDate;
         int MGScore, test;
         int FGScore;
         bool MyBool = true;
-        if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MZDate"))
+
+        if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MZDate0"))
         {
-            //meron
+            // Date EXIST!
 
-            myDate = PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MZDate");
-            //    Debug.Log(Score);
-            MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSize");
-          // myDate = "02/22/19";  //test data
-            if (myDate == current)
+            while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MZDate" + xx))
             {
-                // equal sa current date;
-
-                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSize" + xx))
+                xx++;
+                // get the last stored date
+                if (!PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MZDate" + xx))
                 {
 
+                    //check if its equal to current date
 
-                    xx++;
-                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSize" + xx) == false)
+                    if (PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MZDate" + (xx - 1)) == current)
                     {
-                        MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSize" + (xx - 1));
-
-                        if (MGScore >= Score)
+                        //Same date of exam  
+                        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSize" + zz))
                         {
-                            FGScore = MGScore;
-                            //         Debug.Log("true");
+                            // Get he last stored score for same date
+                            zz++;
 
-                        }
-                        else
-                        {
-                            //  Debug.Log("false");
-                            FGScore = Score;
+                            if (!PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSize" + zz))
+                            {
+                                MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSize" + (zz - 1));
+                                //check which is higher
+                                if (MGScore >= Score)
+                                {
+                                    FGScore = MGScore;
+                                }
+                                else
+                                {
+                                    FGScore = Score;
+                                }
+                                //set the score which is higher on two;
+                                PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGSize" + (zz - 1), FGScore);
+
+                            }
                         }
 
-                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGSize" + (xx - 1), FGScore);
                     }
-
-                }
-
-            }
-            else
-            {
-                xx = 0;
-                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSize" + xx) || MyBool == false)
-                {
-                    PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MZDate", current);
-                    MGScore = MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSize" + xx);
-                    xx++;
-                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSize" + xx) == false)
+                    else
                     {
-                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGSize" + xx, Score);
+                        // not equal to current date
 
-                        MyBool = false;
+                        PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MZDate" + xx, current);
+                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGSize" + xx, Score);
                         break;
                     }
                 }
-            }
 
+
+            }
         }
         else
         {
-
-            PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MZDate", current);
+            // No date & score yet
+            Debug.Log("hey jude");
+            PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MZDate0", current);
             PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGSize0", Score);
         }
-
         xx = 0;
-        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSize" + xx))
+        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MZDate" + xx))
         {
-            //   Debug.Log("s");
-            // PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MGSize" + xx);
-            //PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MZDate" + xx);
-            Debug.Log("x = " + xx + " - " + PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSize" + xx));
+
+            // PlayerPrefs.DeleteKey(PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MGSize" + xx));
+            //   PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MZDate" + xx);
+            Debug.Log("S = " + xx + "---" + PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MZDate" + xx));
+            Debug.Log("x = " + xx + "---" + PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSize" + xx));
             xx++;
         }
 
-    }
+    }//END
     public void Done()
     {
+        Score = 0;
+        KeyLog = 0;
+
         SceneManager.LoadScene("Layout Games Sizes");
     }
 	// Update is called once per frame

@@ -69,15 +69,15 @@ public class SizesCategorySCR : MonoBehaviour {
         QuestionAudio.onClick.AddListener(() => questionButton());
     }
 
-    IEnumerator LoseTime()  //Timer Function
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1);
-            timeLeft--;
-        }
+    //IEnumerator LoseTime()  //Timer Function
+    //{
+    //    while (true)
+    //    {
+    //        yield return new WaitForSeconds(1);
+    //        timeLeft--;
+    //    }
 
-    }
+    //}
 	// Update is called once per frame
 	void Update () {
         countdown.text = ("" + timeLeft);
@@ -146,11 +146,11 @@ public class SizesCategorySCR : MonoBehaviour {
             
         }
 
-        if (TimerLimit == false)
-        {
-            StartCoroutine("LoseTime");
-            TimerLimit = true;
-        }
+        //if (TimerLimit == false)
+        //{
+        //    StartCoroutine("LoseTime");
+        //    TimerLimit = true;
+        //}
     
 
     }
@@ -178,11 +178,11 @@ public class SizesCategorySCR : MonoBehaviour {
 
         }
 
-        if (TimerLimit == false)
-        {
-            StartCoroutine("LoseTime");
-            TimerLimit = true;
-        }
+        //if (TimerLimit == false)
+        //{
+        //    StartCoroutine("LoseTime");
+        //    TimerLimit = true;
+        //}
     
 
     }
@@ -210,11 +210,11 @@ public class SizesCategorySCR : MonoBehaviour {
            
         }
 
-        if (TimerLimit == false)
-        {
-            StartCoroutine("LoseTime");
-            TimerLimit = true;
-        }
+        //if (TimerLimit == false)
+        //{
+        //    StartCoroutine("LoseTime");
+        //    TimerLimit = true;
+        //}
     
     }
     
