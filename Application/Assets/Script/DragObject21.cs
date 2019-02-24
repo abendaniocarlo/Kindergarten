@@ -188,6 +188,8 @@ public class DragObject21 : MonoBehaviour {
     public void Done()
     {
         SceneManager.LoadScene("Layout Activities Patterns");
+        locked = false;
+        
     }
     IEnumerator ScoreWindow()
     {
@@ -206,5 +208,8 @@ public class DragObject21 : MonoBehaviour {
                 c++;
             }
         }
+        myScore = 0;
+        keyLog = 0;
+        locked = false;
     }
 }

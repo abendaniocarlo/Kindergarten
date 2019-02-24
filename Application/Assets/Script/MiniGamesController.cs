@@ -11,6 +11,7 @@ public class MiniGamesController : MonoBehaviour
     public GameObject[] LockedIcons2; // pattern
     public GameObject[] LockedIcons3; // Sizes
     public GameObject[] LockedIcons4; // Sets
+    public GameObject[] LockedPick;
     public GameObject[] Buttons;
     public GameObject[] PBar;
     // Use this for initialization
@@ -31,39 +32,40 @@ public class MiniGamesController : MonoBehaviour
        
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "TapClr Blue", 0) != 0)
                 {
-                    LockedIcons[6].SetActive(false);
+                    LockedIcons[0].SetActive(true);
                 }
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "TapClr Red", 0) != 0)
                 {
-                    LockedIcons[5].SetActive(false);
+                    LockedIcons[1].SetActive(true);
                 }
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "TapClr Orange", 0) != 0)
                 {
-                    LockedIcons[4].SetActive(false);
+                    LockedIcons[2].SetActive(true);
 
 
                 }
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "TapClr Yellow", 0) != 0)
                 {
-                    LockedIcons[3].SetActive(false);
+                    LockedIcons[3].SetActive(true);
                 }
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "TapClr Green", 0) != 0)
                 {
-                    LockedIcons[2].SetActive(false);
+                    LockedIcons[4].SetActive(true);
                 }
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "TapClr Blue", 0) != 0)
                 {
-                    LockedIcons[1].SetActive(false);
+                    LockedIcons[5].SetActive(true);
                 }
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "TapClr Purple", 0) != 0)
                 {
-                    LockedIcons[0].SetActive(false);
+                    LockedIcons[6].SetActive(true);
                 }
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "TapClr Brown", 0) != 0)
                 {
                     foreach(GameObject temp in LockedIcons){
                         temp.SetActive(false);
                     }
+                    LockedPick[0].SetActive(false);
                     Buttons[0].SetActive(true);
                     PBar[0].SetActive(false);
                 }
@@ -74,20 +76,20 @@ public class MiniGamesController : MonoBehaviour
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "Shp Circle", 0) != 0)
                 {
                    // Debug.Log(PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "Shp Circle"));
-                    LockedIcons1[4].SetActive(false);
+                    LockedIcons1[0].SetActive(true);
                 }
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "Shp Triangle", 0) != 0)
                 {
-                    LockedIcons1[3].SetActive(false);
+                    LockedIcons1[1].SetActive(true);
                 }
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "Shp Square", 0) != 0)
                 {
-                    LockedIcons1[2].SetActive(false);
+                    LockedIcons1[2].SetActive(true);
                 }
              
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "Shp Rectangle", 0) != 0)
                 {
-                    LockedIcons1[1].SetActive(false);
+                    LockedIcons1[3].SetActive(true);
                 }
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "Shp Oblong", 0) != 0)
                 {
@@ -96,6 +98,7 @@ public class MiniGamesController : MonoBehaviour
                     {
                         temp.SetActive(false);
                     }
+                    LockedPick[1].SetActive(false);
                     Buttons[1].SetActive(true);
                     PBar[1].SetActive(false);
                    
@@ -103,8 +106,8 @@ public class MiniGamesController : MonoBehaviour
             //sets
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " SetOne", 0) != 0)
                 {
-                   
-                    LockedIcons4[1].SetActive(false);
+
+                    LockedIcons4[0].SetActive(true);
                 }
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " SetTwo", 0) != 0)
                 {
@@ -114,16 +117,18 @@ public class MiniGamesController : MonoBehaviour
                     {
                         temp.SetActive(false);
                     }
+                    LockedPick[4].SetActive(false);
                     Buttons[4].SetActive(true);
                     PBar[4].SetActive(false);
                 }
             //pattern
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " PatternOne", 0) != 0)
                 {
-                    LockedIcons2[1].SetActive(false);
+                    LockedIcons2[0].SetActive(true);
                 }
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " PatternTwo", 0) != 0)
                 {
+                    LockedPick[2].SetActive(false);
                     LockedIcons2[0].SetActive(false);
                     Buttons[2].SetActive(true);
                     PBar[2].SetActive(false);
@@ -131,10 +136,11 @@ public class MiniGamesController : MonoBehaviour
             //size
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "SizeBig", 0) != 0)
                 {
-                    LockedIcons3[1].SetActive(false);
+                    LockedIcons3[0].SetActive(true);
                 }
                 if (PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " " + "SizeSmall", 0) != 0)
                 {
+                    LockedPick[3].SetActive(false);
                     LockedIcons3[0].SetActive(false);
                     Buttons[3].SetActive(true);
                     PBar[3].SetActive(false);
