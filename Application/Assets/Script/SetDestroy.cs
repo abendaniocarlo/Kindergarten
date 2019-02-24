@@ -41,8 +41,7 @@ public class SetDestroy : MonoBehaviour {
     {
         
         myButton.interactable = false;
-      //  Debug.Log("hi");
-
+      
     }
    
     void OnTriggerEnter2D(Collider2D col)
@@ -165,17 +164,16 @@ public class SetDestroy : MonoBehaviour {
           Orange == TOrange && Pineapple == TPineapple && Watermelon == TWatermelon && Cherry == TCherry)
             {
                 Score++;
-                Debug.Log(Score);
-              
             }
             else
             {
                 Debug.Log("false");
             }
 
-            if (KeyLog != 2)
+            if (KeyLog != 10)
             {
                 StartCoroutine("RestartGame");
+
             }
             else
             {
@@ -192,8 +190,8 @@ public class SetDestroy : MonoBehaviour {
         KeyLog = 0;
         Board.SetActive(true);
         Answer = true;
-       // Score = 6;
         SaveScore();
+      
         int b = 0, c = 0;
         for (int a = 0; a != Score; a++)
         {
@@ -207,95 +205,94 @@ public class SetDestroy : MonoBehaviour {
                 c++;
             }
         }
-        Score = 0;  
 
+        Score = 0;  
 
     }
     void SaveScore()
     {
-        int xx = 0, zz = 0;
-        string current = System.DateTime.Now.ToString("MM/dd/yy");
+        //  =myDate = "02/24";
+        int xx = 0, zz = 0, d = 0;
+
+       // string current = "02/24";
+      string current = System.DateTime.Now.ToString("MM/dd");
         string myDate;
         int MGScore, test;
         int FGScore;
         bool MyBool = true;
-        if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MTDate"))
+
+        if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MTDate0"))
         {
-            //meron
+            // Date EXIST!
 
-            myDate = PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MTDate");
-            //    Debug.Log(Score);
-            MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSet");
-            //myDate = "02/22/19";  //test data
-            if (myDate == current)
+            while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MTDate" + xx))
             {
-                // equal sa current date;
-
-                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSet" + xx))
+                xx++;
+                // get the last stored date
+                if (!PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MTDate" + xx))
                 {
 
+                    //check if its equal to current date
 
-                    xx++;
-                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSet" + xx) == false)
+                    if (PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MTDate" + (xx - 1)) == current)
                     {
-                        MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSet" + (xx - 1));
-
-                        if (MGScore >= Score)
+                        //Same date of exam  
+                        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSet" + zz))
                         {
-                            FGScore = MGScore;
-                            //         Debug.Log("true");
+                            // Get he last stored score for same date
+                            zz++;
 
-                        }
-                        else
-                        {
-                            //  Debug.Log("false");
-                            FGScore = Score;
+                            if (!PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSet" + zz))
+                            {
+                                MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSet" + (zz - 1));
+                                //check which is higher
+                                if (MGScore >= Score)
+                                {
+                                    FGScore = MGScore;
+                                }
+                                else
+                                {
+                                    FGScore = Score;
+                                }
+                                //set the score which is higher on two;
+                                PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGSet" + (zz - 1), FGScore);
+
+                            }
                         }
 
-                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGSet" + (xx - 1), FGScore);
                     }
-
-                }
-
-            }
-            else
-            {
-
-                xx = 0;
-                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSet" + xx) || MyBool == false)
-                {
-                    PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MTDate", current);
-                    MGScore = MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSet" + xx);
-                    xx++;
-                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSet" + xx) == false)
+                    else
                     {
-                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGSet" + xx, Score);
+                        // not equal to current date
 
-                        MyBool = false;
+                        PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MTDate" + xx, current);
+                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGSet" + xx, Score);
                         break;
                     }
                 }
-            }
 
+
+            }
         }
         else
         {
-
-            PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MTDate", current);
+            // No date & score yet
+            Debug.Log("hey jude");
+            PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MTDate0", current);
             PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGSet0", Score);
         }
-
         xx = 0;
-        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSet" + xx))
+        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MTDate" + xx))
         {
-            //   Debug.Log("s");
-            // PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MGSet" + xx);
-            //PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MTDate" + xx);
-            Debug.Log("x = " + xx + " - " + PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSet" + xx));
+
+            // PlayerPrefs.DeleteKey(PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MGSet" + xx));
+            //   PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MTDate" + xx);
+            Debug.Log("S = " + xx + "---" + PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MTDate" + xx));
+            Debug.Log("x = " + xx + "---" + PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGSet" + xx));
             xx++;
         }
 
-    }
+    }//END
     public void EndBTN()
     {
         KeyLog = 0;
