@@ -867,22 +867,22 @@ Prefab:
     - target: {fileID: 224807089099446204, guid: 3532374ab25e55647bd90daa93a7f89e,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 497.12805
+      value: -0.21002197
       objectReference: {fileID: 0}
     - target: {fileID: 224807089099446204, guid: 3532374ab25e55647bd90daa93a7f89e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 311.00525
+      value: -0.02999878
       objectReference: {fileID: 0}
     - target: {fileID: 224807089099446204, guid: 3532374ab25e55647bd90daa93a7f89e,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 678.4948
+      value: -331.5
       objectReference: {fileID: 0}
     - target: {fileID: 224807089099446204, guid: 3532374ab25e55647bd90daa93a7f89e,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 424.46896
+      value: -186.43
       objectReference: {fileID: 0}
     - target: {fileID: 224807089099446204, guid: 3532374ab25e55647bd90daa93a7f89e,
         type: 2}
@@ -897,12 +897,12 @@ Prefab:
     - target: {fileID: 224807089099446204, guid: 3532374ab25e55647bd90daa93a7f89e,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224807089099446204, guid: 3532374ab25e55647bd90daa93a7f89e,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224807089099446204, guid: 3532374ab25e55647bd90daa93a7f89e,
         type: 2}
@@ -2584,6 +2584,7 @@ MonoBehaviour:
   Window: {fileID: 1781593611}
   Activity: {fileID: 0}
   TutorialWindow: {fileID: 1163281018}
+  PausedPane: {fileID: 0}
 --- !u!1 &1167164167
 GameObject:
   m_ObjectHideFlags: 0
@@ -5073,6 +5074,7 @@ MonoBehaviour:
   Window: {fileID: 0}
   Activity: {fileID: 0}
   TutorialWindow: {fileID: 1163281018}
+  PausedPane: {fileID: 0}
 --- !u!114 &1781593613
 MonoBehaviour:
   m_ObjectHideFlags: 0
