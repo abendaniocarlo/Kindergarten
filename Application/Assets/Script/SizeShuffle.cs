@@ -27,6 +27,7 @@ public class SizeShuffle : MonoBehaviour {
 	// Use this for initialization
 
 	void Start () {
+        Time.timeScale = 1f;
         if (KeyLog == 0)
         {
             AIndex = randomPos(AIndex);
@@ -261,6 +262,7 @@ public class SizeShuffle : MonoBehaviour {
     }
     public void Done()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Layout Games Sizes");
     }
 	// Update is called once per frame

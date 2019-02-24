@@ -567,6 +567,7 @@ public class ShapesTapGames : MonoBehaviour
     {
         GrandTotal = 0;
         keyLog = 0;
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Layout Games Shapes");
     }
     public void Done()

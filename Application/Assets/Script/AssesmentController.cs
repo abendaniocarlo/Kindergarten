@@ -14,8 +14,8 @@ public class AssesmentController : MonoBehaviour {
 	void Start () {
         PreTest();
         myColor();
-		
-	}
+        Time.timeScale = 1f;
+    }
     void PreTest()
     {
         int y = 0, x = 0, b = 0;

@@ -22,7 +22,9 @@ public class CatchScore : MonoBehaviour {
     public GameObject[] Stars;
     float finalScore = 0;
     string result;
-    void Start () {
+    void Start ()
+    {
+        Time.timeScale = 1f;
         Shape = myObj[KeyLog];
         CatchObj[KeyLog].SetActive(true);
            //  StartCoroutine("myShape");
@@ -173,6 +175,7 @@ public class CatchScore : MonoBehaviour {
 
     public void backbtn()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Layout Games Shapes");
 
     }

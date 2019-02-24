@@ -311,6 +311,7 @@ public class SetsCategorySCR : MonoBehaviour {
     }
     public void TutorialWindow()
     {
+        Time.timeScale = 1f;
         TutorialBox.SetActive(true);
         PlayerPrefs.SetString("SetIndex", "Set1");
     }
@@ -330,6 +331,7 @@ public class SetsCategorySCR : MonoBehaviour {
     // sa activities
     public void ReturnToActivities() // backbtn sa activity
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Layout Activities Sets");
     }
     public void ActivityDone()

@@ -88,6 +88,7 @@ public class SizesBig : MonoBehaviour {
     }
     public void TutorialWindow()
     {
+        Time.timeScale = 1f;
         TutorialWin.SetActive(true);
     }
     public void GoBig()
@@ -198,6 +199,7 @@ public class SizesBig : MonoBehaviour {
                 myScore = 0;
                 keyLog = 0;
                 total = 0;
+                Time.timeScale = 1f;
                 SceneManager.LoadScene("Layout Activities Sizes");
             }
             public void Done()

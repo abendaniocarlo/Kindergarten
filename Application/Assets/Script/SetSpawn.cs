@@ -245,7 +245,8 @@ public class SetSpawn : MonoBehaviour {
     }
     public void Done()
     {
-    //    tune = 0;
+        //    tune = 0;
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Layout Games Sets");
     }
 }

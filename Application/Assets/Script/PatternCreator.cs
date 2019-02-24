@@ -33,6 +33,7 @@ public class PatternCreator : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        Time.timeScale = 1f;
         if (tune ==0)
             SoundFx.PlayOneShot(willSpeak);
 
@@ -433,7 +434,8 @@ public class PatternCreator : MonoBehaviour {
     public void Done()
     {
         tune = 0;
-        KeyLog = 0; 
+        KeyLog = 0;
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Layout Games Patterns");
     }
 
