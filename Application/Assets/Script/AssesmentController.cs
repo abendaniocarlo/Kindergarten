@@ -22,6 +22,11 @@ public class AssesmentController : MonoBehaviour {
      int SetsScore;
      int Value;
      int PatternsScore;
+     int Colors;
+     int Shapes;
+     int Sizes;
+     int Sets;
+     int Patterns;
 	// Use this for initialization
 	void Start () {
         Time.timeScale = 1f;
@@ -78,12 +83,16 @@ public class AssesmentController : MonoBehaviour {
             b++;
         }
 
-        Mathf.RoundToInt(GrandTotal[0] = (ColorCurrent + ColorsScore)/(x+1));
-        Mathf.RoundToInt(GrandTotal[1] = (ShapesCurrent + ShapesScore) / (y+1));
-        Mathf.RoundToInt(GrandTotal[2] = (SizesCurrent + SizesScore) / (b+1));
-        Mathf.RoundToInt(GrandTotal[3] = (SetsCurrent + SetsScore) / (a+1));
-        Mathf.RoundToInt(GrandTotal[4] = (PatternsCurrent + PatternsScore) / (z+1));
-
+        Colors = Mathf.RoundToInt(GrandTotal[0] = (ColorCurrent + ColorsScore)/(x+1));
+        Shapes =  Mathf.RoundToInt(GrandTotal[1] = (ShapesCurrent + ShapesScore) / (y+1));
+        Sizes = Mathf.RoundToInt(GrandTotal[2] = (SizesCurrent + SizesScore) / (b+1));
+        Sets = Mathf.RoundToInt(GrandTotal[3] = (SetsCurrent + SetsScore) / (a+1));
+        Patterns = Mathf.RoundToInt(GrandTotal[4] = (PatternsCurrent + PatternsScore) / (z+1));
+        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " ColorAverage",Mathf.RoundToInt(GrandTotal[0]/2));
+        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " ShapesAverage", Mathf.RoundToInt(GrandTotal[1] / 2));
+        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " SizesAverage", Mathf.RoundToInt(GrandTotal[2] / 2));
+        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " SetsAverage", Mathf.RoundToInt(GrandTotal[3] / 2));
+        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " PatternsAverage", Mathf.RoundToInt(GrandTotal[4] / 2));
        
         while (count != 5)
         {
@@ -197,6 +206,26 @@ public class AssesmentController : MonoBehaviour {
             {
                 temp.SetActive(true);
             }
+        }
+        if (Colors/2 <= 1)
+        {
+            //assesment poor
+        }
+        else if(Colors/2 == 2)
+        {
+            //assesment fair
+        }
+        else if (Colors / 2 == 3)
+        {
+            //assesment good
+        }
+        else if (Colors / 2 == 4)
+        {
+            //assesment very good
+        }
+        else if (Colors / 2 >= 5)
+        {
+            //assesment excellence
         }
         while(PlayerPrefs.HasKey(PlayerPrefs.GetString(result) +" MGColor"+x))
         {
