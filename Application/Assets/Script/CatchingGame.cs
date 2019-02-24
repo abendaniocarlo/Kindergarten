@@ -10,6 +10,7 @@ public class CatchingGame : MonoBehaviour {
     public Camera cam;
     void Start()
     {
+        Time.timeScale = 1f;
         if (cam == null)
         {
             cam = Camera.main;

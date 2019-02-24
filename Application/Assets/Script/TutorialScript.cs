@@ -7,8 +7,10 @@ public class TutorialScript : MonoBehaviour {
     public GameObject Window;
     public GameObject Activity;
     public GameObject TutorialWindow;
-	// Use this for initializastion
-	void Start () {
+    public GameObject PausedPane;
+    //  public GameObject PauseCanvas;
+    // Use this for initializastion
+    void Start () {
 		
 	}
     public void CloseWindow()
@@ -22,10 +24,12 @@ public class TutorialScript : MonoBehaviour {
 	}
     public void GoColor()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("ColorIT");
     }
     public void GoTrace()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("TraceMe");
 
     }
@@ -34,14 +38,18 @@ public class TutorialScript : MonoBehaviour {
         Window.SetActive(false);
         MyVideos.SetActive(true);
         Activity.SetActive(false);
+        PausedPane.SetActive(false);
     }
     public void GoWatch2()
     {
-        
         Window.SetActive(false);
         MyVideos.SetActive(true);
         TutorialWindow.SetActive(false);
-      
+        PausedPane.SetActive(false);
+    }
+    public void closeVidPlayer()
+    {
+        PausedPane.SetActive(true);
     }
     public void VideoListClose()
     {
@@ -50,6 +58,7 @@ public class TutorialScript : MonoBehaviour {
     }
     public void TutorialTab()
     {
+        Time.timeScale = 1f;
         TutorialWindow.SetActive(true);
     }
     public void ExitTutorialWindow() // this for scene na walang window tutorial
@@ -59,7 +68,6 @@ public class TutorialScript : MonoBehaviour {
     public void ExitWindow()
     {
         Window.SetActive(false);
-
     }
 
     public void GoPatternOneTutorials()
@@ -72,6 +80,7 @@ public class TutorialScript : MonoBehaviour {
     }
     public void ToPatternsLayout()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Layout Activities Patterns");
     }
 

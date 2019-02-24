@@ -209,6 +209,7 @@ public class SetCompare : MonoBehaviour {
     }
     public void TutorialWindow()
     {
+        Time.timeScale = 1f;
         TutorialBox.SetActive(true);
         PlayerPrefs.SetString("SetIndex", "Set2");
     }
@@ -217,6 +218,7 @@ public class SetCompare : MonoBehaviour {
         Score = 0;
         keyLog = 0;
         myScore = 0;
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Layout Activities Sets");
     }
     IEnumerator ScoreWindow()

@@ -62,7 +62,8 @@ public class MenuSCR : MonoBehaviour {
     }
     public void StatsBTN()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        //   SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadScene("Assessment");
     }
     public void QuitBTN()
     {

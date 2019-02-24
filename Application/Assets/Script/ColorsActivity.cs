@@ -49,7 +49,7 @@ public class ColorsActivity : MonoBehaviour {
             StartCoroutine(DirectionShow());
             directionOnce++;
         }
-
+        Time.timeScale = 1f;
         wrong1.SetActive(false);
         wrong2.SetActive(false);
         wrong3.SetActive(false);
@@ -590,6 +590,7 @@ public class ColorsActivity : MonoBehaviour {
     }
     public void Done()
     {
+        Time.timeScale = 1f;
         directionOnce = 0;
         SceneManager.LoadScene("Layout Activities Colors");
     }
@@ -630,6 +631,7 @@ public class ColorsActivity : MonoBehaviour {
     }*/
     public void Tutorial()
     {
+        Time.timeScale = 1f;
         TutorialPanel.SetActive(true);
     }
     public void Close()
@@ -639,16 +641,19 @@ public class ColorsActivity : MonoBehaviour {
     }
     public void ColorTutorial()
     {
+        Time.timeScale = 1f;
         GrandTotal = 0;
         SceneManager.LoadScene("ColorIT");
     }
     public void TapColorTutorial()
     {
+        Time.timeScale = 1f;
         GrandTotal = 0;
         SceneManager.LoadScene("TapTheColors");
     }
     public void HomeBtn()
     {
+        Time.timeScale = 1f;
         GrandTotal = 0;
         SceneManager.LoadScene("Layout Activities Colors");
     }

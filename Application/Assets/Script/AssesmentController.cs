@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class AssesmentController : MonoBehaviour {
     string result;
     int index = 0;
@@ -11,6 +12,26 @@ public class AssesmentController : MonoBehaviour {
     public GameObject[] Buttons;
     public GameObject[] textBox;
     public GameObject[] Canvas;
+    public GameObject colorRating1;
+    public GameObject colorRating2;
+    public GameObject colorRating3;
+    public GameObject colorRating4;
+    public GameObject shapeRating1;
+    public GameObject shapeRating2;
+    public GameObject shapeRating3;
+    public GameObject shapeRating4;
+    public GameObject sizeRating1;
+    public GameObject sizeRating2;
+    public GameObject sizeRating3;
+    public GameObject sizeRating4;
+    public GameObject setRating1;
+    public GameObject setRating2;
+    public GameObject setRating3;
+    public GameObject setRating4;
+    public GameObject patternRating1;
+    public GameObject patternRating2;
+    public GameObject patternRating3;
+    public GameObject patternRating4;
     int[] PositionY = { -151, -81, -19, 54, 116 };
     int[] ButtonsX = { -279, -109, 62, 233, 406 };
     int KeyLog = 0;
@@ -28,6 +49,8 @@ public class AssesmentController : MonoBehaviour {
      int Patterns;
 	// Use this for initialization
 	void Start () {
+        Time.timeScale = 1f;
+
         ColorsScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " Colors");
         ShapesScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " Shapes");
         SizesScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " Sizes");
@@ -207,22 +230,27 @@ public class AssesmentController : MonoBehaviour {
         if (Colors/2 <= 1)
         {
             //assesment poor
+            colorRating4.SetActive(true);
         }
         else if(Colors/2 == 2)
         {
             //assesment fair
+            colorRating3.SetActive(true);
         }
         else if (Colors / 2 == 3)
         {
             //assesment good
+            colorRating3.SetActive(true);
         }
         else if (Colors / 2 == 4)
         {
             //assesment very good
+            colorRating2.SetActive(true);
         }
         else if (Colors / 2 >= 5)
         {
             //assesment excellence
+            colorRating1.SetActive(true);
         }
         while(PlayerPrefs.HasKey(PlayerPrefs.GetString(result) +" MGColor"+x))
         {
@@ -287,6 +315,31 @@ public class AssesmentController : MonoBehaviour {
                 temp.SetActive(true);
             }
         }
+        if (Shapes / 2 <= 1)
+        {
+            //assesment poor
+            shapeRating4.SetActive(true);
+        }
+        else if (Shapes / 2 == 2)
+        {
+            //assesment fair
+            shapeRating3.SetActive(true);
+        }
+        else if (Shapes / 2 == 3)
+        {
+            //assesment good
+            shapeRating3.SetActive(true);
+        }
+        else if (Shapes / 2 == 4)
+        {
+            //assesment very good
+            shapeRating2.SetActive(true);
+        }
+        else if (Shapes / 2 >= 5)
+        {
+            //assesment excellence
+            shapeRating1.SetActive(true);
+        }
         while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGShape" + x))
         {
             current = current + 75;
@@ -348,6 +401,31 @@ public class AssesmentController : MonoBehaviour {
             {
                 temp.SetActive(true);
             }
+        }
+        if (Patterns / 2 <= 1)
+        {
+            //assesment poor
+            patternRating4.SetActive(true);
+        }
+        else if (Patterns / 2 == 2)
+        {
+            //assesment fair
+            patternRating3.SetActive(true);
+        }
+        else if (Patterns / 2 == 3)
+        {
+            //assesment good
+            patternRating3.SetActive(true);
+        }
+        else if (Patterns / 2 == 4)
+        {
+            //assesment very good
+            patternRating2.SetActive(true);
+        }
+        else if (Patterns / 2 >= 5)
+        {
+            //assesment excellence
+            patternRating1.SetActive(true);
         }
         while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGPattern" + x))
         {
@@ -411,6 +489,31 @@ public class AssesmentController : MonoBehaviour {
                 temp.SetActive(true);
             }
         }
+        if (Sets / 2 <= 1)
+        {
+            //assesment poor
+            setRating4.SetActive(true);
+        }
+        else if (Sets / 2 == 2)
+        {
+            //assesment fair
+            setRating3.SetActive(true);
+        }
+        else if (Sets / 2 == 3)
+        {
+            //assesment good
+            setRating3.SetActive(true);
+        }
+        else if (Sets / 2 == 4)
+        {
+            //assesment very good
+            setRating2.SetActive(true);
+        }
+        else if (Sets / 2 >= 5)
+        {
+            //assesment excellence
+            setRating1.SetActive(true);
+        }
         while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSet" + x))
         {
             current = current + 75;
@@ -472,6 +575,31 @@ public class AssesmentController : MonoBehaviour {
             {
                 temp.SetActive(true);
             }
+        }
+        if (Sizes / 2 <= 1)
+        {
+            //assesment poor
+            sizeRating4.SetActive(true);
+        }
+        else if (Sizes / 2 == 2)
+        {
+            //assesment fair
+            sizeRating3.SetActive(true);
+        }
+        else if (Sizes / 2 == 3)
+        {
+            //assesment good
+            sizeRating3.SetActive(true);
+        }
+        else if (Sizes / 2 == 4)
+        {
+            //assesment very good
+            sizeRating2.SetActive(true);
+        }
+        else if (Sizes / 2 >= 5)
+        {
+            //assesment excellence
+            sizeRating1.SetActive(true);
         }
         while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGSize" + x))
         {
@@ -583,4 +711,9 @@ public class AssesmentController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void homeBTN()
+    {
+        SceneManager.LoadScene("Main menu");
+    }
 }

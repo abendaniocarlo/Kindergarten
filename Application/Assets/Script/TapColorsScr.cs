@@ -27,7 +27,7 @@ public class TapColorsScr : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+        Time.timeScale = 1f;
         redbtn.onClick.AddListener(() => {  StartCoroutine(redTap());  });
 
         orangebtn.onClick.AddListener(() => { StartCoroutine(orangeTap()); });

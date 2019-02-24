@@ -21,6 +21,7 @@ public class ColorCatchScores : MonoBehaviour {
     string result= "";
     void Start()
     {
+        Time.timeScale = 1f;
         Shape = myObj[KeyLog];
     
         CatchObj[KeyLog].SetActive(true);
@@ -204,6 +205,7 @@ public class ColorCatchScores : MonoBehaviour {
 
     public void backbtn()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Layout Games Colors");
     }
     public void retrybtn()

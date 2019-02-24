@@ -679,6 +679,7 @@ public class ColorsTapGame : MonoBehaviour
     {
         keyLog = 0;
         GrandTotal = 0;
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Layout Games Colors");
     }
     public void Done()

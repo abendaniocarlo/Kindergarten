@@ -444,6 +444,7 @@ public class ShapesActivity : MonoBehaviour {
     }
     public void HomeBtn()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Layout Activities Shapes");
         myScore = 0;
         Total = 0;
@@ -459,6 +460,7 @@ public class ShapesActivity : MonoBehaviour {
     }
     public void Tutorial()
     {
+        Time.timeScale = 1f;
         TutorialPanel.SetActive(true);
     }
     public void Close()
