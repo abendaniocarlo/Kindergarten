@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class AssesmentController : MonoBehaviour {
     string result;
     int index = 0;
@@ -556,4 +557,9 @@ public class AssesmentController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void homeBTN()
+    {
+        SceneManager.LoadScene("Main menu");
+    }
 }
