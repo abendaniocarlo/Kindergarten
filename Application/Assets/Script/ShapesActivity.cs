@@ -25,6 +25,7 @@ public class ShapesActivity : MonoBehaviour {
     int[] XPosition = { -143, -71, 0, 74, 146 };
     public static int keyLog;
     public static int directionOnce;
+    public static int GrandTotal;
     public GameObject ScoreBoard;
     public GameObject PanelBoard;
     public static int myScore;
@@ -189,7 +190,12 @@ public class ShapesActivity : MonoBehaviour {
         {
             //right answer
             Total++;
-         
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
+
+            }
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
             else if (Key == 2)
@@ -225,6 +231,12 @@ public class ShapesActivity : MonoBehaviour {
         {
             //right answer
             Total++;
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
+
+            }
        //     Debug.Log(Total);
 
             if (Key == 1) // checkbar if correct
@@ -263,8 +275,13 @@ public class ShapesActivity : MonoBehaviour {
         {
             //right answer
             Total++;
-            Debug.Log(Total);
+         
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
 
+            }
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
             else if (Key == 2)
@@ -299,7 +316,12 @@ public class ShapesActivity : MonoBehaviour {
         {
             //right answer
             Total++;
-            Debug.Log(Total);
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
+
+            }
 
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
@@ -336,7 +358,12 @@ public class ShapesActivity : MonoBehaviour {
         {
             //right answer
             Total++;
-            Debug.Log(Total);
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
+
+            }
 
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
@@ -371,8 +398,8 @@ public class ShapesActivity : MonoBehaviour {
         int b = 0, c = 0;
         yield return new WaitForSeconds(1);
         ScoreBoard.SetActive(true);
-       PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " " + Shapes, Total/3);
-        for (int a = 0; a < Total/3; a++)
+       PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " " + Shapes,GrandTotal);
+       for (int a = 0; a < GrandTotal; a++)
         {
             yield return new WaitForSeconds(0.5f);
             var createImage = Instantiate(Star, new Vector3(XPosition[b], YPosition[c], 0), Quaternion.identity) as GameObject;
@@ -387,11 +414,13 @@ public class ShapesActivity : MonoBehaviour {
         myScore = 0;
         Total = 0;
         keyLog = 0;
+
+        GrandTotal = 0;
     }
     IEnumerator RestartGame()
     {
         yield return new WaitForSeconds(1);
-       
+        Total = 0;
         if (keyLog != 10)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -411,6 +440,7 @@ public class ShapesActivity : MonoBehaviour {
         Total = 0;
         keyLog = 0;
 
+        GrandTotal = 0;
     }
     public void HomeBtn()
     {
@@ -418,9 +448,13 @@ public class ShapesActivity : MonoBehaviour {
         myScore = 0;
         Total = 0;
         keyLog = 0;
+
+        GrandTotal = 0;
     }
     public void TapShapes()
     {
+
+        GrandTotal = 0;
         SceneManager.LoadScene("Tap Shapes");
     }
     public void Tutorial()

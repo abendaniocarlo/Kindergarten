@@ -39,6 +39,7 @@ public class ColorsActivity : MonoBehaviour {
     string MyColor;
     string ColorIndex;
     int count;
+    public static int GrandTotal;
 	// Use this for initialization
 	void Start () {
         int b = 0;
@@ -255,7 +256,12 @@ public class ColorsActivity : MonoBehaviour {
         {
             //right answer
             Total++;
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
 
+            }
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
             else if (Key == 2)
@@ -292,6 +298,12 @@ public class ColorsActivity : MonoBehaviour {
         {
             //right answer
             Total++;
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
+
+            }
 
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
@@ -328,6 +340,12 @@ public class ColorsActivity : MonoBehaviour {
         {
             //right answer
             Total++;
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
+
+            }
 
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
@@ -363,6 +381,12 @@ public class ColorsActivity : MonoBehaviour {
         {
             //right answer
             Total++;
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
+
+            }
 
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
@@ -373,7 +397,7 @@ public class ColorsActivity : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Wrong");
+          
 
             if (Key == 1) // checkbar if wrong
                 wrong1.SetActive(true);
@@ -398,6 +422,12 @@ public class ColorsActivity : MonoBehaviour {
         {
             //right answer
             Total++;
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
+
+            }
 
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
@@ -408,7 +438,7 @@ public class ColorsActivity : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Wrong");
+         
 
             if (Key == 1) // checkbar if wrong
                 wrong1.SetActive(true);
@@ -434,6 +464,12 @@ public class ColorsActivity : MonoBehaviour {
         {
             //right answer
             Total++;
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
+
+            }
 
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
@@ -444,7 +480,7 @@ public class ColorsActivity : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Wrong");
+    
 
             if (Key == 1) // checkbar if wrong
                 wrong1.SetActive(true);
@@ -469,6 +505,12 @@ public class ColorsActivity : MonoBehaviour {
         {
             //right answer
             Total++;
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
+
+            }
 
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
@@ -479,9 +521,6 @@ public class ColorsActivity : MonoBehaviour {
         }
         else
         {
-            
-            Debug.Log("Wrong");
-
             if (Key == 1) // checkbar if wrong
                 wrong1.SetActive(true);
             else if (Key == 2)
@@ -505,7 +544,12 @@ public class ColorsActivity : MonoBehaviour {
         {
             //right answer
             Total++;
+            if (Total == 3)
+            {
+                GrandTotal++;
+                Total = 0;
 
+            }
             if (Key == 1) // checkbar if correct
                 correct1.SetActive(true);
             else if (Key == 2)
@@ -515,9 +559,6 @@ public class ColorsActivity : MonoBehaviour {
         }
         else
         {
-
-            Debug.Log("Wrong");
-
             if (Key == 1) // checkbar if wrong
                 wrong1.SetActive(true);
             else if (Key == 2)
@@ -555,13 +596,14 @@ public class ColorsActivity : MonoBehaviour {
     IEnumerator RestartGame()
     {
         yield return new WaitForSeconds(1);
+        Total = 0;
         if (keyLog != 10)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else
         {
-           PlayerPrefs.SetInt(PlayerPrefs.GetString(result)+" "+color,Total/3);
+           PlayerPrefs.SetInt(PlayerPrefs.GetString(result)+" "+color,GrandTotal);
             StartCoroutine("ScoreWindow");
         }
         
@@ -572,14 +614,15 @@ public class ColorsActivity : MonoBehaviour {
         yield return new WaitForSeconds(1);
         ScoreBoard.SetActive(true);
         
-       Debug.Log(Total/3);
+    
         keyLog = 0;    
-        while (temp != Total/3)
+        while (temp != GrandTotal)
         {
             Star[temp].SetActive(true);
            temp++;
         }
         Total = 0;
+        GrandTotal = 0;
     }
  /*   public void CloseDirection()
     {
@@ -591,19 +634,22 @@ public class ColorsActivity : MonoBehaviour {
     }
     public void Close()
     {
+
         TutorialPanel.SetActive(false);
     }
     public void ColorTutorial()
     {
+        GrandTotal = 0;
         SceneManager.LoadScene("ColorIT");
     }
     public void TapColorTutorial()
     {
-       
+        GrandTotal = 0;
         SceneManager.LoadScene("TapTheColors");
     }
     public void HomeBtn()
     {
+        GrandTotal = 0;
         SceneManager.LoadScene("Layout Activities Colors");
     }
 
