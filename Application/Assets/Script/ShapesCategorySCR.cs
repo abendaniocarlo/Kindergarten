@@ -113,15 +113,15 @@ public class ShapesCategorySCR : MonoBehaviour {
         QuestionAudio.onClick.AddListener(() => questionButton());
     }
 
-    IEnumerator LoseTime()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1);
-            timeLeft--;
-        }
+    //IEnumerator LoseTime()
+    //{
+    //    while (true)
+    //    {
+    //        yield return new WaitForSeconds(1);
+    //        timeLeft--;
+    //    }
 
-    }
+    //}
     public int[] randomPos(int[] array)
     {
         for (int t = 0; t < array.Length; t++)
@@ -180,11 +180,11 @@ public class ShapesCategorySCR : MonoBehaviour {
             PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " Shapes", Score*2);
         }
 
-        if (TimerLimit == false)
-        {
-            StartCoroutine("LoseTime");
-            TimerLimit = true;
-        }
+        //if (TimerLimit == false)
+        //{
+        //    StartCoroutine("LoseTime");
+        //    TimerLimit = true;
+        //}
     
      
 
@@ -214,11 +214,11 @@ public class ShapesCategorySCR : MonoBehaviour {
           
         }
 
-        if (TimerLimit == false)
-        {
-            StartCoroutine("LoseTime");
-            TimerLimit = true;
-        }
+        //if (TimerLimit == false)
+        //{
+        //    StartCoroutine("LoseTime");
+        //    TimerLimit = true;
+        //}
     
       
        
@@ -249,11 +249,11 @@ public class ShapesCategorySCR : MonoBehaviour {
             
         }
 
-        if (TimerLimit == false)
-        {
-            StartCoroutine("LoseTime");
-            TimerLimit = true;
-        }
+        //if (TimerLimit == false)
+        //{
+        //    StartCoroutine("LoseTime");
+        //    TimerLimit = true;
+        //}
     
       
       
@@ -283,11 +283,11 @@ public class ShapesCategorySCR : MonoBehaviour {
         
         }
 
-        if (TimerLimit == false)
-        {
-            StartCoroutine("LoseTime");
-            TimerLimit = true;
-        }
+        //if (TimerLimit == false)
+        //{
+        //    StartCoroutine("LoseTime");
+        //    TimerLimit = true;
+        //}
     
     
     }
@@ -318,11 +318,11 @@ public class ShapesCategorySCR : MonoBehaviour {
         }
       
 
-        if (TimerLimit == false)
-        {
-            StartCoroutine("LoseTime");
-            TimerLimit = true;
-        }
+        //if (TimerLimit == false)
+        //{
+        //    StartCoroutine("LoseTime");
+        //    TimerLimit = true;
+        //}
     
       
     

@@ -312,9 +312,9 @@ public class PatternCreator : MonoBehaviour {
     IEnumerator ScoreEval()
     {
         yield return new WaitForSeconds(0);
-        // Debug.Log(Score);
+       
         Board.SetActive(true);
-       // Score = 2;
+
         SaveScore();
         
         int b = 0, c = 0;
@@ -331,89 +331,88 @@ public class PatternCreator : MonoBehaviour {
             }
         }
 
-
+        Score = 0;
     }
     void SaveScore()
     {
-        int xx = 0, zz = 0;
-        string current = System.DateTime.Now.ToString("MM/dd/yy");
+        //  =myDate = "02/24";
+        int xx = 0, zz = 0, d = 0;
+
+       // string current = "02/24";
+        string current = System.DateTime.Now.ToString("MM/dd");
         string myDate;
         int MGScore, test;
-        float FGScore;
+        int FGScore;
         bool MyBool = true;
-        if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MPDate"))
+
+        if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MPDate0"))
         {
-            //meron
+            // Date EXIST!
 
-            myDate = PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MPDate");
-            //    Debug.Log(Score);
-            MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGPattern");
-           // myDate = "02/22/19";  //test data
-            if (myDate == current)
+            while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MPDate" + xx))
             {
-                // equal sa current date;
-
-                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGPattern" + xx))
+                xx++;
+                // get the last stored date
+                if (!PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MPDate" + xx))
                 {
 
+                    //check if its equal to current date
 
-                    xx++;
-                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGPattern" + xx) == false)
+                    if (PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MPDate" + (xx - 1)) == current)
                     {
-                        MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGPattern" + (xx - 1));
-
-                        if (MGScore >= Score)
+                        //Same date of exam  
+                        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGPattern" + zz))
                         {
-                            FGScore = MGScore;
-                            //         Debug.Log("true");
+                            // Get he last stored score for same date
+                            zz++;
 
-                        }
-                        else
-                        {
-                            //  Debug.Log("false");
-                            FGScore = Score;
+                            if (!PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGPattern" + zz))
+                            {
+                                MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGPattern" + (zz - 1));
+                                //check which is higher
+                                if (MGScore >= Score)
+                                {
+                                    FGScore = MGScore;
+                                }
+                                else
+                                {
+                                    FGScore = Score;
+                                }
+                                //set the score which is higher on two;
+                                PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGPattern" + (zz - 1), FGScore);
+
+                            }
                         }
 
-                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGPattern" + (xx - 1), Mathf.RoundToInt(FGScore));
                     }
-
-                }
-
-            }
-            else
-            {
-
-                xx = 0;
-                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGPattern" + xx) || MyBool == false)
-                {
-                    PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MPDate", current);
-                    MGScore = MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGPattern" + xx);
-                    xx++;
-                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGPattern" + xx) == false)
+                    else
                     {
-                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGPattern" + xx, Score);
+                        // not equal to current date
 
-                        MyBool = false;
+                        PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MPDate" + xx, current);
+                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGPattern" + xx, Score);
                         break;
                     }
                 }
-            }
 
+
+            }
         }
         else
         {
-
-            PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MPDate", current);
+            // No date & score yet
+            Debug.Log("hey jude");
+            PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MPDate0", current);
             PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGPattern0", Score);
         }
-
         xx = 0;
-        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGPattern" + xx))
+        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MPDate" + xx))
         {
-            //   Debug.Log("s");
-            // PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MGPattern" + xx);
-            //PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MPDate" + xx);
-            Debug.Log("x = " + xx + " - " + PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGPattern" + xx));
+
+            // PlayerPrefs.DeleteKey(PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MGPattern" + xx));
+            //   PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MPDate" + xx);
+            Debug.Log("S = " + xx + "---" + PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MPDate" + xx));
+            Debug.Log("x = " + xx + "---" + PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGPattern" + xx));
             xx++;
         }
 
@@ -436,6 +435,7 @@ public class PatternCreator : MonoBehaviour {
         tune = 0;
         KeyLog = 0;
         Time.timeScale = 1f;
+        Score = 0;
         SceneManager.LoadScene("Layout Games Patterns");
     }
 

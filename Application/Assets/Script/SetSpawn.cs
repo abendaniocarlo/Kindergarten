@@ -17,7 +17,7 @@ public class SetSpawn : MonoBehaviour {
     public GameObject[] CButtons;
     public Button[] myButton;
  	// Use this for initialization
-    public static int FruitIndex = 8;
+     int FruitIndex = 8;
     public static int KeyLog;
     public static int tune;
     public static int[] question = { 3, 5, 4, 2,5 };
@@ -31,6 +31,7 @@ public class SetSpawn : MonoBehaviour {
             SoundFx.PlayOneShot(willSpeak);
             tune++;
         }
+      
 
             question = randomPos(question);
         number = randomPos(number);

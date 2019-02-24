@@ -79,13 +79,14 @@ public class ColorCatchScores : MonoBehaviour {
        
         yield return new WaitForSecondsRealtime(0);
         // score / 3.5
-       finalScore = 7 / 3.5f;
+       finalScore = score / 3.5f;
         owlie.SetActive(false);
         spawnarea.SetActive(false);
         scorewindow.SetActive(true);
        
-      SaveScore();
-      //PlayerPrefs.DeleteAll();
+    //  SaveScore();
+   //  PlayerPrefs.DeleteAll();
+     
         for (int x = 0; x != Mathf.RoundToInt(finalScore); x++)
         {
          
@@ -100,6 +101,7 @@ public class ColorCatchScores : MonoBehaviour {
     }
     void SaveScore()
     {
+      //  =myDate = "02/24";
         int xx = 0, zz = 0,d=0;
         string current = System.DateTime.Now.ToString("MM/dd");
         string myDate;
@@ -117,18 +119,12 @@ public class ColorCatchScores : MonoBehaviour {
                 // get the last stored date
                 if (!PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MCDate" + xx))
                 {
-                //  myDate = "02/23";
-                    //check if its equal to current date
-                    // 
 
-                    Debug.Log(PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MCDate" + (xx - 1)));
-              //      Debug.Log(myDate);
+                    //check if its equal to current date
+             
                     if (PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MCDate" + (xx - 1)) == current)
                     {
-                        //Same date of exam
-
-
-                   
+                        //Same date of exam  
                         while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + zz))
                         {
                             // Get he last stored score for same date
@@ -148,7 +144,7 @@ public class ColorCatchScores : MonoBehaviour {
                                 }
                                 //set the score which is higher on two;
                                 PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor" + (zz - 1), FGScore);
-                                //    Debug.Log(FGScore);
+                                
                             }
                         }
 
@@ -156,7 +152,7 @@ public class ColorCatchScores : MonoBehaviour {
                     else
                     {
                         // not equal to current date
-                       
+                     
                         PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MCDate" + xx, current);
                         PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor" + xx, Mathf.RoundToInt(finalScore));
                         break;
@@ -176,9 +172,9 @@ public class ColorCatchScores : MonoBehaviour {
         xx = 0;
         while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MCDate" + xx))
         {
-            //   Debug.Log("s");
-        //    PlayerPrefs.DeleteKey(PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGColor" + xx));
-           // PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MCDate" + xx);
+           
+          //  PlayerPrefs.DeleteKey(PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MGColor" + xx));
+        //    PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MCDate" + xx);
             Debug.Log("S = " + xx+"---" + PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MCDate" + xx));
             Debug.Log("x = " + xx + "---" + PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGColor" + xx));
             xx++;

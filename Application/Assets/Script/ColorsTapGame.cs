@@ -579,7 +579,7 @@ public class ColorsTapGame : MonoBehaviour
         int temp = 0;
         yield return new WaitForSeconds(1);
         ScoreBoard.SetActive(true);
-
+ 
         SaveScore();
         keyLog = 0;
         while (temp != GrandTotal)
@@ -593,85 +593,88 @@ public class ColorsTapGame : MonoBehaviour
     }
     void SaveScore()
     {
-        int xx = 0, zz = 0;
-        string current = System.DateTime.Now.ToString("MM/dd/yy");
+        //  =myDate = "02/24";
+        int xx = 0, zz = 0, d = 0;
+
+        // string current = "02/24";
+        string current = System.DateTime.Now.ToString("MM/dd");
         string myDate;
-        int MGScore;
+        int MGScore, test;
         int FGScore;
         bool MyBool = true;
-        if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MCDate"))
+
+        if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MCDate0"))
         {
-            //meron
+            // Date EXIST!
 
-            myDate = PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MCDate");
-
-           // MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + "MGColor");
-
-            if (myDate == current)
+            while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MCDate" + xx))
             {
-
-
-                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx))
+                xx++;
+                // get the last stored date
+                if (!PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MCDate" + xx))
                 {
-                    xx++;
-                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx) == false)
+
+                    //check if its equal to current date
+
+                    if (PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MCDate" + (xx - 1)) == current)
                     {
-                        MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGColor" + (xx - 1));
-                        Debug.Log(MGScore);
-                        if (MGScore >= GrandTotal)
+                        //Same date of exam  
+                        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + zz))
                         {
-                            FGScore = MGScore;
-                            Debug.Log("true");
-                        }
-                        else
-                        {
-                            FGScore = GrandTotal;
-                            Debug.Log("False");
+                            // Get he last stored score for same date
+                            zz++;
+
+                            if (!PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + zz))
+                            {
+                                MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGColor" + (zz - 1));
+                                //check which is higher
+                                if (MGScore >= GrandTotal)
+                                {
+                                    FGScore = MGScore;
+                                }
+                                else
+                                {
+                                    FGScore = GrandTotal;
+                                }
+                                //set the score which is higher on two;
+                                PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor" + (zz - 1), FGScore);
+
+                            }
                         }
 
-                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor" + (xx - 1), FGScore);
                     }
-                }
-            }
-            else
-            {
-
-                xx = 0;
-                while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx) || MyBool == false)
-                {
-                    PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MCDate", current);
-                 //   MGScore = MGScore = PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGcolor" + xx);
-                    xx++;
-                    if (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx) == false)
+                    else
                     {
-                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor" + xx, GrandTotal);
+                        // not equal to current date
 
-                        MyBool = false;
+                        PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MCDate" + xx, current);
+                        PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor" + xx, GrandTotal);
                         break;
                     }
                 }
-            }
 
+
+            }
         }
         else
         {
-
-            PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MCDate", current);
+            // No date & score yet
+            Debug.Log("hey jude");
+            PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " MCDate0", current);
             PlayerPrefs.SetInt(PlayerPrefs.GetString(result) + " MGColor0", GrandTotal);
         }
-
         xx = 0;
-        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MGColor" + xx))
+        while (PlayerPrefs.HasKey(PlayerPrefs.GetString(result) + " MCDate" + xx))
         {
-            //   Debug.Log("s");
-            // PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MGColor" + xx);
-            //PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MCDate" + xx);
-            Debug.Log("x = " + xx + PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGColor" + xx));
+
+           // PlayerPrefs.DeleteKey(PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MGColor" + xx));
+         //   PlayerPrefs.DeleteKey(PlayerPrefs.GetString(result) + " MCDate" + xx);
+            Debug.Log("S = " + xx + "---" + PlayerPrefs.GetString(PlayerPrefs.GetString(result) + " MCDate" + xx));
+            Debug.Log("x = " + xx + "---" + PlayerPrefs.GetInt(PlayerPrefs.GetString(result) + " MGColor" + xx));
             xx++;
         }
 
     }
-    
     public void backBtn()
     {
         keyLog = 0;

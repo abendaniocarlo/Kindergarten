@@ -94,7 +94,7 @@ public class PatternsCategorySCR : MonoBehaviour {
     void Computation()
     {
         PlayerPrefs.SetString(PlayerPrefs.GetString(result), "done");
-
+        PlayerPrefs.SetString(PlayerPrefs.GetString(result) + " PreTestDate", System.DateTime.Now.ToString("MM/dd"));
         TotalScore = (Score*2) + current;
         TotalScore = TotalScore / 5;
         PlayerPrefs.SetInt("TotalScore", TotalScore);
@@ -130,15 +130,15 @@ public class PatternsCategorySCR : MonoBehaviour {
             number4++;
         }
     }
-    IEnumerator LoseTime()  //Timer Function
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1);
-            timeLeft--;
-        }
+    //IEnumerator LoseTime()  //Timer Function
+    //{
+    //    while (true)
+    //    {
+    //        yield return new WaitForSeconds(1);
+    //        timeLeft--;
+    //    }
 
-    }
+    //}
 
     public void questionButton()
     {
@@ -170,11 +170,11 @@ public class PatternsCategorySCR : MonoBehaviour {
            
         }
 
-        if (TimerLimit == false)
-        {
-            StartCoroutine("LoseTime");
-            TimerLimit = true;
-        }
+        //if (TimerLimit == false)
+        //{
+        //    StartCoroutine("LoseTime");
+        //    TimerLimit = true;
+        //}
     
     }
     public void NoBTN()
@@ -201,11 +201,11 @@ public class PatternsCategorySCR : MonoBehaviour {
            
         }
 
-        if (TimerLimit == false)
-        {
-            StartCoroutine("LoseTime");
-            TimerLimit = true;
-        }
+        //if (TimerLimit == false)
+        //{
+        //    StartCoroutine("LoseTime");
+        //    TimerLimit = true;
+        //}
     
     }
     public int[] randomPos(int[] array)

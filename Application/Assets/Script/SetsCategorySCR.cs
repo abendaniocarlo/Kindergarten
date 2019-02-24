@@ -186,15 +186,15 @@ public class SetsCategorySCR : MonoBehaviour {
 
         QuestionAudio.onClick.AddListener(() => questionButton());
     }
-    IEnumerator LoseTime()  //Timer Function
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1);
-            timeLeft--;
-        }
+    //IEnumerator LoseTime()  //Timer Function
+    //{
+    //    while (true)
+    //    {
+    //        yield return new WaitForSeconds(1);
+    //        timeLeft--;
+    //    }
 
-    }
+    //}
     IEnumerator DirectionPlay()
     {
         directions.SetActive(true);
@@ -221,11 +221,11 @@ public class SetsCategorySCR : MonoBehaviour {
             Start();
         }
 
-        if (TimerLimit == false)
-        {
-            StartCoroutine("LoseTime");
-            TimerLimit = true;
-        }
+        //if (TimerLimit == false)
+        //{
+        //    StartCoroutine("LoseTime");
+        //    TimerLimit = true;
+        //}
     
     }
     public void set2()
@@ -248,11 +248,11 @@ public class SetsCategorySCR : MonoBehaviour {
             Start();
         }
 
-        if (TimerLimit == false)
-        {
-            StartCoroutine("LoseTime");
-            TimerLimit = true;
-        }
+        //if (TimerLimit == false)
+        //{
+        //    StartCoroutine("LoseTime");
+        //    TimerLimit = true;
+        //}
     
     }
 	// Update is called once per frame

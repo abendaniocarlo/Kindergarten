@@ -122,7 +122,6 @@ public class ColorsCategorySCR : MonoBehaviour {
         
         QuestionAudio.onClick.AddListener(() => questionButton());
 	}
-
     IEnumerator PicDelay()
     {
         yield return new WaitForSeconds(1);
@@ -133,15 +132,15 @@ public class ColorsCategorySCR : MonoBehaviour {
        
     }
   
-  IEnumerator LoseTime()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1);
-            timeLeft--;
-        }
+  //IEnumerator LoseTime()
+  //  {
+  //      while (true)
+  //      {
+  //          yield return new WaitForSeconds(1);
+  //          timeLeft--;
+  //      }
             
-    }
+  //  }
     void Computation()
      {
          PlayerPrefs.SetInt("TotalScore",count);
@@ -168,8 +167,8 @@ public class ColorsCategorySCR : MonoBehaviour {
         }
         if (keyLog == 10)
         {
-            ScoreWindow.SetActive(true);
             Computation();
+            ScoreWindow.SetActive(true);
         }
         if (myAnswer == true)
         {
@@ -212,16 +211,12 @@ public class ColorsCategorySCR : MonoBehaviour {
             }
             return array;
     }
-
     public void questionButton()
     {
         SoundFx.PlayOneShot(QuestionColor);
     }
-
    public void ChoiceOne()
    {
-
-     
        if (answer == 0)
        {
            right[0].SetActive(true);
@@ -240,24 +235,13 @@ public class ColorsCategorySCR : MonoBehaviour {
             SoundFx.PlayOneShot(WrongTone);
             cover.SetActive(true);
         }
-     
            StartCoroutine("PicDelay");
-       
-    
-       if (TimerLimit == false)
-       {
-           StartCoroutine("LoseTime");
-           TimerLimit = true;
-       }
-    
-    
+       //if (TimerLimit == false)
+       //{
+       //    StartCoroutine("LoseTime");
+       //    TimerLimit = true;
+       //}0
        keyLog++;
-       
-    
-      
-
-
-
    }
    public void ChoiceTwo()
    {
@@ -281,11 +265,11 @@ public class ColorsCategorySCR : MonoBehaviour {
        
            StartCoroutine("PicDelay");
      
-       if (TimerLimit == false)
-       {
-           StartCoroutine("LoseTime");
-           TimerLimit = true;
-       }
+       //if (TimerLimit == false)
+       //{
+       //    StartCoroutine("LoseTime");
+       //    TimerLimit = true;
+       //}
     
        keyLog++;
       
@@ -314,11 +298,11 @@ public class ColorsCategorySCR : MonoBehaviour {
       
            StartCoroutine("PicDelay");
     
-       if (TimerLimit == false)
-       {
-           StartCoroutine("LoseTime");
-           TimerLimit = true;
-       }
+       //if (TimerLimit == false)
+       //{
+       //    StartCoroutine("LoseTime");
+       //    TimerLimit = true;
+       //}
     
        keyLog++;
       
@@ -347,11 +331,11 @@ public class ColorsCategorySCR : MonoBehaviour {
       
            StartCoroutine("PicDelay");
       
-       if (TimerLimit == false)
-       {
-           StartCoroutine("LoseTime");
-           TimerLimit = true;
-       }
+       //if (TimerLimit == false)
+       //{
+       //    StartCoroutine("LoseTime");
+       //    TimerLimit = true;
+       //}
     
        keyLog++;
   
@@ -378,11 +362,11 @@ public class ColorsCategorySCR : MonoBehaviour {
       
            StartCoroutine("PicDelay");
       
-       if (TimerLimit == false)
-       {
-           StartCoroutine("LoseTime");
-           TimerLimit = true;
-       }
+       //if (TimerLimit == false)
+       //{
+       //    StartCoroutine("LoseTime");
+       //    TimerLimit = true;
+       //}
     
    
        keyLog++;
@@ -412,11 +396,11 @@ public class ColorsCategorySCR : MonoBehaviour {
       
            StartCoroutine("PicDelay");
       
-       if (TimerLimit == false)
-       {
-           StartCoroutine("LoseTime");
-           TimerLimit = true;
-       }
+       //if (TimerLimit == false)
+       //{
+       //    StartCoroutine("LoseTime");
+       //    TimerLimit = true;
+       //}
        keyLog++;
    }
    public void ChoiceSeven()
@@ -441,11 +425,11 @@ public class ColorsCategorySCR : MonoBehaviour {
       
            StartCoroutine("PicDelay");
       
-       if (TimerLimit == false)
-       {
-           StartCoroutine("LoseTime");
-           TimerLimit = true;
-       }
+       //if (TimerLimit == false)
+       //{
+       //    StartCoroutine("LoseTime");
+       //    TimerLimit = true;
+       //}
     
 
        keyLog++;
@@ -473,11 +457,11 @@ public class ColorsCategorySCR : MonoBehaviour {
       
            StartCoroutine("PicDelay");
        
-       if (TimerLimit == false)
-       {
-           StartCoroutine("LoseTime");
-           TimerLimit = true;
-       }
+       //if (TimerLimit == false)
+       //{
+       //    StartCoroutine("LoseTime");
+       //    TimerLimit = true;
+       //}
     
       
     
@@ -506,11 +490,11 @@ public class ColorsCategorySCR : MonoBehaviour {
      
            StartCoroutine("PicDelay");
    
-       if (TimerLimit == false)
-       {
-           StartCoroutine("LoseTime");
-           TimerLimit = true;
-       }
+       //if (TimerLimit == false)
+       //{
+       //    StartCoroutine("LoseTime");
+       //    TimerLimit = true;
+       //}
     
        keyLog++;
    }
@@ -536,11 +520,11 @@ public class ColorsCategorySCR : MonoBehaviour {
 
        StartCoroutine("PicDelay");
 
-       if (TimerLimit == false)
-       {
-           StartCoroutine("LoseTime");
-           TimerLimit = true;
-       }
+       //if (TimerLimit == false)
+       //{
+       //    StartCoroutine("LoseTime");
+       //    TimerLimit = true;
+       //}
 
        keyLog++;
    }
