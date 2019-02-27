@@ -21,9 +21,12 @@ public class DragObject : MonoBehaviour {
     public static int myScore;
     public static bool locked;
     string value;
-   
-	// Use this for initialization
-	void Start () {
+    public AudioSource SoundFx;
+    public AudioClip CheckTone;
+    public AudioClip WrongTone;
+
+    // Use this for initialization
+    void Start () {
         
 
         initialPosition = transform.position;
@@ -162,10 +165,12 @@ public class DragObject : MonoBehaviour {
             {
                 myScore++;
                 Debug.Log(myScore);
+                SoundFx.PlayOneShot(CheckTone);
             }
             else
             {
                 Debug.Log("Wrong");
+                SoundFx.PlayOneShot(WrongTone);
             }
             if (keyLog != 10)
             {

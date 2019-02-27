@@ -180,6 +180,10 @@ public class ShapesActivity : MonoBehaviour {
         yield return new WaitForSeconds(9f);
         Directions.SetActive(false);
     }
+    public void showInstruction()
+    {
+        StartCoroutine(DirectionShow());
+    }
 
     public void Circle()
     {

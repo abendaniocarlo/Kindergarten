@@ -25,6 +25,9 @@ public class DragObject21 : MonoBehaviour {
     public GameObject PanelBoard;
     public static int myScore;
     public GameObject Star;
+    public AudioSource SoundFx;
+    public AudioClip CheckTone;
+    public AudioClip WrongTone;
     // Use this for initialization
     void Start()
     {
@@ -162,10 +165,12 @@ public class DragObject21 : MonoBehaviour {
             {
                 myScore++;
                 Debug.Log(myScore);
+                SoundFx.PlayOneShot(CheckTone);
             }
             else
             {
                 Debug.Log("Wrong");
+                SoundFx.PlayOneShot(WrongTone);
             }
             if (keyLog != 10)
             {

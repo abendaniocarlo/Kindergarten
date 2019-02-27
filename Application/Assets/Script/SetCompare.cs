@@ -207,6 +207,10 @@ public class SetCompare : MonoBehaviour {
         other.SetActive(true);
         directions.SetActive(false);
     }
+    public void showInstruction()
+    {
+        StartCoroutine(DirectionPlay());
+    }
     public void TutorialWindow()
     {
         Time.timeScale = 1f;

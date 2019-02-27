@@ -24,9 +24,12 @@ public class SizeShuffle : MonoBehaviour {
     int[] Question = { 0 ,1 };
     bool PVal = false;
     public static int[] AIndex = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29 };
-	// Use this for initialization
+    public AudioSource SoundFx;
+    public AudioClip CheckTone;
+    public AudioClip WrongTone;
+    // Use this for initialization
 
-	void Start () {
+    void Start () {
         Time.timeScale = 1f;
         if (KeyLog == 0)
         {
@@ -113,17 +116,23 @@ public class SizeShuffle : MonoBehaviour {
             {
                 Score++;
                 Debug.Log(Score);
-            }
+            SoundFx.PlayOneShot(CheckTone);
+        }
             else
             {
                 Debug.Log("false");
-            }
-            Restart();
+            SoundFx.PlayOneShot(WrongTone);
+        }
+
+            StartCoroutine("delayRestart");
+          //  Restart();
   
-       
-       
 
-
+    }
+    IEnumerator delayRestart()
+    {
+        yield return new WaitForSeconds(1f);
+        Restart();
     }
     void Restart()
     {
@@ -136,8 +145,6 @@ public class SizeShuffle : MonoBehaviour {
         {
       
             StartCoroutine("ScoreEval");
-           
-
         }
     }
     public int[] randomPos(int[] array)

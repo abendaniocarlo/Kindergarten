@@ -201,6 +201,10 @@ public class SetsCategorySCR : MonoBehaviour {
         yield return new WaitForSeconds(6f);
         directions.SetActive(false);
     }
+    public void showInstruction()
+    {
+        StartCoroutine(DirectionPlay());
+    }
     public void set1()
     {
         keyLog++;
