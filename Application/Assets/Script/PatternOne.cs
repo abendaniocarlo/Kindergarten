@@ -87,6 +87,10 @@ public class PatternOne : MonoBehaviour {
         directions.SetActive(false);
         other.SetActive(true);
     }
+    public void showInstruction()
+    {
+        StartCoroutine(DirectionPlay());
+    }
 
     public void back()
     {

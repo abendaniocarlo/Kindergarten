@@ -37,6 +37,9 @@ public class SetDestroy : MonoBehaviour {
     public static int KeyLog;
     public static int Score;
     string result;
+    public AudioSource SoundFx;
+    public AudioClip CheckTone;
+    public AudioClip WrongTone;
     void Start()
     {
         
@@ -153,7 +156,7 @@ public class SetDestroy : MonoBehaviour {
     }
     IEnumerator RestartGame()
     {
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void Submit()
@@ -164,11 +167,13 @@ public class SetDestroy : MonoBehaviour {
           Orange == TOrange && Pineapple == TPineapple && Watermelon == TWatermelon && Cherry == TCherry)
             {
                 Score++;
-            }
+            SoundFx.PlayOneShot(CheckTone);
+        }
             else
             {
                 Debug.Log("false");
-            }
+            SoundFx.PlayOneShot(WrongTone);
+        }
 
             if (KeyLog != 10)
             {

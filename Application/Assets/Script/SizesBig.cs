@@ -109,6 +109,10 @@ public class SizesBig : MonoBehaviour {
         yield return new WaitForSeconds(7f);
         directions.SetActive(false);
     }
+    public void showInstruction()
+    {
+        StartCoroutine(DirectionPlay());
+    }
     public void BigBTN()
     {
         if (SceneName == "Sizes Big")

@@ -19,7 +19,7 @@ public class SizesCategorySCR : MonoBehaviour {
     public AudioClip QuestionSizes;
     int TotalScore, current;
     int[] Indexes = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-    int[] myIndex = { -320, 0, 320 };
+    int[] myIndex = { -304, 0, 304 };
     int myKey;
     int[] key = { -200, 0, 200 };
     int keyLog = 0;
@@ -142,8 +142,8 @@ public class SizesCategorySCR : MonoBehaviour {
         if (myKey == 3)
         {
             keyLog++;
-            Start();
-            
+            StartCoroutine("delayStart");
+
         }
 
         //if (TimerLimit == false)
@@ -174,7 +174,7 @@ public class SizesCategorySCR : MonoBehaviour {
         if (myKey == 3)
         {
             keyLog++;
-            Start();
+            StartCoroutine("delayStart");
 
         }
 
@@ -206,8 +206,8 @@ public class SizesCategorySCR : MonoBehaviour {
         if (myKey == 3)
         {
             keyLog++;
-            Start();
-           
+            StartCoroutine("delayStart");
+
         }
 
         //if (TimerLimit == false)
@@ -215,9 +215,14 @@ public class SizesCategorySCR : MonoBehaviour {
         //    StartCoroutine("LoseTime");
         //    TimerLimit = true;
         //}
-    
+
     }
-    
+    IEnumerator delayStart()
+    {
+        yield return new WaitForSeconds(1f);
+        Start();
+    }
+
     public int[] randomPos(int[] array)
     {
         for (int t = 0; t < array.Length; t++)

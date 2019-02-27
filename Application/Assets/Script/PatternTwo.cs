@@ -87,6 +87,10 @@ public class PatternTwo : MonoBehaviour {
         other.SetActive(true);
     }
 
+    public void showInstruction()
+    {
+        StartCoroutine(DirectionPlay());
+    }
     public void Done()
     {
         directionOnce = 0;

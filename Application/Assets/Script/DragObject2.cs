@@ -20,7 +20,10 @@ public class DragObject2 : MonoBehaviour {
     public static bool right;
     string value;
     int keyLog,key;
-    
+    public AudioSource SoundFx;
+    public AudioClip CheckTone;
+    public AudioClip WrongTone;
+
     // Use this for initialization
     void Start()
     {
@@ -174,11 +177,13 @@ public class DragObject2 : MonoBehaviour {
             {
                 //myScore++;
                 right = true;
-              //  Debug.Log(myScore);
+                SoundFx.PlayOneShot(CheckTone);
+                //  Debug.Log(myScore);
             }
             else
             {
                 Debug.Log("Wrong");
+                SoundFx.PlayOneShot(WrongTone);
             }
          //   StartCoroutine("RestartGame");
         }

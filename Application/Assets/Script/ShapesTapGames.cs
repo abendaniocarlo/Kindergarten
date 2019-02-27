@@ -463,14 +463,15 @@ public class ShapesTapGames : MonoBehaviour
         ScoreBoard.SetActive(true);
         SaveScore();
         keyLog = 0;
-        GrandTotal = 0;
         while (temp != GrandTotal)
         {
             Star[temp].SetActive(true);
             temp++;
         }
-      
-      
+        Total = 0;
+        GrandTotal = 0;
+
+
     }
     void SaveScore()
     {

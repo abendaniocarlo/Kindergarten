@@ -13,6 +13,8 @@ public class PatternCreator : MonoBehaviour {
     public GameObject[] myButton;
     public AudioSource SoundFx;
     public AudioClip willSpeak;
+    public AudioClip CheckTone;
+    public AudioClip WrongTone;
     public static int tune = 0;
     public Button[] Buttons;
     int[] YPosition = { 26, -64 };
@@ -235,11 +237,13 @@ public class PatternCreator : MonoBehaviour {
             {
                 Debug.Log("right");
                 Score++;
+                SoundFx.PlayOneShot(CheckTone);
 
             }
             else
             {
                 Debug.Log("false");
+                SoundFx.PlayOneShot(WrongTone);
             }
         }
         else
@@ -248,17 +252,19 @@ public class PatternCreator : MonoBehaviour {
             {
                 Score++;
                 Debug.Log("Right");
-             //   Debug.Log(PTwo[0]);
+                SoundFx.PlayOneShot(CheckTone);
+                //   Debug.Log(PTwo[0]);
             }
             else
             {
                 Debug.Log("false");
+                SoundFx.PlayOneShot(WrongTone);
             }
         }
         if (KeyLog != 10)
         {
-           
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            StartCoroutine("delayRestart");
+            //  SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else
         {
@@ -277,11 +283,13 @@ public class PatternCreator : MonoBehaviour {
             {
                 Debug.Log("right");
                 Score++;
+                SoundFx.PlayOneShot(CheckTone);
 
             }
             else
             {
                 Debug.Log("false");
+                SoundFx.PlayOneShot(WrongTone);
             }
         }
         else
@@ -291,23 +299,30 @@ public class PatternCreator : MonoBehaviour {
             {
                 Score++;
                 Debug.Log("Right");
+                SoundFx.PlayOneShot(CheckTone);
             }
             else
             {
                 Debug.Log("false");
                 Debug.Log(PTwo[1]);
+                SoundFx.PlayOneShot(WrongTone);
             }
         }
        
         if (KeyLog != 10)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            StartCoroutine("delayRestart");
         }
         else
         {
             StartCoroutine("ScoreEval");
             KeyLog = 0; 
         }
+    }
+    IEnumerator delayRestart()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     IEnumerator ScoreEval()
     {
